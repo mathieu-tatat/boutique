@@ -5,7 +5,7 @@ foreach ($_POST as $key => $value) {
         'UTF-8', /*double_encode*/false );
 }
 
-$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
 // Subscribe____________________________________________________________________________________________________________
 
@@ -37,8 +37,9 @@ if(isset($_POST['submit_subscription'])){
         if($test===0){
             $id_droit=1;
             $password=password_hash($_POST['password'], PASSWORD_BCRYPT);
+            var_dump($test);
             $user->subscribeUser($_POST['prenom'],$_POST['nom'],$_POST['email'],$password,
-                $_POST['address'],$_POST['code_postal'],$id_droit);
+                $_POST['address'],intval($_POST['code_postal']),intval($id_droit));
             header('location:connexion.php');
             exit();
         } else {

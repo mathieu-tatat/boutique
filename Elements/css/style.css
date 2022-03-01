@@ -167,6 +167,10 @@ a, a:hover {
     object-fit:contain;
 }
 
+.signUpFrom{
+    display:flex!important;
+    flex-direction:column!important;
+}
 
     /* ------------- */
     /*     MOBILE   */

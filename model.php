@@ -53,7 +53,7 @@ Class User extends Db
 
     public function subscribeUser($prenom, $nom, $email, $password, $address, $code_postal, $id_droit)
     {
-        $sql = " INSERT INTO utilisateurs(prenom,nom,email,password,address,code_postal,id_droit,) 
+        $sql = " INSERT INTO utilisateurs(prenom,nom,email,password,address,code_postal,id_droit) 
                          VALUES (:prenom,:nom,:email,:password,:address,:code_postal,:id_droit) ";
         $params = ([':prenom' => $prenom, ':nom' => $nom, ':email' => $email, ':password' => $password,
             ':address' => $address, ':code_postal' => $code_postal, ':id_droit' => $id_droit]);

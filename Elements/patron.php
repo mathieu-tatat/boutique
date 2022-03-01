@@ -18,7 +18,7 @@
             <?= $header  ?>
         </header>
 
-    <main>
+    <main class="container-fluid">
         <?= $content ?>
     </main>
 
