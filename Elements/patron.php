@@ -9,13 +9,108 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/37338f1a7b.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/3987504e8f.js" crossorigin="anonymous"></script>
     <title><?= $title ?></title>
 </head>
 <body>
 
-    <header >
-        <?= $header ?>
+    <header class="container-fluid">
+
+            <div class="d-flex justify-content-center" id="navibar">
+                <div class="d-flex justify-content-around">
+                    <div class="col-md-4" id="headerleft">
+                        <h2>TRADE </h2>
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">Accueil</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Shop</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Contacts</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Link4</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="col-md-4">
+                        <form role="form">
+                            <div class="form-group" id="headersearchbar">
+                                <div class="input-group input-group-sm mb-3">
+                                <input type="text" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="searchbtn">
+                                <button type="submit" class="btn btn-secondary btn-sm">
+                                        Submit
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-4" id="headerright">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link active" href="#">API</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Help</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#">Sign in</a>
+                            </li>
+                            <li class="nav-item">
+                                <form role="form">
+                                    <input class="btn btn-dark" type="submit" value="Sign up" id="headersignbtn"/>
+                                </form>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3" id="headermediaqueries">
+                <div id="upperheaderwrapper">
+                    <div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    MENU
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="#">Accueil</a></li>
+                                    <li><a class="dropdown-item" href="#">Shop</a></li>
+                                    <li><a class="dropdown-item" href="#">Contacts</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="headermediablockleft">
+                        <h2>TRADE </h2>
+                    </div>
+                    <div class="headermediablockright">
+                            <form role="form">
+                                <input class="btn btn-dark" type="submit" value="Sign up" id="headersignbtn"/>
+                            </form>
+                    </div>
+                </div> <!--upperheaderwrapper -->
+                    <div id="lowerheaderwrapper">
+                        <div class="headermediablockcenter">
+                            <form role="form">
+                                <div class="form-group" id="headersearchbarquery">
+                                    <div class="input-group input-group-sm mb-3">
+                                        <input type="text" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="searchbtn" placeholder=" search for a product...">
+                                        <button type="submit" class="btn btn-secondary btn-sm" id="searchsubmitheader">
+                                            Submit
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+
+
     </header>
     
     <main>
@@ -42,5 +137,6 @@
             <div class="text-center ms-1">© 2022 - MGF</div>
         </nav>
     </footer>
+    
 </body>
 </html>
