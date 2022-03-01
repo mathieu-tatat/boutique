@@ -2,36 +2,6 @@
 <?php session_start(); ?>
 
 <?php
-    //bdd
-    $servername = 'localhost';
-    $username = 'root';
-    $password = '';
-    $db = 'boutique';
-    $pdo = new PDO("mysql:host=$servername;dbname=$db", $username, $password,
-    array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-
-    //controller sur l'update de produit
-    if(isset($_POST['update_prod']))
-    {
-        
-        $sql5 = "UPDATE produits 
-                SET nom_produit = ?,
-                unit_price = ?, units_in_stock = ?,
-                description_produit = ?,
-                id_categorie = ?, id_sous_categorie = ?                    
-                WHERE `id_produit` = ?";
-
-        $params = array($_POST["nom_produit"],
-                        $_POST["unit_price"], $_POST["units_in_stock"], 
-                        $_POST["description_produit"],
-                        $_POST["id_categorie"], $_POST["id_sous_categorie"],
-                        $_POST["id_produit"]);
-
-        $updateQuery = $pdo->prepare($sql5);
-        $updateQuery->execute($params);
-
-        $_POST['gestion_produit'] = "";
-    }
 
     //user
     $sql="SELECT * FROM utilisateurs ORDER BY `id_droit` DESC";    
@@ -111,99 +81,6 @@
 
 <!-- affichage produit -->
 <?php   elseif (isset($_POST["gestion_produit"])) : $soustitre = "gestion produit"; ob_start(); ?>
-            <?php /* foreach($queryrows2 as $rows) : ?>
-                <div class="container-fluid my-3 ">               
-                    <div class="row">
-                        <div class="col-md-4 d-flex flex-row justify-content-center align-items-center">
-                            <div class="w-50">
-                            <img src="<?= $rows["img_url"] ?>" class="m-2 img-thumbnail">
-                            </div>
-                        </div>
-                        <div class="col-md-8 d-flex flex-row justify-content-center">
-                            <form method="POST" class="d-flex flex-column justify-content-center align-items-center w-100 my-2">
-                               
-                                <!-- POST ID PRODUIT -->
-                                <input name="id_produit" type="hidden" value="<?= $rows['id_produit']?>">
-
-                                <!-- POST NOM PRODUIT -->
-                                <div class="form-group col-md-10 my-2">
-                                    <label for="nom_produit_grp"> Nom produit : </label>
-                                    <input type="text" name="nom_produit" class="form-control" 
-                                    id="nom_produit_grp" value="<?= $rows["nom_produit"] ?>">
-                                </div>
-
-                                <div class="row d-flex flex-row justify-content-between my-2">
-                                    <!-- POST UNITS IN STOCK -->
-                                    <div class="form-group col-md-5">
-                                        <label for="units_in_stock_grp"> Unité en stock : </label>
-                                        <input type="text" name="units_in_stock" class="form-control"
-                                        id="units_in_stock_grp"value='<?= $rows["units_in_stock"] ?>'>
-                                    </div>
-                                    <!-- POST UNIT PRICE -->
-                                    <div class="form-group col-md-5">
-                                        <label for="unit_price_grp"> Prix Unitaire : </label>
-                                        <input type="text" name="unit_price" class="form-control" 
-                                        id="unit_price_grp" value='<?= $rows["unit_price"]  ?>'>
-                                    </div>
-                                </div>
-
-                                <!-- POST DESCRIPTION PRODUIT -->
-                                <div class="form-group my-2 col-md-10">
-                                    <label for="description_product_grp"> Description produit : </label>
-                                    <textarea name="description_produit" name="description_produit" class="form-control"
-                                    id="description_product_grp" rows="5"><?= $rows["description_produit"] ?></textarea>
-                                </div>
-
-                                
-                                <div class="row my-2 w-100">
-                                    <!-- POST NOM CATEGORIE -->
-                                    <div class="form-group col-md-6 d-flex flex-row justify-content-center">
-                                        <label for="categorie_grp" class="me-1"> Catégorie : </label>
-                                        <select name="id_categorie" id="categorie_grp">
-                                            <?php 
-                                                $sql3 = "SELECT * FROM categories";
-                                                $catQuery = $pdo->query($sql3)->fetchAll(PDO::FETCH_ASSOC);
-                                                foreach($catQuery as $cat) : ?>
-                                                    <?php if($cat['id_categorie'] == $rows['id_categorie']) :?>
-                                                        <option value="<?= $cat['id_categorie'] ?>" SELECTED>
-                                                            <?= $cat['nom_categorie']?>
-                                                        </option>
-                                                    <?php else : ?>
-                                                        <option value="<?= $cat['id_categorie'] ?>">
-                                                            <?= $cat['nom_categorie']?>
-                                                        </option>
-                                                    <?php endif; ?>
-                                            <?php endforeach;?>        
-                                        </select>
-                                    </div>
-                                    <!-- POST NOM SOUS CATEGORIE -->
-                                    <div class="form-group col-md-6 d-flex flex-row justify-content-center">
-                                        <label for="units_in_stock_grp" class="me-1"> Sous-catégorie : </label>
-                                        <select name="id_sous_categorie" id="nom_sous_categorie">
-                                            <?php 
-                                                $sql4 = "SELECT * FROM sous_categories";
-                                                $subcatQuery = $pdo->query($sql4)->fetchAll(PDO::FETCH_ASSOC);
-                                                foreach($subcatQuery as $subcat) : ?>
-                                                    <?php if($subcat['id_sous_categorie'] == $rows['id_sous_categorie']) :?>
-                                                        <option value="<?= $subcat['id_sous_categorie'] ?>" SELECTED>
-                                                            <?= $subcat['nom_sous_categorie']?>
-                                                        </option>
-                                                    <?php else : ?>
-                                                        <option value="<?= $subcat['id_sous_categorie'] ?>">
-                                                            <?= $subcat['nom_sous_categorie']?>
-                                                        </option>
-                                                    <?php endif; ?>
-                                            <?php endforeach;?> 
-                                        </select>
-                                    </div>
-                                </div>
-                                
-                                <input type="submit" name="update_prod" value="modifier">
-                            </form>
-                        </div>
-                    </div>
-                </div> 
-            <?php endforeach; */ ?>
             <table class="table table-hover w-90 my-1">
                 <thead class="my-1">
                     <tr class="text-center align-middle">

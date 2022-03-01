@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <?php $title = "Accueil" ?>
 
 <?php ob_start(); ?>
@@ -6,5 +7,5 @@
         <a href="admin.php" class="btn btn-info">admin</a>
     </main>
 <?php $content = ob_get_clean(); ?>
-
+<?php require_once('header.php'); ?>
 <?php require ('Elements/patron.php'); ?>

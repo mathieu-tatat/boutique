@@ -42,7 +42,7 @@
                         <div id="emailHelp" class="form-text small px-4 mb-2">Update your personal informations</div>
                         <div class="d-flex flex-row">
                             <div class="mb-3 form-check px-4">
-                                <button type="submit" class="btn btn-dark px-5 rounded-0" name="submitUserUpdate">Disconnect</button>
+                                <button type="submit" class="btn btn-dark px-5 rounded-0" name="submitUserUpdate"> Update </button>
                             </div>
                             <div class="mb-3 form-check px-4">
                                 <button type="submit" class="btn btn-dark px-5 rounded-0" name="deleteUser">Delete your account</button>
@@ -79,7 +79,7 @@
                                         <?php   $tmp .= '<select class="form-select form-select-sm px-3" aria-label=".form-select-sm example" name="quantity">'; ?>
                                                          <?php $tmp .= '<option selected>'.$quantity[$i].'</option>'; ?>
                                                         <?php   for($j=0;$j<=$quantity[$i];$j++):     ?>
-                                                        <?php $tmp .= '<option value="'.$j.','.$products_infos[$i]['id_produit'].'">'.$j.'</option>';   ?>
+                                                        <?php $tmp .= '<option value="'.$j.','.$products_infos[$i]['id_produit'].'">'.$j.' </option>';   ?>
                                                         <?php endfor;  ?>
                                         <?php   $tmp .=  '</select>';
                                                 $tmp .= '</form></div>';

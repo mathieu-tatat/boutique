@@ -7,8 +7,8 @@ ob_start();
 
 ?>
 <div class="d-flex flex-row align-items-center">
-    <div class="col-sm-1"><div class="text-center" id="headerLogo">Ori*</div></div>
-    <div class="col-sm-1"><a href="#" class="alert-link">Shop</a></div>
+    <div class="col-sm-1"><a href="index.php" class="text-center" id="headerLogo" >Ori*</a></div>
+    <div class="col-sm-1"><a href="shop.php" class="alert-link">Shop</a></div>
     <div class="col-sm-1"><a href="connexion.php" class="alert-link">About</a></div>
     <div class="col-sm-1"><a href="about.php" class="alert-link">Contacts</a></div>
     <div class="col-sm-4">
@@ -46,7 +46,6 @@ ob_start();
         <div class="col-sm px-5" id="loglink" ><a href="connexion.php" class="alert-link" ">Log In</a></div>
         <div class="col-sm px-2" id="signlink" ><a href="inscription.php" class="alert-link" >Sign Up</a></div>
         <div class="col-sm px-4">
-            <a href="connexion.php" class="alert-link" > <img src="Elements/icons/cart.svg" alt="cart" id="cartIcon"></a>
             <a href="connexion.php" class="alert-link" > <img src="Elements/icons/cart.svg" alt="cart" id="cartIcon"></a>
         </div>
     <?php endif; ?>

@@ -1,22 +1,10 @@
 <?php
 
 if(isset($_SESSION['connected'])){
-    $token=$_SESSION['connected'];
+    $email=$_SESSION['connected'];
     $user= new User();
-    $all_infos= $user->getAllInfos();
+    $id= $user->getAllUserInfos($email);
     // test occurence of password hash
-    $verify=0;
-    foreach($all_infos as $utilisateur => $info){
-        foreach($info as $column => $value){
-            if( (password_verify($value,$_SESSION['connected'])) ){
-                $email=$value;
-                $verify_profile=1;
-                break;
-            }
-        }
-    }
-    if($verify_profile=1){  //if user and session exist
-
         // INFOS________________________________________________________________________________________________________
         $id=$user->getId($email);
         $user_infos=$user->getUserInfos($id['id_utilisateur']); // get all my infos for placeholders
@@ -32,10 +20,8 @@ if(isset($_SESSION['connected'])){
         }
         // ORDERS_______________________________________________________________________________________________________
         $orders=$user->getAllOrders($id['id_utilisateur']);
-    } else {
-        header('location:connexion.php');  // if the hash doesn't match
-        exit();
-    }
+
+
 } else {
     header('location:connexion.php');   // if the session doesn't exists
     exit();
@@ -75,7 +61,7 @@ if(isset($_POST['submitUserUpdate'])){
             $password=password_hash($_POST['password'], PASSWORD_BCRYPT);
             $user->userUpdate($_POST['prenom'],$_POST['nom'],$_POST['email'],$password,
                 $_POST['address'],intval($_POST['code_postal']),intval($id_droit),intval($id_utilisateur));
-            $session=password_hash($_POST['email'],PASSWORD_BCRYPT);
+            $session=$_POST['email'];
             $_SESSION['connected']=$session;
             header('location:profil.php');
             exit();

@@ -1,58 +1,12 @@
-<?php
-    session_start();
-	$conn=new pdo("mysql:host=localhost;dbname=boutique;charset=utf8", "root", "root");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-
-    class Produits 
-    {
-        // Méthodes  
-        public function __construct() { }
-       
-        public function get_info_produits(){
-
-            $conn=new pdo("mysql:host=localhost;dbname=boutique;charset=utf8", "root", "root");
-            $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-        // prepare la recuperation des infos de tout les produits 
-        $req = $conn->prepare("SELECT * FROM Produits order by id_produit DESC");
-        //execute la requete
-        $req->execute();
-        
-        $produits = $req->fetchAll();
-
-        return $produits;
-       
-        }
-
-    }
-    // creattion de mes produits
-    $article = new Produits();
-    $items = $article-> get_info_produits(); 
-?> 
+<?php   session_start();  ?>
+<?php $title = "shop" ?>
+<?php require_once('model.php'); ?>
+<?php require_once('user_controller.php'); ?>
+<?php require_once('search_bar_controller.php'); ?>
+<?php require_once('shop_controller.php');  ?>
 
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="shop.css">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.80.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-   
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <title>boutique/shop</title>
-  </head>
-  <body>
-    
-<header>
- 
-</header>
-
-<main>
-
-  
+<?php ob_start(); ?>
 <div class="ban"><img src="Elements/logos/fox.svg">
 <img src="Elements/logos/man.svg">
 </div>
@@ -97,7 +51,7 @@
             </div>    
         </div>
     </div>
-</main>
+<?php $content=ob_get_clean(); ?>
 
-  </body>
-</html>
+<?php require_once 'header.php'; ?>
+<?php require_once 'patron.php'; ?>

@@ -5,7 +5,7 @@ foreach ($_POST as $key => $value) {
         'UTF-8', /*double_encode*/false );
 }
 
-$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+$_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 
 // Subscribe____________________________________________________________________________________________________________
 
@@ -69,24 +69,18 @@ if( isset($_POST['submit_connection'])){
 
     if(empty($errors)){
         $user= new User();
-        $all_infos= $user->getAllInfos();
+        $myhash= $user->getHash($_POST['email']);
         // test occurence of password hash
         $verify=0;
-        foreach($all_infos as $utilisateur => $info){
-            foreach($info as $column => $value){
-                if( (password_verify($_POST['password'],$value)) ){
-                    $hash_pass=$value;
-                }
+        if(!empty($myhash)) {
+            if( (password_verify($_POST['password'],$myhash['password'])) ){
+                $test=$user->validateUserConnection($_POST['email'],$myhash['password']);
+                $_SESSION['connected']=$_POST['email'];
+                $_SESSION['cart']=true;
+                header('location:profil.php');
+                exit();
             }
-        }
-        $test=$user->validateUserConnection($_POST['email'],$hash_pass);
-        if($test['count']>0){
-            $session=password_hash($_POST['email'],PASSWORD_BCRYPT);
-            $_SESSION['connected']=$session;
-            $_SESSION['cart']=true;
-            header('location:profil.php');
-            exit();
-        }  else {
+        } else {
             $tmp .= 'wrong email or password';
         }
     }

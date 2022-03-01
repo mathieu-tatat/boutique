@@ -60,11 +60,12 @@ Class User extends Db
         $this->selectQuery($sql, $params);
     }
 
-    public function getAllInfos()
+    public function getHash($email)
     {
-        $sql = " SELECT * FROM utilisateurs ";
-        $result = $this->selectQuery($sql);
-        $result = $result->fetchAll();
+        $sql = " SELECT password FROM utilisateurs WHERE email = :email ";
+        $params = [':email' => $email ];
+        $result = $this->selectQuery($sql,$params);
+        $result = $result->fetch();
         return $result;
     }
     public function getUserInfos($id)
@@ -75,7 +76,14 @@ Class User extends Db
         $info=$result->fetch();
         return $info;
     }
-
+    public function getAllUserInfos($email)
+    {
+        $sql = " SELECT * FROM utilisateurs WHERE email = :email ";
+        $params = [':email' => $email ];
+        $result = $this->selectQuery($sql, $params);
+        $result=$result->fetch();
+        return $result;
+    }
 
     public function getId($email)
     {
@@ -123,6 +131,13 @@ Class User extends Db
         $commandes=$result->fetchAll();
         return $commandes;
     }
+    //user
+    function getUsersAdmin(){
+        $sql="SELECT * FROM utilisateurs ORDER BY `id_droit` DESC";
+        $query = $pdo->query($sql);
+        $queryRows = $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
 
 }
 
@@ -136,7 +151,7 @@ Class Cart extends Db
 
     public function getCart($id_utilisateur){
             $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ";
-            $params = ['id_utilisateur' => $id_utilisateur];
+            $params = [':id_utilisateur' => $id_utilisateur];
             $result = $this->selectQuery($sql, $params);
             $id_panier=$result->fetch();
             return $id_panier;
@@ -202,24 +217,33 @@ Class Produits extends Db
     }
     public function getQuantityFromId($id_produit){
         $sql = " SELECT quantite FROM produits WHERE id_produit=:id_produit ";
-        $params = ['id_produit' => $id_produit];
+        $params = [':id_produit' => $id_produit];
         $result = $this->selectQuery($sql, $params);
         $contient=$result->fetch();
         return $contient;
     }
-    /*
-    public function getAllCategories(){
-        $sql = " SELECT categories.id_categorie,categories.nom_categorie, 
-                        sous_categories.id_sous_categorie,sous_categories.nom_sous_categorie,
-                        produits.id_produit,
-                FROM categories
-                INNER JOIN produits
-                ON 
-                FROM categories ";
+    // Méthodes
+
+    public function get_info_produits(){
+        // prepare la recuperation des infos de tout les produits
+        $sql = "SELECT * FROM Produits order by id_produit DESC";
         $result = $this->selectQuery($sql);
-        $cats=$result->fetchAll();
-        return $cats;
-    }*/
+        $produits = $result->fetchAll();
+
+        return $produits;
+
+    }
+
+    public function updateProduct($id_produit, $nom_produit, $img_url , $unit_price, $description_produit, $units_in_stock, $id_categorie, $id_sous_categorie){
+        $sql = "UPDATE produits 
+                SET nom_produit = ?,
+                unit_price = ?, units_in_stock = ?,
+                description_produit = ?,
+                id_categorie = ?, id_sous_categorie = ?                    
+                WHERE `id_produit` = ?";
+        $params = [] ;
+        $updateQuery = $this->selectQuery($sql,$params);
+    }
 
 }
 
@@ -241,9 +265,10 @@ Class Search extends Db
 
     public function searchAll($search){
         $sql = "SELECT * FROM produits WHERE INSTR(* , :search )";
-        $params = ['search' => $search];
+        $params = [':search' => $search];
         $result = $this->selectQuery($sql, $params);
         $search_result=$result->fetchAll();
         return $search_result;
     }
 }
+
