@@ -1,8 +1,8 @@
 <?php $title = "cart" ?>
 <?php session_start(); ?>
-<?php require_once('model.php'); ?>
-<?php require_once('user_controller.php'); ?>
-<?php require_once('cart_controller.php'); ?>
+<?php require_once('Model/model.php'); ?>
+<?php require_once('Controller/user_controller.php'); ?>
+<?php require_once('Controller/cart_controller.php'); ?>
 
 <?php   ob_start();  ?>
 <div class="container-xl px-4 mt-4">

@@ -1,7 +1,7 @@
 <?php $title = "Log In" ?>
 <?php session_start(); ?>
-<?php require_once('model.php'); ?>
-<?php require_once('user_controller.php'); ?>
+<?php require_once('Model/model.php'); ?>
+<?php require_once('Controller/user_controller.php'); ?>
 
 
 <?php   ob_start();  ?>

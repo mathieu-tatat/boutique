@@ -144,13 +144,6 @@ Class User extends Db
         $this->selectQuery($sql, $params);
     }
 
-    function insertCart($id_utilisateur){
-       $sql = " INSERT INTO paniers(id_utilisateur) VALUES (:id_utilisateur) ";
-        $params = ([':id_utilisateur' => $id_utilisateur]);
-        $this->selectQuery($sql, $params);
-    }
-
-
 }
 
 Class Cart extends Db
@@ -168,8 +161,18 @@ Class Cart extends Db
             $id_panier=$result->fetch();
             return $id_panier;
     }
+    function insertCart($id_utilisateur){
+        $sql = " INSERT INTO paniers(id_utilisateur) VALUES (:id_utilisateur) ";
+        $params = ([':id_utilisateur' => $id_utilisateur]);
+        $this->selectQuery($sql, $params);
+    }
 }
+Class CartContientSession extends Db
+{
+    public $session=[];
 
+
+}
 Class Contient extends Db
 {
     public $id_produit, $id_panier, $quantite;

@@ -7,7 +7,7 @@ foreach ($_POST as $key => $value) {
 
 $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
-
+// Subscribe____________________________________________________________________________________________________________
 
 if(isset($_POST['submit_subscription'])){
     $errors=array();
@@ -20,7 +20,7 @@ if(isset($_POST['submit_subscription'])){
     if(empty($_POST['password'])){ array_push($errors,'please insert your password'); $check++;  }
     if(empty($_POST['pass_conf'])){ array_push($errors,'please confirm your password'); $check++;  }
 
-    $tmp= '<div class="border border-secondary rounded-0 px-4 mb-2 mt-2 ml-2 text-center" >';
+    $tmp= '<div class="border border-secondary rounded-0 px-4 mb-4 mt-2 ml-2 text-center" >';
     foreach($errors as $error => $value){
         if($check>1) {
             $tmp.= 'please fill in all the fields';
@@ -36,18 +36,22 @@ if(isset($_POST['submit_subscription'])){
         $test=intval($test['count']);
         if($test===0){
             $id_droit=1;
-            $token=password_hash($_POST['email'], PASSWORD_BCRYPT);         // token______________________________
-            $password=password_hash($_POST['password'], PASSWORD_BCRYPT);         // token______________________________
+            $password=password_hash($_POST['password'], PASSWORD_BCRYPT);
             $user->subscribeUser($_POST['prenom'],$_POST['nom'],$_POST['email'],$password,
-                $_POST['address'],$_POST['code_postal'],$id_droit,$token);
+                $_POST['address'],intval($_POST['code_postal']),intval($id_droit));
+            $id_utilisateur=$user->getId($_POST['email']);
+            $cart=new Cart();
+            $cart->insertCart(intval($id_utilisateur['id_utilisateur']));
             header('location:connexion.php');
+            exit();
         } else {
-            $tmp.='this user already exist <br> please choose another username';
+            $tmp.='this user already exists please choose another username';
         }
     }
     $tmp.='</div>';
 }
 
+// Connect______________________________________________________________________________________________________________
 
 if( isset($_POST['submit_connection'])){
 
@@ -65,43 +69,27 @@ if( isset($_POST['submit_connection'])){
             $tmp.=$value;
         }
     }
-
     if(empty($errors)){
         $user= new User();
-        $all_infos= $user->getAllInfos();
-        // test occurence of email hash
-        $verify=0;
-        foreach($all_infos as $utilisateur => $info){
-            foreach($info as $column => $value){
-                if( (password_verify($_POST['password'],$value)===true) ){
-                    $verify++;
-                }
+        $myhash= $user->getHash($_POST['email']);
+        if(!empty($myhash)) {
+            if( (password_verify($_POST['password'],$myhash['password'])) ){
+                $test=$user->validateUserConnection($_POST['email'],$myhash['password']);
+                $_SESSION['connected']=$_POST['email'];
+                $_SESSION['cart']=new CartContientSession();
+                var_dump($_SESSION['cart']);    // get user id for cart
+                // pass the values of the last cart in the set of the Class
+                    // translate it as attributes of Cart class
+                //header('location:profil.php');
+                //exit();
+            } else {
+                $tmp .= 'wrong email or password';
             }
-        }
-        var_dump($verify);
-        $test=$user->validateUserConnection($_POST['email'],$_POST['password']);
-        var_dump($all_infos);
-        //$token=$user->getToken($_POST['email']);
-        if($test['count']>0){
-            //$token=$token['token'];
-            //$user=$user->updateToken($token['token']);
-            //$_SESSION['connected']=$token['token'];
-            //header('location:profil.php');
-        }  else {
+        } else {
             $tmp .= 'wrong email or password';
         }
     }
     $tmp.='</div>';
 }
-
-if(isset($_SESSION['connected'])){
-    $token=$_SESSION['connected'];
-    $user=new User();
-    $id=$user->getId($token);
-    $cart=$id['email'];
-} else {
-    $cart='';
-}
-
 
 

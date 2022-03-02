@@ -1,15 +1,16 @@
-<?php   session_start();  ?>
 <?php $title = "shop" ?>
-<?php require_once('model.php'); ?>
-<?php require_once('user_controller.php'); ?>
-<?php require_once('search_bar_controller.php'); ?>
-<?php require_once('shop_controller.php');  ?>
+<?php session_start();?>
+<?php require_once('Model/model.php'); ?>
+<?php require_once('Controller/user_controller.php'); ?>
+<?php
+    // creation de mes produits
+    $article = new Produits();
+    $items = $article-> get_info_produits();
+    
+?>
 
-
-<?php ob_start(); ?>
-<div class="ban"><img src="Elements/logos/fox.svg">
-<img src="Elements/logos/man.svg">
-</div>
+<?php ob_start() ?>
+<main>
     <div class= "content">
         <div class="card shadow-sm navCat">
             <h3>Categories</h3></br>
@@ -38,7 +39,7 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
-                                                <a href="cart.php"><button type="button" class="btn btn-sm btn-outline-secondary"><img src="Elements/logos/cart.svg" ></img></a>
+                                                <a href="cart.php"><button type="button" class="btn btn-sm btn-outline-secondary"><img src="View/logos/cart.svg" ></img></a>
                                             </div>
                                             <small class="text-muted"><?= $item['unit_price'] ." €"?></small>
                                         </div>                        
@@ -51,7 +52,8 @@
             </div>    
         </div>
     </div>
-<?php $content=ob_get_clean(); ?>
+</main>
+<?php  $content=ob_get_clean(); ?>
+<?php require ('header.php'); ?>
 
-<?php require_once 'header.php'; ?>
-<?php require_once 'patron.php'; ?>
+<?php require ('patron.php'); ?>

@@ -10,8 +10,7 @@
 /* -------------- */
 
 * {
-    margin: 0!important;
-    padding: 0!important;
+
     box-sizing: border-box;
 }
 
@@ -44,11 +43,11 @@ a, a:hover {
 /*     HEADER    */
 /* ------------- */
 
-header a{
-    font-weight:200!important;
-}
-header button{
-    font-weight:200!important;
+#decoBtn{
+    background: none;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
 }
 
 #headerNavbarMobile{
@@ -143,12 +142,6 @@ header button{
 /*      MAIN      */
 /* -------------- */
 
-.display-5 {
-    font-weight: 200!important;
-}
-.display-6 {
-    font-weight: 200!important;
-}
 
 /* -------------- */
 /*    MAIN CART   */
@@ -172,18 +165,20 @@ header button{
 /*    USER PAGE   */
 /* -------------- */
 
-.prodPics {
+.cartPics {
     width:90%;
     display: block;
     margin: 0 auto;
-    aspect-ratio: 1/1;
-    object-fit:contain;
+    aspect-ratio: 1/0.8;
+    object-fit:cover;
 }
 
-.signUpFrom{
-    display:flex!important;
-    flex-direction:column!important;
+#cartIcon {
+    width:75%;
+    display: block;
 }
+
+
 
     /* ------------- */
     /*     MOBILE   */
@@ -293,7 +288,7 @@ header button{
 
 /* taille de ma main et modif curseur */
 main{
-    width: 80%;
+
     margin: auto;
     cursor: url(image/cursor.svg),pointer;
 }
@@ -304,16 +299,13 @@ main{
 }
 
 /*contenue des cards poduits  */
-.container{
-    display: flex;
-}
+
 /* div contenant les info des produits */
 .shopRow{
     display:flex;
     justify-content: space-around;
 }
 .card{
-    background-color: bisque;
     width:250px ;
 }
 /* gere le css du nom profuit dans la card detail  */
@@ -407,4 +399,3 @@ main{
     width: 90%;
     margin-left: 5%;
 }
-

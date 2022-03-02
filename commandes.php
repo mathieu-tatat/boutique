@@ -1,9 +1,9 @@
 <?php $title = "cart" ?>
 <?php session_start(); ?>
-<?php require_once('model.php'); ?>
-<?php require_once('user_controller.php'); ?>
-<?php require_once('commandes_controller.php'); ?>
-<?php require ('search_bar_controller.php'); ?>
+<?php require_once('Model/model.php'); ?>
+<?php require_once('Controller/user_controller.php'); ?>
+<?php require_once('Controller/commandes_controller.php'); ?>
+<?php require ('Controller/search_bar_controller.php'); ?>
 
 
 <?php   ob_start();  ?>

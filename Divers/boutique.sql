@@ -30,10 +30,10 @@ CREATE TABLE IF NOT EXISTS Utilisateurs (
     ) ENGINE=InnoDB;  
 
 -- ------------------------------------
---           table paiements          --
+--           table paiement          --
 -- ------------------------------------ 
       
-CREATE TABLE IF NOT EXISTS Paiements (
+CREATE TABLE IF NOT EXISTS Paiement (
     id_paiement INT AUTO_INCREMENT NOT NULL, 
     nom_paiement VARCHAR(255), 
     PRIMARY KEY (id_paiement)) ENGINE=InnoDB;     
@@ -58,12 +58,12 @@ CREATE TABLE IF NOT EXISTS Paniers (
 CREATE TABLE IF NOT EXISTS Commandes (
     id_commande INT AUTO_INCREMENT NOT NULL, 
     date_commande DATETIME, 
-    id_panier INT NOT NULL, 
+    id_paniers INT NOT NULL, 
     id_paiement INT NOT NULL,
     CONSTRAINT FK_Commandes_paniers_id_panier_paniers 
-    FOREIGN KEY (id_panier) REFERENCES Paniers (id_panier), 
+    FOREIGN KEY (id_paniers) REFERENCES Paniers (id_panier), 
     CONSTRAINT FK_Commandes_id_paiement_Paiement 
-    FOREIGN KEY (id_paiement) REFERENCES Paiements (id_paiement),  
+    FOREIGN KEY (id_paiement) REFERENCES Paiement (id_paiement),  
     PRIMARY KEY (id_commande)) ENGINE=InnoDB; 
 
 
@@ -97,7 +97,7 @@ CREATE TABLE IF NOT EXISTS Produits (
     nom_produit VARCHAR(255), 
     img_url VARCHAR(255), 
     unit_price DECIMAL (10,2), 
-    description_produit TEXT, 
+    description_produit VARCHAR(255), 
     units_in_stock INT,
     id_categorie INT NOT NULL,
     id_sous_categorie INT NOT NULL,
@@ -168,7 +168,7 @@ Pointe extra fine (0,5 mm), adaptée pour une écriture précise.",
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, 'Stylo feutre pointe fine', 'Elements/ProductImg/styloFeutre.jpg', 6.99,
+VALUES (NULL, 'Stylo feutre pointe fine', 'Elements/ProductImg/styloFeutre.jpg', 10.99,
 "Pochette de 8 stylos-feutre dont 4 stylos effaçables + 2 effaçeurs. 
 STABILO point 88, le stylo-feutre à pointe fine (tracé 0,4mm), pour écrire, tracer, dessiner.... 
 Créé en 1977, sa célébrité ne doit rien au hasard : un corps hexagonal orange à rayures blanches ! 
@@ -295,41 +295,4 @@ INSERT INTO `droits` (`id_droit`, `nom_droit`) VALUES
 
 -- -------- UtlisateurS ---------------------
 INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'john', 'doe', 'john@doe.com', '098f6bcd4621d373cade4e832627b4f6', 'rue bien', '13001', '1337');
-
-INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'jane', 'doe', 'jane@doe.com', '098f6bcd4621d373cade4e832627b4f6', 'rue bien', '13001', '1');
-
-INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'vert', 'doe', 'vert@doe.com', '098f6bcd4621d373cade4e832627b4f6', 'rue bien', '13001', '1');
-
-
-
--- -------- PAIEMENTS ---------------------
-INSERT INTO `paiements` (`id_paiement`,`nom_paiement`) VALUE (NULL , 'CB');
-
-
-
--- -------- PANIERS -----------------------
-INSERT INTO `paniers` (`id_panier`,`id_utilisateur`) VALUE (NULL, 1);
-INSERT INTO `paniers` (`id_panier`,`id_utilisateur`) VALUE (NULL, 2);
-INSERT INTO `paniers` (`id_panier`,`id_utilisateur`) VALUE (NULL, 3);
-
-
-
--- -------- COMMANDES ---------------------
-INSERT INTO `commandes` (`id_commande`,`date_commande`,`id_panier`,`id_paiement`)
-VALUE (NULL, '2022-02-04 17:00:00', 1, 1);
-INSERT INTO `commandes` (`id_commande`,`date_commande`,`id_panier`,`id_paiement`)
-VALUE (NULL, '2012-02-04 17:00:00', 2, 1);
-INSERT INTO `commandes` (`id_commande`,`date_commande`,`id_panier`,`id_paiement`)
-VALUE (NULL, '2002-02-04 17:00:00', 3, 1);
-
-
--- --------- CONTIENT ---------------------
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (1, 1, 3);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (2, 1, 7);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (4, 2, 5);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (5, 3, 7);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (6, 3, 3);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (8, 3, 7);
+VALUES ('1', 'john', 'doe', 'john@doe.com', '098f6bcd4621d373cade4e832627b4f6', 'rue bien', '13001', '1337');

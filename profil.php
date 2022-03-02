@@ -1,10 +1,9 @@
 <?php $title = "profil" ?>
 <?php session_start(); ?>
-<?php require_once('model.php'); ?>
-<?php require_once('user_controller.php'); ?>
-<?php require_once('profil_controller.php'); ?>
-<?php require_once ('search_bar_controller.php'); ?>
-<?php require_once ('quantity.php'); ?>
+<?php require_once('Model/model.php'); ?>
+<?php require_once('Controller/user_controller.php'); ?>
+<?php require_once('Controller/profil_controller.php'); ?>
+<?php require_once ('Controller/search_bar_controller.php'); ?>
 
 
 
