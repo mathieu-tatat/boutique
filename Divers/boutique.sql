@@ -150,7 +150,7 @@ INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, '10pcs stylos à bille roulante', 'Elements/ProductImg/styloBilleRoulante.jpg', 10.99,
+VALUES (NULL, '10pcs stylos à bille roulante', 'View/ProductImg/styloBilleRoulante.jpg', 10.99,
 "Spécifications:
 10 x stylos à bille roulante
 Taille (environ): 13,5 cm / 5,3 pouces de longueur
@@ -168,7 +168,7 @@ Pointe extra fine (0,5 mm), adaptée pour une écriture précise.",
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, 'Stylo feutre pointe fine', 'Elements/ProductImg/styloFeutre.jpg', 6.99,
+VALUES (NULL, 'Stylo feutre pointe fine', 'View/ProductImg/styloFeutre.jpg', 6.99,
 "Pochette de 8 stylos-feutre dont 4 stylos effaçables + 2 effaçeurs. 
 STABILO point 88, le stylo-feutre à pointe fine (tracé 0,4mm), pour écrire, tracer, dessiner.... 
 Créé en 1977, sa célébrité ne doit rien au hasard : un corps hexagonal orange à rayures blanches ! 
@@ -184,7 +184,7 @@ STABILO point 88 il permet un tracé de précision et offre une agréable sensat
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, 'BIC 4 Couleurs Shine', 'Elements/ProductImg/styloQuatreCouleurs.jpg', 7.50,
+VALUES (NULL, 'BIC 4 Couleurs Shine', 'View/ProductImg/styloQuatreCouleurs.jpg', 7.50,
 "Classique revisité : la version 4 Couleurs Shine habille le traditionnel stylo BIC 4 Couleurs
  d'un revêtement brillant, moderne et métallique. 
  C'est en 1970 que l'entrepreneur français Marcel Bich lance le stylo 4 Couleurs Original, 
@@ -205,7 +205,7 @@ VALUES (NULL, 'BIC 4 Couleurs Shine', 'Elements/ProductImg/styloQuatreCouleurs.j
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, 'Waterman Allure stylo plume', 'Elements/ProductImg/styloPlume.jpg', 23.99,
+VALUES (NULL, 'Waterman Allure stylo plume', 'View/ProductImg/styloPlume.jpg', 23.99,
 "Le stylo plume Waterman Allure présente un design élégant et contemporain, 
 idéal pour les étudiants et les professionnels. 
 La plume ciselée robuste et l’encre fluide garantissent une expérience d’écriture homogène et personnalisée. 
@@ -220,7 +220,7 @@ aussi bien en classe que dans une salle de réunion.",
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, 'Nuosen Lot de 3 règles en acier inoxydable', 'Elements/ProductImg/regleFer.jpg', 12.99,
+VALUES (NULL, 'Nuosen Lot de 3 règles en acier inoxydable', 'View/ProductImg/regleFer.jpg', 12.99,
 "Spécifications :
 Quantité : 3 pièces.
 Matériau : acier inoxydable.
@@ -242,7 +242,7 @@ Contenu :
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, '2 Règles Graduées', 'Elements/ProductImg/reglePlastique.jpg', 23.99,
+VALUES (NULL, '2 Règles Graduées', 'View/ProductImg/reglePlastique.jpg', 23.99,
 "Set créatif composés d'instruments de dessin, de coloriage, 
 d'écriture pour faire une pause au travail, seul ou en groupe: 
 réduire le stress, se relaxer les yeux et stimuler sa créativité. 
@@ -252,7 +252,7 @@ réduire le stress, se relaxer les yeux et stimuler sa créativité.
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, 'POPRUN Agenda 2022', 'Elements/ProductImg/agendaPro.jpg', 16.95,
+VALUES (NULL, 'POPRUN Agenda 2022', 'View/ProductImg/agendaPro.jpg', 16.95,
 "Inspiré des théories modernes de la gestion du temps, 
 cet agenda est spécialement conçu pour vous aider à démanteler des objectifs de grande à petite taille 
 et à rendre des plans exécutables au jour le jour. 
@@ -265,7 +265,7 @@ sur la voie d’atteindre vos objectifs les plus ambitieux.",
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, 'Kokonote - Agenda 2022', 'Elements/ProductImg/agendaEtudiant.jpg', 24.80,
+VALUES (NULL, 'Kokonote - Agenda 2022', 'View/ProductImg/agendaEtudiant.jpg', 24.80,
 "Organisez votre quotidien en toute simplicité grâce à cet élégant agenda au design unique. 
 Pensé pour être fonctionnel, pratique et joli à la fois, 
 il vous permettra de noter toutes vos activités, rendez-vous, 
@@ -279,7 +279,7 @@ Trouvez l'agenda qui vous correspond parmi tous nos modèles et choisissez celui
 INSERT INTO `produits` 
 (`id_produit`, `nom_produit`, `img_url`, `unit_price`, 
 `description_produit`, `units_in_stock`, `id_categorie`, `id_sous_categorie`) 
-VALUES (NULL, 'Agenda Scolaire 2021-2022: Pokémon', 'Elements/ProductImg/agendaEnfant.jpg', 20.99,
+VALUES (NULL, 'Agenda Scolaire 2021-2022: Pokémon', 'View/ProductImg/agendaEnfant.jpg', 20.99,
 "Un superbe agenda pour passer une année avec tes Pokémon préférés !
 Retrouve tous les Pokémon de Galar dans cet agenda richement illustré et 
 passe une année exceptionnelle ! En bonus : 
@@ -288,20 +288,19 @@ des scènes de cherche-et-trouve et des infos sur les Pokémon au fil des pages.
 
 
 -- -------- DroitS --------------------
-INSERT INTO `droits` (`id_droit`, `nom_droit`) VALUES
-(1, 'utilisateur'),
-(1337, 'admin');
+INSERT INTO `droits` (`id_droit`, `nom_droit`) VALUES(1, 'utilisateur');
+INSERT INTO `droits` (`id_droit`, `nom_droit`) VALUES(1337, 'admin');
 
 
 -- -------- UtlisateurS ---------------------
 INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'john', 'doe', 'john@doe.com', '098f6bcd4621d373cade4e832627b4f6', 'rue bien', '13001', '1337');
+VALUES (NULL, 'john', 'doe', 'john@doe.com', '$2y$10$AceYiuYZ5eR5WS17OkXVauNlGDfB5wylPHvhsn0KauY3in/wljGvm', 'rue bien', '13001', '1337');
 
 INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'jane', 'doe', 'jane@doe.com', '098f6bcd4621d373cade4e832627b4f6', 'rue bien', '13001', '1');
+VALUES (NULL, 'jane', 'doe', 'jane@doe.com', '$2y$10$AceYiuYZ5eR5WS17OkXVauNlGDfB5wylPHvhsn0KauY3in/wljGvm', 'rue bien', '13001', '1');
 
 INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'vert', 'doe', 'vert@doe.com', '098f6bcd4621d373cade4e832627b4f6', 'rue bien', '13001', '1');
+VALUES (NULL, 'vert', 'doe', 'vert@doe.com', '$2y$10$AceYiuYZ5eR5WS17OkXVauNlGDfB5wylPHvhsn0KauY3in/wljGvm', 'rue bien', '13001', '1');
 
 
 
