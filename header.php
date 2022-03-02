@@ -6,7 +6,7 @@ require_once'Controller/header_controller.php';
 ob_start();
 
 ?>
-<div class="d-flex flex-row align-items-center">
+<div class="d-flex flex-row align-items-center m-xl-1">
     <div class="col-sm-1"><a href="index.php" class="text-center" id="headerLogo" >Ori*</a></div>
     <div class="col-sm-1"><a href="shop.php" class="alert-link">Shop</a></div>
     <div class="col-sm-1"><a href="connexion.php" class="alert-link">About</a></div>
@@ -23,7 +23,7 @@ ob_start();
         </form>
     </div><!-- 4 -->
     <?php if(isset($_SESSION['connected'])): ?>
-    <div class="col-sm-1 ms-4">
+    <div class="col-sm-1 ms-5">
         <div class="col" id="headerHelpLink">
             <a href="profil.php" class="alert-link">Profil </a>
         </div>
@@ -35,7 +35,7 @@ ob_start();
             </button>
         </form>
         </div><!-- 2 -->
-    <div class="col-sm-1">
+    <div class="col-sm-1 ms-5 mt-2">
         <form method="POST">
             <button type="submit" class="btn rounded-0 px-2 me-5" name="cart">
                 <img src="Elements/icons/cart.svg" >

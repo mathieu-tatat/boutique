@@ -169,10 +169,10 @@ Class Cart extends Db
 }
 Class CartContientSession extends Db
 {
-    public $session=[];
-
+    public $id_produit,$id_panier,$quantite,$nom_produit,$img_url;
 
 }
+
 Class Contient extends Db
 {
     public $id_produit, $id_panier, $quantite;

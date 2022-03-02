@@ -161,6 +161,12 @@ header button{
     aspect-ratio: 1/0.8;
     object-fit:cover;
 }
+.cartPicsshop {
+    width:70%;
+    margin: 0 auto;
+    aspect-ratio: 1/0.8;
+    object-fit:cover;
+}
 
 #cartIcon {
     width:75%;
@@ -306,15 +312,14 @@ main{
 /*contenue des cards poduits  */
 .container{
     display: flex;
+
 }
 /* div contenant les info des produits */
 .shopRow{
     display:flex;
-    justify-content: space-around;
+    justify-content: space-around!important;
 }
 .card{
-    background-color: bisque;
-    width:250px ;
 }
 /* gere le css du nom profuit dans la card detail  */
 .sizeNom{
@@ -334,6 +339,9 @@ main{
 /* gere l'ensemble de l'affichage page */
 .content{
     display: flex;
+    justify-content: space-between!important;
+    margin-left:3vh!important;
+    margin-right:0!important;
 }
 /* padding des categorie */
 .pad{
@@ -344,9 +352,8 @@ main{
 .image{
     width: 90%;
     display: block;
-    margin: 0 auto;
-    aspect-ratio: 1 / 1.5;
-    object-fit: cover;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
     object-position: bottom;
     border-radius: 6px;
 }
@@ -408,3 +415,6 @@ main{
     margin-left: 5%;
 }
 
+#navCat {
+    width:30vh!important;
+}

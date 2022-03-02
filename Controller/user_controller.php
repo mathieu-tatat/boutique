@@ -78,7 +78,7 @@ if( isset($_POST['submit_connection'])){
                 $_SESSION['connected']=$_POST['email'];
                 $_SESSION['cart']=new CartContientSession();
                 var_dump($_SESSION['cart']);    // get user id for cart
-                // pass the values of the last cart in the set of the Class
+                    // pass the values of the last cart in the set of the Class
                     // translate it as attributes of Cart class
                 //header('location:profil.php');
                 //exit();
