@@ -72,3 +72,20 @@ if(isset($_POST['submitUserUpdate'])){
     $tmp.='</div>';
 }
 
+// details commande______________________________________________________________________________________________________
+
+if(isset($_POST['detailsCommande'])){
+    $_SESSION['commande_details']=$_POST['detailsCommande'];
+    header('location:commandes.php');
+    exit();
+}
+
+// panier quantity________________________________________________________________________________________________
+
+if(isset($_POST['submitContientUpdate'])){
+    $infos_contient=$_POST['quantity'];
+    $comma_occurrence = strpos($infos_contient, ',');
+    if($comma_occurrence!=false){
+        var_dump($infos_contient);
+    }
+}

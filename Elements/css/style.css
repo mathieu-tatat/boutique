@@ -44,6 +44,13 @@ a, a:hover {
 /*     HEADER    */
 /* ------------- */
 
+header a{
+    font-weight:200!important;
+}
+header button{
+    font-weight:200!important;
+}
+
 #headerNavbarMobile{
     display:none!important;
     justify-content: space-between!important;
@@ -136,6 +143,12 @@ a, a:hover {
 /*      MAIN      */
 /* -------------- */
 
+.display-5 {
+    font-weight: 200!important;
+}
+.display-6 {
+    font-weight: 200!important;
+}
 
 /* -------------- */
 /*    MAIN CART   */

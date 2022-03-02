@@ -20,7 +20,7 @@ if(isset($_POST['submit_subscription'])){
     if(empty($_POST['password'])){ array_push($errors,'please insert your password'); $check++;  }
     if(empty($_POST['pass_conf'])){ array_push($errors,'please confirm your password'); $check++;  }
 
-    $tmp= '<div class="border border-secondary rounded-0 px-4 mb-2 mt-2 ml-2 text-center" >';
+    $tmp= '<div class="border border-secondary rounded-0 px-4 mb-4 mt-2 ml-2 text-center" >';
     foreach($errors as $error => $value){
         if($check>1) {
             $tmp.= 'please fill in all the fields';
@@ -43,7 +43,7 @@ if(isset($_POST['submit_subscription'])){
             header('location:connexion.php');
             exit();
         } else {
-            $tmp.='this user already exist <br> please choose another username';
+            $tmp.='this user already exists please choose another username';
         }
     }
     $tmp.='</div>';
@@ -67,12 +67,9 @@ if( isset($_POST['submit_connection'])){
             $tmp.=$value;
         }
     }
-
     if(empty($errors)){
         $user= new User();
         $myhash= $user->getHash($_POST['email']);
-        // test occurence of password hash
-        $verify=0;
         if(!empty($myhash)) {
             if( (password_verify($_POST['password'],$myhash['password'])) ){
                 $test=$user->validateUserConnection($_POST['email'],$myhash['password']);
@@ -80,6 +77,8 @@ if( isset($_POST['submit_connection'])){
                 $_SESSION['cart']=true;
                 header('location:profil.php');
                 exit();
+            } else {
+                $tmp .= 'wrong email or password';
             }
         } else {
             $tmp .= 'wrong email or password';

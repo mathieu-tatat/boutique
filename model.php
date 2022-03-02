@@ -131,11 +131,17 @@ Class User extends Db
         $commandes=$result->fetchAll();
         return $commandes;
     }
-    //user
+
     function getUsersAdmin(){
         $sql="SELECT * FROM utilisateurs ORDER BY `id_droit` DESC";
         $query = $pdo->query($sql);
         $queryRows = $query->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    function updateContientFromUser(){
+        $sql = " UPDATE contient SET quantite = :quantite WHERE id_panier = :id_panier AND id_produit = :id_produit ";
+        $params=([':quantite' => $quantite, ':id_panier' => $id_panier, ':id_produit' => $id_produit]);
+        $this->selectQuery($sql, $params);
     }
 
 
@@ -184,6 +190,25 @@ Class Commande extends Db
     public function getCommande($id_panier){
         $sql = " SELECT * FROM commandes WHERE id_panier=:id_panier ";
         $params = ['id_panier' => $id_panier];
+        $result = $this->selectQuery($sql, $params);
+        $contient=$result->fetchAll();
+        return $contient;
+    }
+    public function getAllProductsOneCommande($id_commande){
+        $sql=" SELECT commandes.id_commande,commandes.date_commande,commandes.id_panier,commandes.id_paiement,
+                    contient.id_panier, contient.id_produit, contient.quantite,
+                    produits.id_produit,produits.nom_produit,produits.unit_price, produits.img_url,
+                    paiements.id_paiement,paiements.nom_paiement,
+                    SUM(contient.quantite*produits.unit_price) AS price
+                    FROM commandes
+                    JOIN contient
+                     ON commandes.id_panier = contient.id_panier
+                    JOIN produits
+                     ON contient.id_produit = produits.id_produit
+				    JOIN paiements
+                     ON paiements.id_paiement = commandes.id_paiement
+                     WHERE commandes.id_commande = :id_commande GROUP BY produits.id_produit ORDER BY commandes.date_commande DESC ";
+        $params = ['id_commande' => $id_commande];
         $result = $this->selectQuery($sql, $params);
         $contient=$result->fetchAll();
         return $contient;

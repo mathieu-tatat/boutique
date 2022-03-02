@@ -27,7 +27,7 @@
             <div class="d-flex justify-content-around align-items-start" id="bottomLinks">
                 <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox"><div class="text-center footerText">Produits</div></a>
                 <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox"><div class="text-center footerText">Profil</div></a>
-                <a href="" class="d-flex justify-content-center align-items-center mx-4 my-0 textBox"><div class="text-center" id="footerCenterText">Trade</div></a>
+                <a href="" class="d-flex justify-content-center align-items-center mx-4 my-0 textBox"><div class="text-center" id="footerCenterText">Ori*</div></a>
                 <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox "><div class="text-center footerText">About us</div></a>
                 <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox "><div class="text-center footerText">Contact</div></a>
             </div>

@@ -7,7 +7,7 @@
 
 
 <?php   ob_start();  ?>
-<div class="d-flex flex-column" id="signUpFrom">
+<div class="d-flex flex-column px-4 mt-4" id="signUpFrom">
         <div class="display-6 px-4 mt-4"><b>Subscribe </b></div>
         <form class="d-flex flex-column px-4 mt-4 border border-secondary" action="inscription.php" id="signUpFrom" method="POST">
             <div class="row px-4 mt-4">

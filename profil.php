@@ -53,13 +53,12 @@
                 </div>
             </div>
             <div class="container-xl px-4 mt-4 mb-4">
-                        <div class="shadow-sm p-3 mb-5 bg-body rounded-0 border border-secondary border-1 px-4 mt-4">
-                            <div class="shadow-sm mb-1 bg-body rounded-0">
-                            <div class="shadow-sm mb-1 bg-body rounded-0">
+                        <div class="p-3 mb-5 rounded-0 border border-secondary border-1 px-4 mt-4">
+                            <div class="shadow-sm mb-1">
                                 <div class="display-6 px-4 mt-4 mb-4">
                                     <b>Your Cart </b>
                                 </div>
-                                <?php if(isset($_SESSION['connected']) and isset($products_infos) and isset($quantity) ): ?>
+                                <?php if(isset($_SESSION['connected']) and isset($products_infos) and isset($quantity) and isset($id_cart) ): ?>
                                 <?php $tmp=''; ?>
                                 <div class="row shadow-sm align-items-center p-3 mb-3 bg-body rounded-0">
                                             <!--<div class="col-md-2 mt-3 px-2" >Image</div>-->
@@ -71,23 +70,24 @@
                                     <div class="col-md px-2" >Edit</div>
 
                                 </div>
-                                    <?php for($i=0;$i<=isset($products_infos[$i]);$i++): ?>
+                                    <?php  for($i=0;$i<=isset($products_infos[$i]);$i++): ?>
                                         <?php   $tmp .= '<div class="jumbotron"><div class="d-flex flex-row align-items-center shadow-sm rounded-0">'; ?>
                                         <?php   $tmp .= '<div class="col-md-2 mt-3 px-2 h-25" ><img src="'.$products_infos[$i]['img_url'].'" class="prodPics"></div>';    ?>
 
                                         <?php   $tmp .= '<div class="col-md mt-1 text-justify" ><form method="POST" >';    ?>
+                                        <?php   $tmp .= '<div class="row">'; ?>
                                         <?php   $tmp .= '<select class="form-select form-select-sm px-3" aria-label=".form-select-sm example" name="quantity">'; ?>
                                                          <?php $tmp .= '<option selected>'.$quantity[$i].'</option>'; ?>
-                                                        <?php   for($j=0;$j<=$quantity[$i];$j++):     ?>
-                                                        <?php $tmp .= '<option value="'.$j.','.$products_infos[$i]['id_produit'].'">'.$j.' </option>';   ?>
+                                                        <?php   for($j=1;$j<=$quantity[$i];$j++):     ?>
+                                                        <?php $tmp .= '<option value="'.$j.','.$products_infos[$i]['id_produit'].','.$id_cart['id_panier'].'">'.$j.' </option>';   ?>
                                                         <?php endfor;  ?>
-                                        <?php   $tmp .=  '</select>';
-                                                $tmp .= '</form></div>';
+                                        <?php   $tmp .=  '</select><input class="btn btn-dark rounded-0 small" type="submit" name="submitContientUpdate" value="update️️"/>';
+                                                $tmp .= '</div></form></div>';
                                         ?>
 
                                         <?php   $tmp .= '<div class="col-md mt-1 px-5 text-justify" >'.$products_infos[$i]['unit_price'].'</div>';    ?>
                                         <?php   $tmp .= '<div class="col-md-2 mt-1 px-2 text-justify small" >'.$products_infos[$i]['nom_produit'].'</div>';    ?>
-                                        <?php   $tmp .= '<div class="col-md-3 mt-1 px-2 text-justify small" >'.substr($products_infos[$i]['description_produit'],0,70).'...</div>';    ?>
+                                        <?php   $tmp .= '<div class="col-md-3 mt-1 px-2 text-justify small" >'.substr($products_infos[$i]['description_produit'],0,120).'...</div>';    ?>
                                         <?php   $tmp .= '<div class="col-md mt-1 px-5" >
                                                              <form method="POST">
                                                                   <div class="mb-3 form-check px-4 mb-2">
@@ -98,7 +98,7 @@
                                         <?php endfor; echo $tmp;?>
                                 <?php else: ?>
                                     <div class="row">
-                                        <div class="display-5 border border-secondary rounded-0 px-4 mb-2 mt-2 ml-2 text-center"">
+                                        <div class="h-3 border border-secondary rounded-0 px-4 mb-2 mt-2 ml-2 text-center"">
                                             <b>your cart is still empty </b>
                                         </div>
                                     </div>
@@ -106,13 +106,13 @@
                              </div>
                         </div>
             </div>
-            <div class="container-xl px-4 mt-4 mb-4">
+            <div class="container-xl px-4 mt-4 mb-4 border border-secondary border-1">
                             <div class="display-6 px-1 mt-4 mb-4">
                                 <b>Your Orders </b>
                             </div>
                             <?php if(isset($_SESSION['connected']) and isset($orders)): ?>
                                 <?php $tmp=''; ?>
-                                <div class="row shadow-sm p-3 mb-3 bg-body rounded">
+                                <div class="row shadow-sm border border-secondary border-1 p-3 mb-3 bg-body rounded-0">
                                     <!--<div class="col-md-2 mt-3 px-2" >Image</div>-->
                                     <div class="col-sm px-2" >Order id</div>
                                     <div class="col-sm px-2" >Total Price</div>
@@ -123,7 +123,7 @@
                                     <div class="col-sm px-1" >Details</div>
 
                                 </div>
-                                <?php  for($i=0;$i<=isset($orders[$i]);$i++): ?>
+                                <?php if(!empty($orders)): for($i=0;$i<=isset($orders[$i]);$i++): ?>
                                     <?php   $tmp .= '<div class="jumbotron"><div class="row shadow-sm rounded-0">'; ?>
                                     <?php   //$tmp .= '<div class="col-md-2 mt-3 px-2 h-25" ><img src="'.$products_infos[$i]['img_url'].'" class="img-responsive img-thumbnail"></div>';    ?>
 
@@ -134,17 +134,20 @@
                                     <?php   $tmp .= '<div class="col-sm mt-2 px-1 text-justify" >'.$user_infos['nom'].' '.$user_infos['prenom'].'</div>';    ?>
                                     <?php   $tmp .= '<div class="col-sm mt-2 px-1 text-justify" >'.$user_infos['email'].'</div>';    ?>
                                     <?php   $tmp .= '<div class="col-sm mt-2 " >
-                                                             <form method="POST" action="commandes.php">
+                                                             <form method="POST" action="">
                                                                   <div class="mb-3 form-check px-4">
-                                                                      <button type="submit" class="btn btn-dark px-1 rounded-0 " name="detailsCommande" value="'.$orders[$i]['id_commande'].'">details</button></form>
+                                                                      <button type="submit" class="btn btn-dark px-1 rounded-0 " name="detailsCommande" value="'.$orders[$i]['id_commande'].'">details</button>
                                                                   </div>
                                                              </form>'; ?>
                                     <?php   $tmp.='</div></div>'; ?>
                                 <?php endfor; echo $tmp;?>
+                                 <?php else: ?>
+                                    <div class="row">
+                                        you don't have any order yet;
+                                    </div>
+                                <?php endif; ?>
                             <?php else: ?>
-                                <div class="row">
-                                    you don't have any order yet;
-                                </div>
+
                             <?php endif; ?>
             </div>
         </div>
