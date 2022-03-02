@@ -131,16 +131,22 @@ Class User extends Db
         $commandes=$result->fetchAll();
         return $commandes;
     }
-
+/*
     function getUsersAdmin(){
         $sql="SELECT * FROM utilisateurs ORDER BY `id_droit` DESC";
         $query = $pdo->query($sql);
         $queryRows = $query->fetchAll(PDO::FETCH_ASSOC);
-    }
+    }*/
 
-    function updateContientFromUser(){
+    function updateContientFromUser($quantite, $id_panier, $id_produit){
         $sql = " UPDATE contient SET quantite = :quantite WHERE id_panier = :id_panier AND id_produit = :id_produit ";
         $params=([':quantite' => $quantite, ':id_panier' => $id_panier, ':id_produit' => $id_produit]);
+        $this->selectQuery($sql, $params);
+    }
+
+    function insertCart($id_utilisateur){
+       $sql = " INSERT INTO paniers(id_utilisateur) VALUES (:id_utilisateur) ";
+        $params = ([':id_utilisateur' => $id_utilisateur]);
         $this->selectQuery($sql, $params);
     }
 
@@ -154,6 +160,7 @@ Class Cart extends Db
     function __construct()
     {
     }
+    
 
     public function getCart($id_utilisateur){
             $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ";

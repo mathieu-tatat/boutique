@@ -70,7 +70,7 @@
                                     <div class="col-md px-2" >Edit</div>
 
                                 </div>
-                                    <?php  for($i=0;$i<=isset($products_infos[$i]);$i++): ?>
+                                    <?php for($i=0;$i<=isset($products_infos[$i]);$i++): ?>
                                         <?php   $tmp .= '<div class="jumbotron"><div class="d-flex flex-row align-items-center shadow-sm rounded-0">'; ?>
                                         <?php   $tmp .= '<div class="col-md-2 mt-3 px-2 h-25" ><img src="'.$products_infos[$i]['img_url'].'" class="prodPics"></div>';    ?>
 
@@ -78,7 +78,7 @@
                                         <?php   $tmp .= '<div class="row">'; ?>
                                         <?php   $tmp .= '<select class="form-select form-select-sm px-3" aria-label=".form-select-sm example" name="quantity">'; ?>
                                                          <?php $tmp .= '<option selected>'.$quantity[$i].'</option>'; ?>
-                                                        <?php   for($j=1;$j<=$quantity[$i];$j++):     ?>
+                                                        <?php   for($j=1;$j<=$products_infos[$i]['units_in_stock'];$j++): //if units in stock = to false units in stock equal to 0    ?>
                                                         <?php $tmp .= '<option value="'.$j.','.$products_infos[$i]['id_produit'].','.$id_cart['id_panier'].'">'.$j.' </option>';   ?>
                                                         <?php endfor;  ?>
                                         <?php   $tmp .=  '</select><input class="btn btn-dark rounded-0 small" type="submit" name="submitContientUpdate" value="update️️"/>';

@@ -86,6 +86,12 @@ if(isset($_POST['submitContientUpdate'])){
     $infos_contient=$_POST['quantity'];
     $comma_occurrence = strpos($infos_contient, ',');
     if($comma_occurrence!=false){
-        var_dump($infos_contient);
+        $details=explode(',',$infos_contient);
+        $new_quantity=$details[0];
+        $id_produit=$details[1];
+        $id_panier=$details[2];
+        $user= new User();
+        $user->updateContientFromUser($new_quantity,$id_panier,$id_produit);
+        header('location:profil.php');
     }
 }
