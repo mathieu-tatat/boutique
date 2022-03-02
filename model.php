@@ -160,7 +160,6 @@ Class Cart extends Db
     function __construct()
     {
     }
-    
 
     public function getCart($id_utilisateur){
             $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ";

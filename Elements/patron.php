@@ -14,10 +14,9 @@
 </head>
 <body>
 
-        <header class="container-fluid">
-            <?= $header  ?>
-        </header>
-
+<header class="container-fluid">
+    <?= $header  ?>
+</header>
     <main class="container-fluid">
         <?= $content ?>
     </main>

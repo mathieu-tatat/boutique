@@ -77,8 +77,13 @@ if( isset($_POST['submit_connection'])){
                 $test=$user->validateUserConnection($_POST['email'],$myhash['password']);
                 $_SESSION['connected']=$_POST['email'];
                 $_SESSION['cart']=new Cart();
-                header('location:profil.php');
-                exit();
+                $id_utilisateur=$user->getId($_POST['email']);
+                $cart=$_SESSION['cart']->getCart($id_utilisateur['id_utilisateur']);
+                $_SESSION['cart']->fetch(PDO::FETCH_CLASS, "Contient"); // get user id for cart
+                // pass the values of the last cart in the set of the Class
+                    // translate it as attributes of Cart class
+                //header('location:profil.php');
+                //exit();
             } else {
                 $tmp .= 'wrong email or password';
             }
