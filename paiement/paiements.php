@@ -6,6 +6,10 @@
 </head>
 <body class="paimentForm">
     <div class="ui main container ">
+
+      <div recapPanier>
+
+      </div>
         <form action="confirmation.php" class="ui form containerForm" id="payment_form" method="post">
 
             <p class="trait_dessus">Paiement</p>

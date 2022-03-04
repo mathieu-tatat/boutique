@@ -52,3 +52,11 @@
 .mounth{
   padding-right: 10px;
 }
+
+.recapPanier{
+  border: solid 2px;
+  border-radius: 8px;
+  background-color: #54C7C3;
+  width: 40%;
+
+}
