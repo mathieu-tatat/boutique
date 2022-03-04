@@ -162,10 +162,7 @@ header button{
     object-fit:cover;
 }
 .cartPicsshop {
-    width:70%;
     margin: 0 auto;
-    aspect-ratio: 1/0.8;
-    object-fit:cover;
 }
 
 #cartIcon {
@@ -299,9 +296,8 @@ header button{
 
 /* taille de ma main et modif curseur */
 main{
-    width: 80%;
     margin: auto;
-    cursor: url(image/cursor.svg),pointer;
+
 }
 /* banniere avce logos  */
 .ban{
@@ -319,8 +315,8 @@ main{
     display:flex;
     justify-content: space-around!important;
 }
-.card{
-}
+.card:hover {
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;}
 /* gere le css du nom profuit dans la card detail  */
 .sizeNom{
     height: 50px;
@@ -375,6 +371,14 @@ main{
     width: 80%;
     display: flex;
     flex-direction: column;
+}
+
+#smallBtn{
+    font-size:0.75em!important;
+    padding:0!important;
+}
+#quantityBtn{
+    font-size:0.75em!important;
 }
 
 .dispo{

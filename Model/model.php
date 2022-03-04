@@ -143,6 +143,22 @@ Class User extends Db
         $params=([':quantite' => $quantite, ':id_panier' => $id_panier, ':id_produit' => $id_produit]);
         $this->selectQuery($sql, $params);
     }
+    function getCartId($id_utilisateur){
+        $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ";
+        $params = [':id_utilisateur' => $id_utilisateur];
+        $result = $this->selectQuery($sql, $params);
+        $result->setFetchMode(PDO::FETCH_CLASS, 'CartContientSession');
+        $my_new_cart = $result->fetch();
+        return $my_new_cart;
+    }
+    function createContent($id_produit){
+        $sql = " SELECT * FROM produits WHERE id_produit=:id_produit ";
+        $params = [':id_produit' => $id_produit];
+        $result = $this->selectQuery($sql, $params);
+        $result->setFetchMode(PDO::FETCH_CLASS, 'currentProduct');
+        $my_products = $result->fetch();
+        return $my_products;
+    }
 
 }
 
@@ -167,15 +183,56 @@ Class Cart extends Db
         $this->selectQuery($sql, $params);
     }
 }
+Class currentProduct extends Db
+{
+    public $id_produit,$unit_price,$quantite;
+
+    function __construct()
+    {
+    }
+    function __set($name,$value)
+    {
+        $this->name= $value;
+    }
+
+    public function __get($name)
+    {
+        return $this->name;
+    }
+
+}
+
 Class CartContientSession extends Db
 {
-    public $id_produit,$id_panier,$quantite,$nom_produit,$img_url;
+    public $id_panier,$id_utilisateur;
+    public $contenu = [];
+
+    function __set($name,$value)
+    {
+        $this->contenu[$name] = $value;
+    }
+
+    public function __get($name)
+    {
+        return $this->contenu[$name];
+    }
+
+    public function addProduct($id_panier,$id_produit,$quantite){
+        $sql = " INSERT INTO contient(id_panier,id_produit,quantite) VALUES (:id_panier,:id_produit,quantite) ";
+        $params = [':id_panier' => $id_panier,':id_produit' => $id_produit,':quantite' => $quantite];
+        $this->selectQuery($sql, $params);
+    }
+    public function contientDetails($id_panier,$id_produit){
+        $sql = " INSERT INTO contient(id_panier,id_produit) VALUES (:id_panier,:id_produit) ";
+        $params = [':id_panier' => $id_panier,':id_produit' => $id_produit];
+        $this->selectQuery($sql, $params);
+    }
 
 }
 
 Class Contient extends Db
 {
-    public $id_produit, $id_panier, $quantite;
+    public $id_panier, $quantite;
 
     function __construct()
     {
@@ -185,6 +242,25 @@ Class Contient extends Db
         $sql = " SELECT * FROM contient WHERE id_panier=:id_panier ";
         $params = ['id_panier' => $id_panier];
         $result = $this->selectQuery($sql, $params);
+        $contient=$result->fetchAll();
+        return $contient;
+    }
+    public function addToContient($id_panier,$quantite,$id_produit){
+        $sql = " INSERT INTO contient(id_panier,quantite,id_produit) VALUES (:id_panier,:quantite,:id_produit) ";
+        $params = [':id_panier' => $id_panier,':quantite'=>$quantite,':id_produit' => $id_produit];
+        $this->selectQuery($sql, $params);
+    }
+    public function getQuantity($id_panier,$id_produit){
+        $sql="SELECT quantite FROM contient WHERE id_panier=:id_panier AND id_produit = :id_produit";
+        $params = [':id_panier' =>$id_panier,':id_produit' => $id_produit];
+        $result=$this->selectQuery($sql, $params);
+        $contient=$result->fetchAll();
+        return $contient;
+    }
+    public function addQuantityToContient($id_panier,$id_produit){
+        $sql="UPDATE contient SET quantite = quantite + 1 WHERE id_produit = :id_produit AND id_panier = :id_panier";
+        $params = [':id_panier' =>$id_panier,':id_produit' => $id_produit];
+        $result=$this->selectQuery($sql, $params);
         $contient=$result->fetchAll();
         return $contient;
     }
@@ -250,7 +326,7 @@ Class Produits extends Db
         return $contient;
     }
     public function getQuantityFromId($id_produit){
-        $sql = " SELECT quantite FROM produits WHERE id_produit=:id_produit ";
+        $sql = " SELECT units_in_stock FROM produits WHERE id_produit=:id_produit ";
         $params = [':id_produit' => $id_produit];
         $result = $this->selectQuery($sql, $params);
         $contient=$result->fetch();
@@ -306,3 +382,27 @@ Class Search extends Db
     }
 }
 
+class Article{
+    // Méthodes
+
+    public function __construct() { }
+
+    public function get_article_details(){
+
+        $conn=new pdo("mysql:host=localhost;dbname=boutique;charset=utf8", "root", "root");
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
+        if(isset($_GET['id'])){
+            $id = $_GET['id'];
+        }else{
+            $id = NULL;
+        }
+        //prepare la recuperation toutes les infos du produit recuperés en get
+        $req = $conn->prepare("SELECT * from Produits  WHERE id_produit = ?");
+        //execute la requete
+        $req->execute(array($id));
+
+        $produit = $req->fetchAll();
+
+        return $produit;
+    }
+}

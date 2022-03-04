@@ -1,59 +1,14 @@
+<?php session_start();  ?>
+<?php require_once('Model/model.php'); ?>
 <?php
-    session_start();
-	$conn=new pdo("mysql:host=localhost;dbname=boutique;charset=utf8", "root", "root");
-    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-
-    class Article{
-      // Méthodes  
-
-        public function __construct() { }
-        
-        public function get_article_details(){
-
-                $conn=new pdo("mysql:host=localhost;dbname=boutique;charset=utf8", "root", "root");
-                $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-                    if(isset($_GET['id'])){
-                        $id = $_GET['id'];
-                    }else{
-                        $id = NULL;
-                    }
-                //prepare la recuperation toutes les infos du produit recuperés en get 
-                $req = $conn->prepare("SELECT * from Produits  WHERE id_produit = ?");
-                //execute la requete
-                $req->execute(array($id));
-
-                $produit = $req->fetchAll();
-
-                return $produit;
-        }
-    }
 
     $detail = new Article();
     $article = $detail->get_article_details();
     
-?> 
-
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="shop.css">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.80.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    <title>boutique/shop</title>
-  </head>
-  <body>
-    
-<header>
-</header>
-<main>
+?>
 <!-- <pre> <?= var_dump($article) ?> </pre> -->
 
-  
+<?php ob_start(); ?>
     <div class="ban"><img src="Elements/logos/fox.svg">
     <img src="Elements/logos/man.svg">
     </div>

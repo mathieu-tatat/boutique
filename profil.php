@@ -53,7 +53,7 @@
             </div>
             <div class="container-xl px-4 mt-4 mb-4">
                         <div class="p-3 mb-5 rounded-0 border border-secondary border-1 px-4 mt-4">
-                            <div class="shadow-sm mb-1">
+                            <div class="mb-1">
                                 <div class="display-6 px-4 mt-4 mb-4">
                                     <b>Your Cart </b>
                                 </div>

@@ -75,13 +75,18 @@ if( isset($_POST['submit_connection'])){
         if(!empty($myhash)) {
             if( (password_verify($_POST['password'],$myhash['password'])) ){
                 $test=$user->validateUserConnection($_POST['email'],$myhash['password']);
+                $myid=$user->getId($_POST['email']);
+                $mycartid=$user->getCartId($myid['id_utilisateur']);
                 $_SESSION['connected']=$_POST['email'];
-                $_SESSION['cart']=new CartContientSession();
-                var_dump($_SESSION['cart']);    // get user id for cart
+                $_SESSION['cart']=$mycartid;
+                $_SESSION['cart']->id_utilisateur=$myid['id_utilisateur'];
+                $_SESSION['addprod']=0;
+                //$test=$_SESSION['cart']->id_panier=$mycartid['id_panier'];
+               // var_dump($_SESSION['cart']);// get user id for cart
                     // pass the values of the last cart in the set of the Class
-                    // translate it as attributes of Cart class
-                //header('location:profil.php');
-                //exit();
+                    // translate it as attributes of Cart class/
+                header('location:profil.php');
+                exit();
             } else {
                 $tmp .= 'wrong email or password';
             }
