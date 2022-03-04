@@ -133,6 +133,7 @@ a, a:hover {
         padding:1vh!important
     }
 
+    
 
 }
 
@@ -142,6 +143,10 @@ a, a:hover {
 /*      MAIN      */
 /* -------------- */
 
+
+.contact-us{
+    width: 30px;
+}
 
 /* -------------- */
 /*    MAIN CART   */

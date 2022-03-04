@@ -216,6 +216,16 @@ class Produits extends Model
     }
 
 
+    public function deleteProductById ($idProduit)
+    {
+        $sql = "DELETE FROM Produits
+                where id_produit = ?";
+        
+        $params = array($idProduit);
+
+        $this->selectQuery($sql, $params);
+        
+    }
     
 
 

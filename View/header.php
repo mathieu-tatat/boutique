@@ -19,8 +19,7 @@
     <div class="d-flex flew-row justify-content-between align-items-between">
 
         <a href="shop.php" class="alert-link mx-2">Shop</a>
-        <a href="#" class="alert-link mx-2">About</a>
-        <a href="#" class="alert-link mx-2">Contact</a> 
+        <a href="contact.php" class="alert-link mx-2">Contact</a> 
 
         <?php if(isset($_SESSION['connected'])): ?>
 
