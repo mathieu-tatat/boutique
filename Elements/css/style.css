@@ -164,6 +164,14 @@ header button{
 .cartPicsshop {
     margin: 0 auto;
 }
+.cartPicsInCart{
+    width:50%;
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: 1/0.8;
+
+    object-fit:contain!important;
+}
 
 #cartIcon {
     width:75%;
@@ -376,6 +384,7 @@ main{
 #smallBtn{
     font-size:0.75em!important;
     padding:0!important;
+    margin:0!important;
 }
 #quantityBtn{
     font-size:0.75em!important;

@@ -1,17 +1,12 @@
 <?php session_start();  ?>
 <?php require_once('Model/model.php'); ?>
-<?php
+<?php require_once('Controller/header_controller.php'); ?>
+<?php require_once('Controller/article_controller.php'); ?>
+<?php require_once('Controller/search_bar_controller.php'); ?>
 
-    $detail = new Article();
-    $article = $detail->get_article_details();
-    
-?>
-<!-- <pre> <?= var_dump($article) ?> </pre> -->
+<!-- <pre> <?php // var_dump($article) ?> </pre> -->
 
 <?php ob_start(); ?>
-    <div class="ban"><img src="Elements/logos/fox.svg">
-    <img src="Elements/logos/man.svg">
-    </div>
         <div class= "content">
             <div class="card shadow-sm navCat">
 
@@ -48,4 +43,9 @@
                <p class="descArticle"><?= $article[0]['description_produit'] ?></p> 
                 </div>        
         </div>
+<?php $content=ob_get_clean(); ?>
+<?php require_once('header.php');   ?>
+<?php require_once('Elements/patron.php'); ?>
+
+
     

@@ -264,7 +264,18 @@ Class Contient extends Db
         $contient=$result->fetchAll();
         return $contient;
     }
+    public function addMultipleQuantityToContient($quantite,$id_panier,$id_produit){
+        $sql = " UPDATE contient SET quantite = :quantite WHERE id_panier = :id_panier AND id_produit = :id_produit ";
+        $params=([':quantite' => $quantite, ':id_panier' => $id_panier, ':id_produit' => $id_produit]);
+        $this->selectQuery($sql, $params);
+    }
+    public function deleteContientRow($id_panier,$id_produit){
+        $sql = "DELETE FROM contient WHERE id_panier = :id_panier AND id_produit = :id_produit ";
+        $params=([':id_panier' => $id_panier, ':id_produit' => $id_produit]);
+        $this->selectQuery($sql, $params);
+    }
 }
+
 Class Commande extends Db
 {
     public $id_panier, $id_utilisateur;
@@ -374,7 +385,8 @@ Class Search extends Db
     }
 
     public function searchAll($search){
-        $sql = "SELECT * FROM produits WHERE INSTR(* , :search )";
+        $sql = "SELECT * FROM produits WHERE INSTR( nom_produit , :search )
+                OR INSTR( description_produit, :search)";
         $params = [':search' => $search];
         $result = $this->selectQuery($sql, $params);
         $search_result=$result->fetchAll();
@@ -382,27 +394,19 @@ Class Search extends Db
     }
 }
 
-class Article{
+class Article extends Db{
     // Méthodes
 
     public function __construct() { }
 
-    public function get_article_details(){
+    public function get_article_details($id_produit){
 
-        $conn=new pdo("mysql:host=localhost;dbname=boutique;charset=utf8", "root", "root");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_WARNING);
-        if(isset($_GET['id'])){
-            $id = $_GET['id'];
-        }else{
-            $id = NULL;
-        }
         //prepare la recuperation toutes les infos du produit recuperés en get
-        $req = $conn->prepare("SELECT * from Produits  WHERE id_produit = ?");
+        $sql = "SELECT * FROM produits  WHERE id_produit = :id_produit";
         //execute la requete
-        $req->execute(array($id));
-
-        $produit = $req->fetchAll();
-
+        $params = [':id_produit' => $id_produit];
+        $result = $this->selectQuery($sql, $params);
+        $produit=$result->fetchAll();
         return $produit;
     }
 }

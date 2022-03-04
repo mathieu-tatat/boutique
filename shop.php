@@ -1,8 +1,10 @@
 <?php $title = "shop" ?>
 <?php require_once('Model/model.php'); ?>
 <?php session_start();?>
-<?php require_once('Controller/user_controller.php'); ?>
 <?php require_once('Controller/shop_controller.php'); ?>
+<?php require_once('Controller/user_controller.php'); ?>
+<?php require_once('Controller/search_bar_controller.php'); ?>
+
 
 <?php ob_start() ?>
     <div class= "content">
@@ -33,27 +35,25 @@
                                     <div class="card-body">
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="btn-group">
-                                                <?php  $tmp =''; ?>
                                                 <div class="col-md text-justify" >
                                                     <form method="POST">
                                                         <div class="d-flex flex-row mt-3 ms-4">
-                                                           <select class="form-select form-select-sm px-4 ms-4 rounded-0" aria-label=".form-select-sm example" name="quantity" id="quantityBtn">
-                                                           <option selected>0 &#160;&#160;&#160;</option>
+                                                            <form method="POST">
+                                                                 <select class="form-select form-select-sm px-4 ms-4 rounded-0" aria-label=".form-select-sm example" name="quantity" id="quantityBtn">
                                                                <?php if(isset($item['units_in_stock'])): ?>
-                                                            <?php   for($j=1;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0    ?>
-                                                                <?php    $tmp .= '<option value="'.$j.','.$item['id_produit'].'">'.$j.' </option>';   ?>
-                                                            <?php   endfor;  ?>
-
-                                                            <?php   $tmp .=  '</select><input class="btn btn-dark rounded-0 small" id="smallBtn" type="submit" name="submitContientUpdate" value="add"/>'; ?>
-                                                               <?php $tmp .= '<form method="POST" action="">
-                                                               <button type="submit" class="btn btn-sm mt-3 mb-2" value="'.$item['id_produit'].'" name="addToCart">
-                                                                   <img src="Elements/icons/cart.svg" class="cartPicsshop" >
+                                                                   <?php   for($j=1;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
+                                                                       <option value="<?= $j ?>" ><?= $j ?></option>
+                                                                   <?php   endfor; ?>
+                                                                 </select>
+                                                                <button type="submit" class="btn btn-sm mt-3 mb-2" value="<?= $item['id_produit'] ?>" name="addToCart" >
+                                                                   <img src="Elements/icons/cart.svg" class="cartPicsshop">
                                                                </button>
-                                                               </form>'; ?>
-                                                               <?php endif; ?>
-                                                               <?php   $tmp .= '</div></form></div>'; ?>
-                                                            <?php   echo $tmp; ?>
+                                                            </form>
+                                                            <?php endif; ?>
                                                         </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                                             <small class="text-muted"><?= $item['unit_price'] ." €"?></small>
                                         </div>                        
                                     </div>
@@ -67,5 +67,7 @@
     </div>
 <?php  $content=ob_get_clean(); ?>
 <?php require ('header.php'); ?>
+<?php require_once('Controller/shop_controller.php'); ?>
+
 
 <?php require ('patron.php'); ?>
