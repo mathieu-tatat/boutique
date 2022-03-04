@@ -1,7 +1,6 @@
 <?php $title = "Register" ?>
 <?php session_start(); ?>
 <?php require_once('Controller/user_controller.php'); ?>
-<?php require ('Controller/search_bar_controller.php'); ?>
 
 
 

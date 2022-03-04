@@ -3,7 +3,6 @@
 <?php require_once('Model/User.php'); ?>
 <?php require_once('Controller/user_controller.php'); ?>
 <?php require_once('Controller/profil_controller.php'); ?>
-<?php require_once('Controller/search_bar_controller.php'); ?>
 
 
 <?php   ob_start();  ?>

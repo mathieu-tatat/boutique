@@ -127,6 +127,19 @@ CREATE TABLE IF NOT EXISTS Contient (
     PRIMARY KEY (id_produit, id_panier)
     ) ENGINE=InnoDB;
 
+
+-- ------------------------------------
+--           table contient          --
+-- ------------------------------------
+
+CREATE TABLE IF NOT EXISTS carousel_produits(
+    id_produit_carousel INT NOT NULL,
+    id_produit INT NOT NULL,
+    CONSTRAINT FK_carousel_produits_id_produit_produits
+    FOREIGN KEY (id_produit) REFERENCES Produits (id_produit),
+    PRIMARY KEY (id_produit_carousel)
+    ) ENGINE=InnoDB;
+
 -- ------------------------------------
 --         Data generation           --
 -- ------------------------------------
