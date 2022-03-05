@@ -17,7 +17,9 @@
     <header class="container-fluid">
             <?= $header  ?>
     </header>
-    
+
+    <?php require_once('View/Error.php')?>
+
     <main>
         <?= $content ?>
     </main>

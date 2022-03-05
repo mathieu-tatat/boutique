@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Elements/CSS/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="Elements/CSS/style.css">
+    <link rel="stylesheet" type="text/css" href="Elements/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="Elements/css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous"></script>
@@ -14,10 +14,14 @@
 </head>
 <body>
 
-<header class="container-fluid">
-    <?= $header  ?>
-</header>
-    <main class="container-fluid">
+    <header class="container-fluid">
+
+        <?= $header  ?>
+    </header>
+
+    <?php require_once('View/Error.php')?>
+
+    <main>
         <?= $content ?>
     </main>
 
@@ -26,7 +30,7 @@
             <div class="d-flex justify-content-around align-items-start" id="bottomLinks">
                 <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox"><div class="text-center footerText">Produits</div></a>
                 <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox"><div class="text-center footerText">Profil</div></a>
-                <a href="" class="d-flex justify-content-center align-items-center mx-4 my-0 textBox"><div class="text-center" id="footerCenterText">Ori*</div></a>
+                <a href="" class="d-flex justify-content-center align-items-center mx-4 my-0 textBox"><div class="text-center" id="footerCenterText">Trade</div></a>
                 <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox "><div class="text-center footerText">About us</div></a>
                 <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox "><div class="text-center footerText">Contact</div></a>
             </div>

@@ -1,8 +1,12 @@
 <?php $title = "cart" ?>
 <?php session_start(); ?>
-<?php require_once('Model/model.php'); ?>
-<?php require_once('Controller/user_controller.php'); ?>
-<?php require_once('Controller/cart_controller.php'); ?>
+<?php require_once('Model/User.php'); ?>
+<?php require_once('Model/Cart.php'); ?>
+<?php require_once('Model/Contient.php'); ?>
+<?php require_once('Model/Produits.php'); ?>
+
+<?php require_once('Controller/user_controller.php');   // Models : User  &  Cart  ?>
+<?php require_once('Controller/cart_controller.php');  // Models :  User  &  Cart  &  Contient  &  Produit  ?>
 
 <?php   ob_start();  ?>
 <div class="container m-0 ms-5">

@@ -8,4 +8,4 @@
     </main>
 <?php $content = ob_get_clean(); ?>
 <?php require_once('header.php'); ?>
-<?php require ('Elements/patron.php'); ?>
+<?php require ('View/patron.php'); ?>

@@ -1,5 +1,7 @@
 <?php
 
+// Models :  User  &  Cart  &  Contient  &  Produit   __________________________________________________________________
+
 if(isset($_SESSION['connected'])){
     $email=$_SESSION['connected'];
     $user= new User();  //new user to get my infos

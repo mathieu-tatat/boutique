@@ -23,14 +23,17 @@ ob_start();
     <div class="col-sm-1"><a href="connexion.php" class="alert-link">About</a></div>
     <div class="col-sm-1"><a href="about.php" class="alert-link">Contacts</a></div>
     <?php if(isset($_SESSION['connected'])): ?>
-    <div class="col-sm-1 ms-3">
+        <?php if($_SESSION["droits"] == 1337) : ?>
+            <a href="admin.php" class="alert-link md-2 me-2 text-danger">Admin </a>
+        <?php endif; ?>
+    <div class="col-sm-1 ms-4">
         <div class="col" id="headerHelpLink">
             <a href="profil.php" class="alert-link">Profil </a>
         </div>
     </div><!-- 2 -->
         <div class="col-sm-1">
         <form method="POST">
-            <button type="submit" class="btn btn-dark rounded-0 px-1 me-5 ml-2" name="disconnect">
+            <button type="submit" class="btn btn-dark rounded-0 px-1 me-2" name="disconnect">
                 Disconnect
             </button>
         </form>
@@ -43,11 +46,8 @@ ob_start();
         </form>
     </div>
     <?php else: ?>
-        <div class="col-sm px-3" id="loglink" ><a href="connexion.php" class="alert-link" ">Log In</a></div>
-        <div class="col-sm px-2" id="signlink" ><a href="inscription.php" class="alert-link" >Sign Up</a></div>
-        <div class="col-sm px-4">
-            <a href="connexion.php" class="alert-link" ><img src="Elements/icons/cart.svg" alt="cart" id="cartIcon"></a>
-        </div>
+        <div class="col-sm  ms-5 px-3" id="loglink" ><a href="connexion.php" class="alert-link" ">Log In</a></div>
+        <div class="col-sm " id="signlink" ><a href="inscription.php" class="alert-link" >Sign Up</a></div>
     <?php endif; ?>
 </div>
 

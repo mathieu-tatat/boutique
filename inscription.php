@@ -1,8 +1,11 @@
 <?php $title = "Register" ?>
 <?php session_start(); ?>
-<?php require_once('Model/model.php'); ?>
-<?php require_once('Controller/user_controller.php'); ?>
-<?php require ('Controller/search_bar_controller.php'); ?>
+<?php require_once('Model/User.php'); ?>
+<?php require_once('Model/Cart.php'); ?>
+<?php require_once('Model/Search.php'); ?>
+
+<?php require_once('Controller/user_controller.php'); // Models : User  &  Cart ?>
+<?php require ('Controller/search_bar_controller.php'); // Models : Search ?>
 
 
 
@@ -56,7 +59,7 @@
 <?php require ('header.php'); ?>
 
 
-<?php require ('Elements/patron.php'); ?>
+<?php require ('patron.php'); ?>
 
 
 

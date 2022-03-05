@@ -1,9 +1,14 @@
 <?php $title = "cart" ?>
 <?php session_start(); ?>
-<?php require_once('Model/model.php'); ?>
-<?php require_once('Controller/user_controller.php'); ?>
-<?php require_once('Controller/commandes_controller.php'); ?>
-<?php require ('Controller/search_bar_controller.php'); ?>
+<?php require_once('Model/User.php'); ?>
+<?php require_once('Model/Cart.php'); ?>
+<?php require_once('Model/Contient.php'); ?>
+<?php require_once('Model/Produits.php'); ?>
+<?php require_once('Model/Commandes.php'); ?>
+
+<?php require_once('Controller/user_controller.php');   // Models : User  &  Cart  ?>
+<?php require_once('Controller/commandes_controller.php'); // Models : User  &  Cart  &  Contient  &  Produits  &  Commandes ?>
+<?php require_once('Controller/search_bar_controller.php'); // Models : Search ?>
 
 
 <?php   ob_start();  ?>
