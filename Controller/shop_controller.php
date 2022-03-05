@@ -13,7 +13,6 @@ if(isset($_POST['addToCart'])  or isset($_POST['quantity'])){     //if cart is p
     $id_produit=intval($_POST['addToCart']);
     $contient = new Contient();
     $exist=$contient->getQuantity($id_panier,$id_produit);   //check for existing contient
-    var_dump($exist);
     if(empty($exist)){
         if($quantite !== 0){
             $contient->addToContient($id_panier,$quantite,$id_produit);

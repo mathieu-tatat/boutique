@@ -161,21 +161,41 @@ header button{
     aspect-ratio: 1/0.8;
     object-fit:cover;
 }
-.cartPicsshop {
-    margin: 0 auto;
-}
+
 .cartPicsInCart{
-    width:50%;
+    width:60%;
     display: block;
     margin: 0 auto;
     aspect-ratio: 1/0.8;
-
     object-fit:contain!important;
 }
 
 #cartIcon {
     width:75%;
     display: block;
+}
+
+.shop-card{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+.shopRow:hover{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+}
+.btn-shop{
+    border:none;
+    background-color: white;
+    border-radius:0;
+    padding:0!important;
+    margin:0!important;
+    white-space: nowrap;
+}
+.btn-shop:hover{
+    background-color: lightgrey;
+    padding:0!important;
+    margin:0!important;
 }
 
 
@@ -323,7 +343,7 @@ main{
     display:flex;
     justify-content: space-around!important;
 }
-.card:hover {
+.mycards:hover {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 25px 50px -12px;}
 /* gere le css du nom profuit dans la card detail  */
 .sizeNom{

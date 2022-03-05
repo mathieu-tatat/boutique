@@ -7,11 +7,11 @@ ob_start();
 
 ?>
 <div class="d-flex flex-row align-items-center m-xl-1">
-    <div class="col-sm-1 ms-2"> <a href="index.php" class="alert-link" ><img src="Elements/logos/fox.svg" alt="cart" id="cartIcon"></a></div>
+    <div class="col-sm-1 ms-4"> <a href="index.php" class="alert-link" ><img src="Elements/logos/fox.svg" alt="cart" id="cartIcon"></a></div>
     <div class="col-sm-4">
         <form method="GET" action="shop.php">
             <div class="input-group rounded-0">
-                <input type="text" class="form-control rounded-0 " placeholder=" search for a product..." aria-label="search a product" aria-describedby="basic-addon2" id="headerInputSearch"
+                <input type="text" class="form-control rounded-0 ms-4" placeholder=" search for a product..." aria-label="search a product" aria-describedby="basic-addon2" id="headerInputSearch"
                        name="searchBarIn">
                 <div class="input-group-append ">
                     <button type="submit" class="input-group-text btn btn-dark px-1 rounded-0" id="basic-addon2">search</button>
