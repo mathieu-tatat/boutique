@@ -92,13 +92,10 @@
     </div>
     <?php
 
-    $article=$detail->get_article_details(intval($id_produit));
-    $items=$article;
-
     ?>
     <h2 class="text-center text-light pb-2 ajouts">Derniers ajouts</h2>
     <div class="container-fluid">
-        <div class="row justify-content-center mg-tp-20">
+        <div class="d-flex flex-row justify-content-center align-items-center mg-tp-20">
             <div class="col-lg-10">
                 <div id="demo" class="carousel slide" data-ride="carousel">
 

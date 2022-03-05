@@ -10,7 +10,7 @@
                         <div class="shop-card">
                             <form method="POST" class="d-flex flex-row align-items-center mt-2">
                                 <p class="small mb-3">Qty:</p>
-                                <select class="form-select rounded-0 ms-1 px-5 mb-3" aria-label=".form-select-sm example" name="quantity" id="quantityBtn">
+                                <select class="form-select rounded-0 ms-1 px-4 mb-3" aria-label=".form-select-sm example" name="quantity" id="quantityBtn">
                                     <?php if(isset($item['units_in_stock'])): ?>
                                     <?php   for($j=1;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
                                         <option value="<?= $j ?>" ><?= $j ?></option>

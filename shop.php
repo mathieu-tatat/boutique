@@ -25,10 +25,10 @@ $detail = new Article();
 
 <?php ob_start() ?>
 <main>
-    <div class= "content">
+    <div class= "content px-2">
 
         <!-- NavBar -->
-        <div class="card shadow-sm col-md-2 navCat">
+        <div class="card shadow-sm col-sm-3 navCat p-3 mt-2 px-5">
             <h3>Categories</h3>
             <?php
             // Generation d'une variable contenant le tableau avec chacune des sous categories
@@ -47,11 +47,11 @@ $detail = new Article();
 
             <!-- Evaluation de la condition pour la creation de chacun des niveau de la navBar -->
             <?php       if ( $i == 0 || ($SCat[$i]["nom_categorie"] != $SCat[$i-1]["nom_categorie"])) : ?>
-            <li><a href="shop.php?id_categorie=<?= $SCat[$i]["id_sous_categorie"] ?>" class="alert-link"><?= $SCat[$i]["nom_categorie"] ?></a></li>
+            <li class="p-2"><a href="shop.php?id_categorie=<?= $SCat[$i]["id_sous_categorie"] ?>" class="alert-link"><?= $SCat[$i]["nom_categorie"] ?></a></li>
             <ul name="<?= $SCat[$i]["nom_categorie"] ?>">
-                <li><a href="shop.php?id_sous_categorie=<?= $SCat[$i]["id_sous_categorie"] ?>" ><?= $SCat[$i]["nom_sous_categorie"] ?></a></li>
+                <li class="px-3 p-1"><a href="shop.php?id_sous_categorie=<?= $SCat[$i]["id_sous_categorie"] ?>" ><?= $SCat[$i]["nom_sous_categorie"] ?></a></li>
                 <?php       else : ?>
-                    <li><a href="shop.php?id_sous_categorie=<?= $SCat[$i]["id_sous_categorie"] ?>" ><?= $SCat[$i]["nom_sous_categorie"] ?></a></li>
+                    <li class="px-3 p-1"><a href="shop.php?id_sous_categorie=<?= $SCat[$i]["id_sous_categorie"] ?>" ><?= $SCat[$i]["nom_sous_categorie"] ?></a></li>
                 <?php       endif; ?>
 
                 <?php endfor; ?>
