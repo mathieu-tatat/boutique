@@ -66,4 +66,4 @@
 <?php require ('header.php'); ?>
 
 
-<?php require ('Elements/patron.php'); ?>
+<?php require ('View/patron.php'); ?>
