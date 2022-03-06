@@ -1,8 +1,9 @@
 <?php $title = "shop" ?>
 <?php session_start();?>
+<?php require_once('Model/Article.php'); ?>
+
 <?php require_once('Model/CurrentProduct.php'); ?>
 <?php require_once('Model/CartContientSession.php'); ?>
-<?php require_once('Model/Article.php'); ?>
 <?php require_once('Model/Produits.php'); ?>
 <?php require_once('Model/Contient.php'); ?>
 <?php require_once('Model/User.php'); ?>
@@ -27,8 +28,8 @@ $detail = new Article();
     <div class= "content px-2">
 
         <!-- NavBar -->
-        <div class="card shadow-sm col-sm-3 navCat p-3 mt-2 px-5">
-            <h3>Categories</h3>
+        <div class="card shadow-sm col-sm-3 navCat p-3 mt-3 px-5 mb-4">
+            <h3>Catégories</h3>
             <?php
             // Generation d'une variable contenant le tableau avec chacune des sous categories
             $SCat = $souscategorie->getAllSubCat(); ?>

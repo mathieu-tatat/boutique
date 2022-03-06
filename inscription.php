@@ -10,43 +10,53 @@
 
 
 <?php   ob_start();  ?>
-<div class="d-flex align-items-center">
-    <form class="px-4 p-3 mt-4 border border-ligth w-75" action="inscription.php" id="signUpFrom" method="POST">
-        <div class="display-6 px-4 mt-4"><b>Inscription</b></div>
-        <div class="row px-4 mt-4">
-            <div class="form-group col">
-                <input type="text" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Prénom" name="prenom">
+<div class="container-fluid">
+    <div class="d-flex flex-row justify-content-center align-items-center border border-ligth p-3">
+        <form class="p-2 border border-ligth rounded-2 shadow-sm mb-5" action="inscription.php"  method="POST">
+            <div class=" px-4 mt-4 mb-3"><h3>Inscription</h3></div>
+            <div class="row px-4 mt-2 mb-3">
+                <div class=" px-2 mt-1 mb-2"><h5>Données de facturation</h5></div>
+                <div class="form-group col">
+                    <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="Prénom" name="prenom">
+                </div>
+                <div class="form-group col">
+                    <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="Nom" name="nom">
+                </div>
             </div>
-            <div class="form-group col">
-                <input type="text" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Nom" name="nom">
+            <div class="row px-4 mt-2 mb-3">
+                <div class="form-group col">
+                    <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="Adresse" name="address">
+                </div>
+                <div class="form-group col">
+                    <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="Code Postal" name="code_postal">
+                </div>
             </div>
+            <hr/>
+            <div class="row px-4 mt-3" >
+                <div class=" px-2 mt-1 mb-3"><h5>Contact</h5></div>
+                <div class="form-group row">
+                    <input type="text" class="col-form p-1 px-2 rounded-1" style="border:solid 1px darkgray;width:87.5%;" placeholder="Email" name="email">
+                </div>
+            </div>
+            <div class="row px-4 mt-2" >
+                <div class="form-group col">
+                    <input type="password" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="Password" name="password">
+                </div>
+                <div class="form-group col">
+                    <input type="password" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="Confirmation Password" name="pass_conf">
+                </div>
+            </div>
+            <div class="d-flex justify-content-center align-items-center" >
+                <small class="text-muted me-5">Nous ne partagerons jamais vos information personnelles</small>
+
+                <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm" name="submit_subscription">S'inscrire</button>
+            </div>
+            <?php if(isset($tmp)){ echo $tmp;} ?>
+
+        </form>
+        <div class="px-4 mt-2 me-5">
+            <img src="Elements/logos/signup.svg" style="width:70%;" class="mt-5 ms-5">
         </div>
-        <div class="row px-4 mt-4" >
-            <div class="form-group col">
-                <input type="text" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Email" name="email">
-            </div>
-            <div class="form-group col">
-                <input type="text" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Postal Code" name="code_postal">
-            </div>
-        </div>
-        <div class="row px-4 mt-4">
-            <div class="form-group row">
-                <input type="text" class="col-form p-2 rounded-2" style="border:solid 1px darkgray;width:84.2%!important;" placeholder="Adress" name="address">
-            </div>
-        </div>
-        <div class="row px-4 mt-4" >
-            <div class="form-group col">
-                <input type="password" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Password" name="password">
-            </div>
-            <div class="form-group col">
-                <input type="password" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Password Confirmation" name="pass_conf">
-            </div>
-        </div>
-        <div class="d-flex justify-content-center align-items-center" >
-            <button type="submit" class="btn btn-dark rounded-0 px-4 mb-4 mt-4 " name="submit_subscription">Subscribe</button>
-        </div>
-    </form>
-    <?php if(isset($tmp)){ echo $tmp;} ?>
 </div>
 
 <?php  $content=ob_get_clean(); ?>

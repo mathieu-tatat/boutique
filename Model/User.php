@@ -19,7 +19,7 @@ Class User extends Db
 
     public function checkExists($prenom, $email)
     {
-        $sql = " SELECT COUNT(*) as count FROM utilisateurs WHERE prenom=:prenom AND email=:email ";
+        $sql = " SELECT COUNT(*) as count FROM utilisateurs WHERE prenom=:prenom OR email=:email ";
         $params = ([':prenom' => $prenom, ':email' => $email]);
         $result = $this->selectQuery($sql, $params);
         $result = $result->fetch();

@@ -76,7 +76,7 @@ if(isset($_POST['submit_subscription'])){
             header('location:connexion.php');
             exit();
         } else {
-            $tmp.='this user already exists please choose another username';
+            $tmp.='cet utilisateur existe déjà, <br>choisissez un autre email et nom utilisateur svp';
         }
     }
     $tmp.='</div>';
@@ -93,13 +93,13 @@ if( isset($_POST['submit_connection'])){
     if(empty($_POST['password'])){ array_push($errors,'please insert your password'); }
 
     // div for alert
-    $tmp= '<div class="border border-secondary rounded-0 px-4 mb-2 mt-2 ml-2" >';
+    $tmp= '<div class="border border-secondary rounded-2 px-4 mb-2 mt-2 ml-2" >';
 
     //check for errors
 
     foreach($errors as $error => $value){
         if(count($errors)>1) {
-            $tmp.= 'please fill in all the fields';
+            $tmp.= 'remplir tous les champs svp';
             break;
         } else {
             $tmp.=$value;
@@ -145,10 +145,10 @@ if( isset($_POST['submit_connection'])){
                 exit();
 
             } else {
-                $tmp .= 'wrong email or password';
+                $tmp .= 'email ou password erroné';
             }
         } else {
-            $tmp .= 'wrong email or password';
+            $tmp .= 'email ou password erroné';
         }
     }
     $tmp.='</div>';
