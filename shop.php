@@ -7,7 +7,6 @@
 <?php require_once('Model/Contient.php'); ?>
 <?php require_once('Model/User.php'); ?>
 <?php require_once('Model/Search.php'); ?>
-<?php require_once('Model/Article.php'); ?>
 <?php require_once('Model/Categorie.php'); ?>
 <?php require_once('Model/SousCategorie.php'); ?>
 <?php require_once('Controller/shop_controller.php'); ?>

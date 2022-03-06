@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="70pt" height="70pt" version="1.1" viewBox="0 0 700 700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+ <g>
+  <path d="m70 261.33h364.65v37.332h-364.65z"/>
+  <path d="m503.75 261.33h126.25v37.332h-126.25z"/>
+  <path d="m415.98 238.09h37.332v83.82h-37.332z"/>
+  <path d="m70 111.56h195.35v37.332h-195.35z"/>
+  <path d="m334.45 111.56h295.55v37.332h-295.55z"/>
+  <path d="m246.69 88.324h37.332v83.82h-37.332z"/>
+  <path d="m70 411.1h195.35v37.332h-195.35z"/>
+  <path d="m334.45 411.1h295.55v37.332h-295.55z"/>
+  <path d="m246.69 387.86h37.332v83.824h-37.332z"/>
+  <use x="70" y="653.332031" xlink:href="#v"/>
+  <use x="92.832031" y="653.332031" xlink:href="#d"/>
+  <use x="108.175781" y="653.332031" xlink:href="#a"/>
+  <use x="129.273437" y="653.332031" xlink:href="#f"/>
+  <use x="150.269531" y="653.332031" xlink:href="#c"/>
+  <use x="165.140625" y="653.332031" xlink:href="#a"/>
+  <use x="186.242188" y="653.332031" xlink:href="#k"/>
+  <use x="219.34375" y="653.332031" xlink:href="#j"/>
+  <use x="241.613281" y="653.332031" xlink:href="#i"/>
+  <use x="272.722656" y="653.332031" xlink:href="#h"/>
+  <use x="283.386719" y="653.332031" xlink:href="#e"/>
+  <use x="301.828125" y="653.332031" xlink:href="#b"/>
+  <use x="323.203125" y="653.332031" xlink:href="#g"/>
+  <use x="345.351562" y="653.332031" xlink:href="#u"/>
+  <use x="367.621094" y="653.332031" xlink:href="#f"/>
+  <use x="388.617188" y="653.332031" xlink:href="#e"/>
+  <use x="407.058594" y="653.332031" xlink:href="#t"/>
+  <use x="427.746094" y="653.332031" xlink:href="#s"/>
+  <use x="70" y="684.445312" xlink:href="#r"/>
+  <use x="83.535156" y="684.445312" xlink:href="#d"/>
+  <use x="98.878906" y="684.445312" xlink:href="#b"/>
+  <use x="120.25" y="684.445312" xlink:href="#q"/>
+  <use x="163.5" y="684.445312" xlink:href="#c"/>
+  <use x="178.371094" y="684.445312" xlink:href="#p"/>
+  <use x="200.519531" y="684.445312" xlink:href="#a"/>
+  <use x="232.453125" y="684.445312" xlink:href="#o"/>
+  <use x="258.488281" y="684.445312" xlink:href="#b"/>
+  <use x="279.863281" y="684.445312" xlink:href="#n"/>
+  <use x="302.011719" y="684.445312" xlink:href="#g"/>
+  <use x="334.992188" y="684.445312" xlink:href="#m"/>
+  <use x="357.792969" y="684.445312" xlink:href="#d"/>
+  <use x="373.136719" y="684.445312" xlink:href="#b"/>
+  <use x="394.507812" y="684.445312" xlink:href="#l"/>
+  <use x="405.171875" y="684.445312" xlink:href="#a"/>
+  <use x="426.273437" y="684.445312" xlink:href="#e"/>
+  <use x="444.714844" y="684.445312" xlink:href="#c"/>
+ </g>
+</svg>

@@ -2,7 +2,7 @@
 <?php $title = "Accueil" ?>
 
 <?php require_once('Model/Model.php'); ?>
-<?php require_once( 'Model/Article.php') ?>
+<?php require_once('Model/Article.php') ?>
 <?php require_once('Controller/user_controller.php'); ?>
 <?php require_once('Controller/search_bar_controller.php'); ?>
 <?php require_once('Controller/shop_controller.php');  ?>

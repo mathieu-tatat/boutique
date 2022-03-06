@@ -1,3 +1,13 @@
+
+<?php
+
+require_once('../Model/Produits.php');
+
+
+$produit=new Produits;
+
+?>
+
 <?php ob_start(); ?>
 <div class="container">                
     <div class="row">  

@@ -10,48 +10,43 @@
 
 
 <?php   ob_start();  ?>
-<div class="d-flex flex-column px-4 mt-4" id="signUpFrom">
-        <div class="display-6 px-4 mt-4"><b>Subscribe </b></div>
-        <form class="d-flex flex-column px-4 mt-4 border border-secondary" action="inscription.php" id="signUpFrom" method="POST">
-            <div class="row px-4 mt-4">
-                <div class="form-group col">
-                    <label for="exampleInputText1">Prénom</label>
-                    <input type="text" class="form-control rounded-0" id="exampleInputText1" placeholder="Prénom" name="prenom">
-                </div>
-                <div class="form-group col">
-                    <label for="exampleInputText1">Nom</label>
-                    <input type="text" class="form-control rounded-0" id="exampleInputText1" placeholder="Nom" name="nom">
-                </div>
+<div class="d-flex align-items-center">
+    <form class="px-4 p-3 mt-4 border border-ligth w-75" action="inscription.php" id="signUpFrom" method="POST">
+        <div class="display-6 px-4 mt-4"><b>Inscription</b></div>
+        <div class="row px-4 mt-4">
+            <div class="form-group col">
+                <input type="text" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Prénom" name="prenom">
             </div>
-            <div class="row px-4 mt-4" >
-                    <div class="form-group col">
-                        <label for="exampleInputText1">Email</label>
-                        <input type="text" class="form-control rounded-0" id="exampleInputText1" placeholder="Email" name="email">
-                    </div>
-                    <div class="form-group col">
-                        <label for="exampleInputText1">Postal Code</label>
-                        <input type="text" class="form-control rounded-0" id="exampleInputText1" placeholder="Postal Code" name="code_postal">
-                    </div>
+            <div class="form-group col">
+                <input type="text" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Nom" name="nom">
             </div>
-            <div class="row form-group px-4 mt-4">
-                <label for="exampleInputText1">Adress</label>
-                <input type="text" class="form-control rounded-0" id="exampleInputText1" placeholder="Adress" name="address">
+        </div>
+        <div class="row px-4 mt-4" >
+            <div class="form-group col">
+                <input type="text" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Email" name="email">
             </div>
-            <div class="d-flex justify-content-center align-items-center" >
-                <div class="form-group col px-4 mt-4">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control rounded-0" id="exampleInputPassword1" placeholder="Password" name="password">
-                </div>
-                <div class="form-group col px-4 mt-4">
-                    <label for="exampleInputPassword2">Password Confirmation</label>
-                    <input type="password" class="form-control rounded-0" id="exampleInputPassword2" placeholder="Password Confirmation" name="pass_conf">
-                </div>
+            <div class="form-group col">
+                <input type="text" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Postal Code" name="code_postal">
             </div>
-            <div class="d-flex justify-content-center align-items-center" >
-                <button type="submit" class="btn btn-dark rounded-0 px-4 mb-4 mt-4 " name="submit_subscription">Subscribe</button>
+        </div>
+        <div class="row px-4 mt-4">
+            <div class="form-group row">
+                <input type="text" class="col-form p-2 rounded-2" style="border:solid 1px darkgray;width:84.2%!important;" placeholder="Adress" name="address">
             </div>
-        </form>
-        <?php if(isset($tmp)){ echo $tmp;} ?>
+        </div>
+        <div class="row px-4 mt-4" >
+            <div class="form-group col">
+                <input type="password" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Password" name="password">
+            </div>
+            <div class="form-group col">
+                <input type="password" class="col-form p-2 px-2 rounded-2" style="border:solid 1px darkgray;" placeholder="Password Confirmation" name="pass_conf">
+            </div>
+        </div>
+        <div class="d-flex justify-content-center align-items-center" >
+            <button type="submit" class="btn btn-dark rounded-0 px-4 mb-4 mt-4 " name="submit_subscription">Subscribe</button>
+        </div>
+    </form>
+    <?php if(isset($tmp)){ echo $tmp;} ?>
 </div>
 
 <?php  $content=ob_get_clean(); ?>
