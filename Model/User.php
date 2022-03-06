@@ -17,23 +17,16 @@ Class User extends Db
         return $queryRows;
     }
 
-    public function checkExists($prenom, $email)
+    public function checkExists($email)
     {
-        $sql = " SELECT COUNT(*) as count FROM utilisateurs WHERE prenom=:prenom OR email=:email ";
-        $params = ([':prenom' => $prenom, ':email' => $email]);
+        $sql = " SELECT * FROM utilisateurs WHERE email=:email ;";
+        $params = [':email' => $email];
         $result = $this->selectQuery($sql, $params);
         $result = $result->fetch();
         return $result;
     }
 
-    public function checkExistsForUpdate($email)
-    {
-        $sql = " SELECT COUNT(*) as count FROM utilisateurs WHERE email=:email ";
-        $params = ([':email' => $email]);
-        $result = $this->selectQuery($sql, $params);
-        $result = $result->fetch();
-        return $result;
-    }
+
 
     public function subscribeUser($prenom, $nom, $email, $password, $address, $code_postal, $id_droit)
     {

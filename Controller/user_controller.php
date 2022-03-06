@@ -53,9 +53,8 @@ if(isset($_POST['submit_subscription'])){
         // instatiate new user
         $user= new User();
         // check existance in Db
-        $test= $user->checkExists($_POST['prenom'],$_POST['email']);
-        $test=intval($test['count']);
-
+        $password=password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $test= $user->checkExists($_POST['email']);
         // if no errors occur so that test equal to zero
         if($test===0){
 

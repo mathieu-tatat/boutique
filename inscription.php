@@ -11,9 +11,9 @@
 
 <?php   ob_start();  ?>
 <div class="container-fluid">
-    <div class="d-flex flex-row justify-content-center align-items-center border border-ligth p-3">
-        <form class="p-2 border border-ligth rounded-2 shadow-sm mb-5" action="inscription.php"  method="POST">
-            <div class=" px-4 mt-4 mb-3"><h3>Inscription</h3></div>
+    <div class="d-flex flex-row justify-content-center align-items-center p-4 ms-3">
+        <form class="p-2 border border-ligth rounded-2 shadow-sm mb-3" action="inscription.php"  method="POST">
+            <div class=" px-4 mt-4 mb-3"><h1>Inscription</h1></div>
             <div class="row px-4 mt-2 mb-3">
                 <div class=" px-2 mt-1 mb-2"><h5>Données de facturation</h5></div>
                 <div class="form-group col">

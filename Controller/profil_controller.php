@@ -79,10 +79,9 @@ if(isset($_POST['submitUserUpdate'])){
 
         $test=0;
         $user= new User();
-        $test= $user->checkExistsForUpdate($_POST['email']);
-        $test=intval($test['count']);
-
-        if($test===0){
+        $password=password_hash($_POST['password'], PASSWORD_BCRYPT);
+        $test= $user->checkExists($_POST['email']);
+        if(empty($test)){
 
             $id_utilisateur=$user_infos['id_utilisateur'];
             $id_droit=$user_infos['id_droit'];
@@ -91,7 +90,7 @@ if(isset($_POST['submitUserUpdate'])){
                 $_POST['address'],intval($_POST['code_postal']),intval($id_droit),intval($id_utilisateur));
             $session=$_POST['email'];
             $_SESSION['connected']=$session;
-            header('location:profil.php');
+           // header('location:profil.php');
 
             exit();
 
