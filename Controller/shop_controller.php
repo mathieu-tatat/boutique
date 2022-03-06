@@ -136,11 +136,12 @@ if(isset($_POST['update_prod']))
 //chg img
 if(isset($_POST['chg_img']))
 {
-    $targetPath = 'View/ProductImg/';
+    $targetPath = 'Elements/ProductImg/';
     $filename = substr($_POST['nom_produit'],0,10);
     $targetFile = $targetPath.$filename.'.jpg';
     $idProduit = $_POST["id_produit"];
     move_uploaded_file($_FILES['img']['tmp_name'], $targetFile);
+    var_dump($_FILES);
     $produit->updateImg($targetFile, $idProduit);
 }
 
