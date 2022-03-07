@@ -71,7 +71,7 @@
                 <div class="linkFoot"><a href="https://www.instagram.com/"><img src="Elements/logos/insta.png"></a></div>
                 <div class="linkFoot"><a href="https://twitter.com/?lang=fr"><img src="Elements/logos/twitter.png"></a></div>
             </div>
-            <div class="text-center ms-20 copyright">© 2022 - MGF</div>
+            <div class="text-center ms-20 copyright">Trade © 2022 - MGF</div>
         </nav>
     </footer>
     
