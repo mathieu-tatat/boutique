@@ -12,16 +12,23 @@ $items;
 -----------------------------*/  
 if(isset($_POST['create_prod']))
 {
+    //recupération du nom de produit et détermination de l'endroit ou stocker l'image uploadée
     $targetPath = 'View/ProductImg/';
     $filename = substr($_POST['nom_produit'],0,10);
     $targetFile = $targetPath.$filename.'.jpg';
+
+    //transfert de l'image vers l'endroit
     move_uploaded_file($_FILES['img']['tmp_name'], $targetFile);
+
+    //récupération des données renseignées dans le formulaire
     $nom = $_POST['nom_produit'];
     $prix = $_POST['unit_price'];
     $uniteEnStock = $_POST['units_in_stock'];
     $description = $_POST['description'];
     $idCategorie = $_POST['id_categorie'];
     $idSousCategorie = $_POST['id_sous_categorie'];
+
+    //création du produit dans la base de donnée
     $produit->createProduit($nom, $targetFile, $prix, $uniteEnStock, $description, $idCategorie, $idSousCategorie);
 }
 
@@ -55,6 +62,7 @@ if(isset($_POST['createSousCategorie']))
 // chg txt data  
 if(isset($_POST['update_prod']))
 {
+    //récupération des données renseignées dans le formulaire
     $nom = $_POST["nom_produit"];
     $prix = $_POST["unit_price"]; 
     $uniteEnStock = $_POST["units_in_stock"]; 
@@ -62,17 +70,26 @@ if(isset($_POST['update_prod']))
     $idCategorie = $_POST["id_categorie"]; 
     $idSousCategorie = $_POST["id_sous_categorie"];
     $idProduit = $_POST["id_produit"];
+
+    //update du produit dans la base de donnée
     $produit->updateProduit($nom, $prix, $uniteEnStock, $description, $idCategorie, $idSousCategorie, $idProduit);    
 }
 
 //chg img
 if(isset($_POST['chg_img']))
 {
+    //recupération du nom de produit et détermination de l'endroit ou stocker l'image uploadée
     $targetPath = 'View/ProductImg/';
     $filename = substr($_POST['nom_produit'],0,10);
     $targetFile = $targetPath.$filename.'.jpg';
-    $idProduit = $_POST["id_produit"];
+    
+    //transfert de l'image vers l'endroit
     move_uploaded_file($_FILES['img']['tmp_name'], $targetFile);
+
+    //récupération des données renseignées dans le formulaire
+    $idProduit = $_POST["id_produit"];
+
+    //update de l'image du produit dans la base de donnée
     $produit->updateImg($targetFile, $idProduit);
 }
 

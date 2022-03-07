@@ -1,4 +1,4 @@
-<?php $title = "shop" ?>
+<?php $title = "Contact" ?>
 <?php session_start(); ?>
 <?php require_once('Controller/user_controller.php'); ?>
 

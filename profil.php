@@ -1,4 +1,4 @@
-<?php $title = "profil" ?>
+<?php $title = "Profil" ?>
 <?php session_start(); ?>
 <?php require_once('Model/User.php'); ?>
 <?php require_once('Controller/user_controller.php'); ?>

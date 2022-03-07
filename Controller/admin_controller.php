@@ -11,14 +11,17 @@ if(isset($_POST["objet1"]))
 {
     $carousel->updateToCarousel($_POST['idProduit'],1);
 }
+
 if(isset($_POST["objet2"]))
 {
     $carousel->updateToCarousel($_POST['idProduit'],2);
 }
+
 if(isset($_POST["objet3"]))
 {
     $carousel->updateToCarousel($_POST['idProduit'],3);
 }
+
 if(isset($_POST["objet4"]))
 {
     $carousel->updateToCarousel($_POST['idProduit'],4);
