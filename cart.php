@@ -22,7 +22,6 @@
                             <th class="col-md-1" >Quantité</th>
                             <th class="col-md-1" >Prix</th>
                             <th class="col-md-2">Nom du produit</th>
-                            <th class="col-md-3" >Description</th>
                             <th  class="col-md">Mis à jour panier</th>
                         </tr>
                         <?php  for($i=0;$i<=isset($products_infos[$i]);$i++): ?>
@@ -30,7 +29,6 @@
                             <td><img src="<?= $products_infos[$i]['img_url'] ?>" class="cartPicsInCart"></td>
                             <td><?= $quantity[$i]; $quant[]=$quantity[$i]; ?>&#160;<i class="small">unité(s)</i></td>
                             <td><?= $prod=$products_infos[$i]['unit_price']*$quantity[$i];  $price[]=$products_infos[$i]['unit_price']; ?></td>
-                            <td><?= substr($products_infos[$i]['description_produit'],0,100) ?>...</td>
                             <td><?= $products_infos[$i]['nom_produit'] ?></td>
                             <td class="col-md-2">
                                 <div class="d-flex flex-column">
