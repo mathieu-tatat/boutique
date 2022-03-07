@@ -19,21 +19,23 @@ ob_start();
             </div>
         </form>
     </div><!-- 4 -->
-    <div class="col-sm-1 ms-5"><a href="shop.php" class="h6"><b>Shop</b></a></div>
-    <div class="col-sm-1"><a href="connexion.php" class="h6"><b>About</b></a></div>
-    <div class="col-sm-1"><a href="about.php" class="h6"><b>Contacts</b></a></div>
+    <div class="col-sm ms-5"><a href="shop.php" class="h6"><b>Shop</b></a></div>
+    <div class="col-sm me-2"><a href="connexion.php" class="h6"><b>About</b></a></div>
+    <div class="col-sm"><a href="about.php" class="h6"><b>Contacts</b></a></div>
     <?php if(isset($_SESSION['connected'])): ?>
         <?php if($_SESSION["droits"] == 1337) : ?>
-            <a href="admin.php" class="h6 me-2 text-danger"><b>Admin </b></a>
-        <?php endif; ?>
-    <div class="col-sm-1 ms-4">
+    <div class="col-sm px-3">
+    <a href="admin.php" class="h6 px-3 text-danger"><b>Admin </b></a>
+    </div>
+    <?php endif; ?>
+    <div class="col-sm-1 ms-3 px-3">
         <div class="col">
             <a href="profil.php" class="h6"><b>Profil </b></a>
         </div>
     </div><!-- 2 -->
         <div class="col-sm-1">
         <form method="POST">
-            <button type="submit" class="h6 btn btn-dark rounded-0 px-1 me-2" name="disconnect">
+            <button type="submit" class="h6 btn btn-dark rounded-2 shadow-sm px-1 me-2" name="disconnect">
                 <b>Disconnect</b>
             </button>
         </form>

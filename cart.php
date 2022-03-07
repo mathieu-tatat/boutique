@@ -15,32 +15,41 @@
                     <b>Your Cart </b>
                 </div>
                 <?php if(isset($_SESSION['connected']) and isset($products_infos) and isset($quantity) ): $tot=0; ?>
-                    <table class="table p-3">
+                    <table class="table p-2">
+                        <tr class="p-1">
+                            <!--<div class="col-md-2 mt-3 px-2" >Image</div>-->
+                            <th class="col-sm-2 px-2"></th>
+                            <th class="col-md-1" >Quantité</th>
+                            <th class="col-md-1" >Prix</th>
+                            <th class="col-md-2">Nom du produit</th>
+                            <th class="col-md-3" >Description</th>
+                            <th  class="col-md">Mis à jour panier</th>
+                        </tr>
                         <?php  for($i=0;$i<=isset($products_infos[$i]);$i++): ?>
-                        <tr>
-                            <td><div class="row-cols-sm-1 " ><img src="<?= $products_infos[$i]['img_url'] ?>" class="cartPicsInCart"></div></td>
-                            <td><div class="row-cols-sm-2 px-3" ><?= $quantity[$i]; $quant[]=$quantity[$i]; ?>&#160;<i class="small">unité(s)</i></div></td>
-                            <td><div class="row-cols-sm-2 px-3" ><?= $prod=$products_infos[$i]['unit_price']*$quantity[$i];  $price[]=$products_infos[$i]['unit_price']; ?></div></td>
-                            <td><div class="row-cols-sm-2 px-3" ><?= substr($products_infos[$i]['description_produit'],0,100) ?>...</div></td>
-                            <td><div class="row-cols-sm-2 px-3" ><?= $products_infos[$i]['nom_produit'] ?></div></td>
-                            <td><div class="row-cols-sm-2 px-3" >
-                                    <form method="POST">
-                                        <div class="form-check px-4">
-                                            <button type="submit" class="btn btn-dark rounded-0" value="<?= $products_infos[$i]['id_produit']; ?>" name="submitProductDelete">delete</button>
+                        <tr class="p-1">
+                            <td><img src="<?= $products_infos[$i]['img_url'] ?>" class="cartPicsInCart"></td>
+                            <td><?= $quantity[$i]; $quant[]=$quantity[$i]; ?>&#160;<i class="small">unité(s)</i></td>
+                            <td><?= $prod=$products_infos[$i]['unit_price']*$quantity[$i];  $price[]=$products_infos[$i]['unit_price']; ?></td>
+                            <td><?= substr($products_infos[$i]['description_produit'],0,100) ?>...</td>
+                            <td><?= $products_infos[$i]['nom_produit'] ?></td>
+                            <td class="col-md-2">
+                                <div class="d-flex flex-column">
+                                    <form method="POST" class="mt-2 mb-2">
+                                        <div class="form-check px-2">
+                                            <button type="submit" class="btn btn-dark shadow-sm rounded-2 small" value="<?= $products_infos[$i]['id_produit']; ?>" name="submitProductDelete"><b class="small">delete</b></button>
                                         </div>
                                     </form>
+                                    <form method="POST" class="px-2">
+                                        <label for="selectQuant">Qty:</label>
+                                        <select name="selectQuant" class="h-25 mt-1">
+                                            <option value="<?php echo $quantity[$i]; ?>,<?= $products_infos[$i]['id_produit'];?>"> <?= $quantity[$i]; ?> </option>
+                                            <?php for($j=0;$j<=intval($products_infos[$i]['units_in_stock']);$j++): ?>
+                                                <option value="<?php echo $j; ?>,<?= $products_infos[$i]['id_produit'];?>"> <?= $j; ?> </option>
+                                            <?php endfor; ?>
+                                        </select>
+                                        <button class="form-check btn btn-dark shadow-sm rounded-2 mb-1 small" id="smallBtn" type="submit" name="submitCartUpdate" value="select"><b class="small">ajouter au panier</b></button>
+                                    </form>
                                 </div>
-                            </td>
-                            <td><form method="POST" class="row-cols-sm-2 px-2">
-                                    <label for="selectQuant">Qty:</label>
-                                    <select name="selectQuant" class="h-25">
-                                        <option value="<?php echo $quantity[$i]; ?>,<?= $products_infos[$i]['id_produit'];?>"> <?= $quantity[$i]; ?> </option>
-                                        <?php for($j=0;$j<=intval($products_infos[$i]['units_in_stock']);$j++): ?>
-                                            <option value="<?php echo $j; ?>,<?= $products_infos[$i]['id_produit'];?>"> <?= $j; ?> </option>
-                                        <?php endfor; ?>
-                                    </select>
-                                    <input class="form-check btn btn-dark rounded-0 small" id="smallBtn" type="submit" name="submitCartUpdate" value="select"/>
-                                </form>
                             </td>
                         </tr>
                        <?php endfor; ?>

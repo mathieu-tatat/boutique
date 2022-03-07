@@ -33,7 +33,7 @@
             </div>
             <hr/>
             <div class="row px-4 mt-3" >
-                <div class=" px-2 mt-1 mb-3"><h5>Contact</h5></div>
+                <div class=" px-2 mt-1 mb-2"><h5>Contact</h5></div>
                 <div class="form-group row">
                     <input type="text" class="col-form p-1 px-2 rounded-1" style="border:solid 1px darkgray;width:87.5%;" placeholder="Email" name="email">
                 </div>

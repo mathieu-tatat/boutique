@@ -10,9 +10,9 @@
 <?php   ob_start();  ?>
     <div class="d-flex flex-row justify-content-center align-items-center">
         <div class="px-4 mt-2 me-5" style="width:30%">
-            <img src="Elements/logos/login.svg";" class="mt-5 ms-5">
+            <img src="Elements/logos/login.svg" class="mt-5 ms-5">
         </div>
-        <div class="container-md me-5 mt-4 mb-5 shadow-sm border border-ligth p-3 w-50">
+        <div class="container-md me-5 mt-4 mb-5 rounded-2 shadow-sm border border-ligth p-3 w-50">
             <div class="display-6 px-4 mt-4 mb-3"><b>Connection</b></div>
             <form class="d-flex flex-column" action="" id="signUpFrom" method="POST">
                     <div class="form-group px-4 mt-4" >
