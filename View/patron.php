@@ -18,10 +18,6 @@
         <?php require_once ('View/header.php') ?>
     </header>
     
-    <div class="banner" style="background-image: url('View/Media/banner2.jpg')">
-        <div class="start"><h2 class="trade">TRADE</h2></div>
-        <div class="end"><p class="slogan">Papershop</p></div>    
-    </div>
     <h1 class="text-center text-light py-2" style="background-color:#201E1F"><?= $title ?></h1>
 
     <?php require_once('View/Error.php')?>
@@ -41,4 +37,5 @@
 
 <!-- Latest compiled JavaScript -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>

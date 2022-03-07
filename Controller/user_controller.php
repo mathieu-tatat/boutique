@@ -1,6 +1,7 @@
 <?php
 
 include_once ('Model/User.php');
+require_once('Model/Cart.php');
 $user = new User();
 $_SESSION['errors'] = array();
 
@@ -38,6 +39,13 @@ if(isset($_POST['submit_subscription']))
         $user->subscribeUser($prenom, $nom, $email, 
                                 $password_1, 
                                 $address, $zipCode);
+
+        //récupère toutes les informations pour avoir l'id qui vient d'être créé                       
+        $userInfos = $user->chkExists($email);
+
+        //instantie un panier pour pouvoir créer un nouveau panier pour le nouvel utilisateur
+        $cart = new Cart();
+        $cart->createCart($userInfos["id_utilisateur"]);
         header('location: ./connexion.php');        
     }
 }
@@ -72,7 +80,7 @@ if( isset($_POST['submit_connection']))
         session_start();
         
         $_SESSION['connected'] = true;
-        $_SESSION['cart'] = true;
+       
         
         $_SESSION['id'] = $checkExists["id_utilisateur"];
         $_SESSION['prenom'] = $checkExists["prenom"];
@@ -82,6 +90,7 @@ if( isset($_POST['submit_connection']))
         $_SESSION['address'] = $checkExists["address"];
         $_SESSION['zipCode'] = $checkExists["code_postal"];
         $_SESSION['droits'] = $checkExists["id_droit"];
+        $_SESSION['cart'] = $user->getCartId($checkExists["id_utilisateur"]);
 
         header('location:profil.php');
        

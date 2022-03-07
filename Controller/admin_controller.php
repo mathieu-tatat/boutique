@@ -46,7 +46,7 @@ elseif (isset($_POST["gestion_commande"]))
 }
 else
 {
-    $soustitre = "Bienvenu sur la page admin"; 
+    $soustitre = "Bienvenue sur la page admin"; 
     ob_start(); ?>        
         <h4 class="text-center">Veuillez choisir</h4>
 <?php   $souscontenu = ob_get_clean(); 

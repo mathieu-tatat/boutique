@@ -1,33 +1,54 @@
 <?php $title = "Log In" ?>
 <?php session_start(); ?>
-<?php require_once('Controller/user_controller.php'); ?>
+<?php require_once('Model/User.php'); ?>
+<?php require_once('Model/Cart.php'); ?>
+<?php require_once('Model/Search.php'); ?>
 
+<?php require_once('Controller/user_controller.php'); // Models : User  &  Cart ?>
 
 <?php   ob_start();  ?>
-    <?php include('View/Error.php'); ?>
-    <div class="d-flex flex-column align-items-center">
-        <div class="display-6 px-4 mt-4"><b>Log In </b></div>
-        <div class="container-sm px-4 mt-4 mb-5 border border-secondary">
-            <form class="d-flex flex-column" action="" id="signUpFrom" method="POST">
-                    <div class="form-group px-4 mt-4" >
-                            <label for="exampleInputText1">Email </label>
-                            <input type="text" class="form-control rounded-0" id="exampleInputText1" placeholder="Email" name="email">
-                    </div>
-                    <div class="form-group px-4 mt-4">
-                        <label for="exampleInputPassword1">Password</label>
-                        <input type="password" class="form-control rounded-0" id="exampleInputPassword1" placeholder="Password" name="password">
-                    </div>
-                    <div class="form-group px-4 mt-4">
-                        <button type="submit" class="btn btn-dark rounded-0 px-4 mt-4 mb-4" name="submit_connection">Log In</button>
-                    </div>
-            </form>
+    <div class="d-flex flex-row justify-content-center align-items-center my-3">
+        
+        <div class="px-4" style="width:30%;">
+            <img src="View/logos/login.svg" class="mt-5 ms-5">
         </div>
-<?php if(isset($tmp)){ echo $tmp;} ?>
-    </div>
+        
 
+        <div class="container-md rounded-2 shadow-sm border 
+                    border-light w-50 p-3">
+
+            <form action="" method="POST">
+
+                <!-- Email -->
+                <div class="row">
+                    <div class="form-group" >
+                        <label for="email">Email</label>
+                        <input type="text" class="form-control p-1 px-2 rounded-1" id="email" name="email">
+                    </div>
+                </div>
+
+
+                <!-- Password -->
+                <div class="row">
+                    <div class="form-group">
+                        <label for="password">Mot de passe</label>
+                        <input type="password" class="form-control p-1 px-2 rounded-1" id="password" name="password">
+                    </div>
+                </div>
+                
+                <!-- Submit -->
+                <div class="d-flex justify-content-center align-items-center">
+                    <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm" name="submit_connection">Se connecter</button>
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
 <?php  $content=ob_get_clean(); ?>
 
-<?php require ('View/patron.php'); ?>
+<?php require ('View/Patron.php'); ?>
 
 
 

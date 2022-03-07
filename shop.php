@@ -1,18 +1,22 @@
-<?php $title = "Shop" ?>
+<?php $title = "shop" ?>
+<?php session_start();?>
+<?php require_once('Model/Article.php'); ?>
+
+<?php /* require_once('Model/CurrentProduct.php'); ?> */?>
+<?php require_once('Model/Produit.php'); ?>
+<?php require_once('Model/Contient.php'); ?>
+<?php require_once('Model/User.php'); ?>
+<?php require_once('Model/Search.php'); ?>
+<?php require_once('Model/Categorie.php'); ?>
+<?php require_once('Model/SousCategorie.php'); ?>
+<?php require_once('Controller/shop_controller.php'); ?>
+<?php require_once('Controller/user_controller.php'); ?>
 <?php
-    session_start();
-	require_once ('Model/Produit.php');
-    require_once ('Model/SousCategorie.php');
-    require_once ('Controller/shop_controller.php');
-    require_once ('Model/Article.php');
-    require_once ('Model/Categorie.php');
-    require_once ('Model/SousCategorie.php');
-    
-        
-    // creation de mes produits
-    $souscategorie = new SousCategorie();
-    $detail = new Article();
-       
+
+// creation de mes produits
+$souscategorie = new SousCategorie();
+$detail = new Article();
+
 ?>
 
 <?php ob_start() ?>
@@ -20,8 +24,8 @@
     <div class= "content">
 
         <!-- NavBar -->
-        <div class="card shadow-sm navCat">
-            <h3>Categories</h3>
+        <div class="card shadow-sm col-sm-3 navCat">
+            <h3>Catégories</h3>
             <?php
                 // Generation d'une variable contenant le tableau avec chacune des sous categories
                 $SCat = $souscategorie->getAllSubCat(); ?>

@@ -5,7 +5,7 @@
 <?php require_once('Controller/shop_controller.php');  ?>
 
 <?php ob_start(); ?>   
-<h2 class="text-center text-light py-2 ajouts">Derniers ajouts</h2>
+<h2 class="text-center">Derniers ajouts</h2>
 <div class="container-fluid">
     <div class="row justify-content-center mg-tp-20">
         <div class="col-lg-10">
