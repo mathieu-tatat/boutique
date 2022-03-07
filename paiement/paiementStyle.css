@@ -1,0 +1,62 @@
+.paimentForm{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #242d60;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+  'Helvetica Neue', 'Ubuntu', sans-serif;
+  height: 100vh;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.containerForm{
+  width: 25%;
+  margin:auto ;
+  border: solid 1px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+}
+
+.buttonPaye:hover {
+  opacity: 0.6;
+}
+
+.buttonPaye{
+  margin: 0 auto !important;
+  display: flex !important;
+  justify-content: center !important;
+  background-color: #54C7C3 !important;
+  color: white !important;
+}
+
+
+.verification{
+  display: flex;
+  gap:25;
+}
+
+.trait_dessus{
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+  font-weight: bolder;
+  border-bottom: 1px solid #54C7C3;
+  width : 235px;
+  margin-bottom: 5px;
+}
+
+.mounth{
+  padding-right: 10px;
+}
+
+.recapPanier{
+  border: solid 2px;
+  border-radius: 8px;
+  background-color: #54C7C3;
+  width: 40%;
+
+}

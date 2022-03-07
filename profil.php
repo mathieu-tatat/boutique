@@ -19,9 +19,6 @@
                 <a href="#settings-path" class="d-flex flex-column align-items-center">
                     <div class="h-1 mt-2"><h1><b>Compte</b></h1></div>
                 </a>
-                <a href="#cart-path" class="d-flex flex-column align-items-center">
-                    <div class="h-1 mt-2"><h1><b>Panier</b></h1></div>
-                </a>
                 <a href="#order-path" class="d-flex flex-column align-items-center">
                     <div class="h-1 mt-2"><h1><b>Commandes</b></h1></div>
                 </a>
@@ -69,63 +66,6 @@
                         </div>
                     </form>
 
-                </div>
-            <div class="container-xl px-4 mt-4 mb-4">
-                <div class="p-3 mb-5 rounded-0 border border-secondary border-1 px-4 mt-4">
-                    <div class="mb-1" id="cart-path">
-                        <div class="display-6 px-4 mt-4 mb-4">
-                            <b>Your Cart </b>
-                        </div>
-                        <?php if(isset($_SESSION['connected']) and isset($products_infos) and isset($quantity) and isset($id_cart) ): ?>
-                            <?php $tmp=''; ?>
-                            <table class="table">
-                                <tr >
-                                    <!--<div class="col-md-2 mt-3 px-2" >Image</div>-->
-                                    <th class="col-md px-2" ></th>
-                                    <th class="col-md " >Quantity</th>
-                                    <th class="col-md " >Unit Price</th>
-                                    <th class="col-md " >Product Name</th>
-                                    <th class="col-md-3 px-2" >Description</th>
-                                    <th class="col-md px-3" >Edit</th>
-                                </tr>
-                                <tr>
-                                    <?php for($i=0;$i<=isset($products_infos[$i]);$i++): ?>
-                                    <td class="col-md-2 mt-3 px-2 h-25" >
-                                        <img src="<?= $products_infos[$i]['img_url'] ?>" class="prodPics">
-                                    </td>
-                                    <td class="col-md mt-1 text-justify" >
-                                        <form method="POST" >
-                                            <div class="row">
-                                                <select class="form-select form-select-sm px-3" aria-label=".form-select-sm example" name="quantity">
-                                                    <option selected><?= $quantity[$i] ?></option>
-                                                    <?php  for($j=1;$j<=$products_infos[$i]['units_in_stock'];$j++): ?>
-                                                        <option value="<?= $val=$j.','.$products_infos[$i]['id_produit'].','.$id_cart['id_panier']; ?>" ><?= $j ?></option>
-                                                    <?php  endfor;  ?>
-                                                </select>
-                                                <input class="btn btn-dark rounded-0 small" type="submit" name="submitContientUpdate" value="update️️"/>
-                                            </div>
-                                        </form>
-                                    </td>
-                                    <td class="col-md mt-1 px-5 text-justify" ><?= $products_infos[$i]['unit_price'] ?></td>
-                                    <td class="col-md-2 mt-1 px-2 text-justify small" ><?= $products_infos[$i]['nom_produit'] ?></td>
-                                    <td class="col-md-3 mt-1 px-2 text-justify small" ><?= substr($products_infos[$i]['description_produit'],0,120) ?>...</td>
-                                    <td class="col-md mt-1 px-5" >
-                                        <form method="POST">
-                                            <div class="mb-3 form-check px-4 mb-2">
-                                                <button type="submit" class="btn btn-dark rounded-0" name="submitProductDelete">delete</button>
-                                            </div>
-                                        </form>
-                                    </td>
-                                </tr>
-                                <?php endfor; ?>
-                            </table>
-                        <?php else: ?>
-                        <div class="row">
-                            <div class="h-3 border border-secondary rounded-0 px-4 mb-2 mt-2 ml-2 text-center"">
-                            <b>your cart is still empty </b>
-                        </div>
-                    </div>
-                    <?php endif; ?>
                 </div>
             </div>
         </div>

@@ -53,9 +53,9 @@
                        <?php endfor; ?>
                     </table>
                     <div class="h3"><?php for($i=0;$i<=isset($price[$i]);$i++){ $tot+=$price[$i]*$quant[$i]; } echo 'cart total: '.$tot; ?></div>
-                    <form method="POST">
+                    <form method="POST" action="">
                         <div class="mb-3 form-check px-4">
-                            <button type="submit" class="btn btn-dark rounded-0 px-5" name="payCart">pay</button>
+                            <button type="submit" class="btn btn-dark rounded-2 shadow-sm px-5" name="payCart" value="<?= $tot ?>"><b>pay</b></button>
                         </div>
                     </form>
                 <?php else:    //here the else ?>

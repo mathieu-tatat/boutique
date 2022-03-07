@@ -46,4 +46,16 @@ Class Contient extends Db
         $params=([':id_panier' => $id_panier, ':id_produit' => $id_produit]);
         $this->selectQuery($sql, $params);
     }
+    public function totalContient($id_panier){
+        $sql = " SELECT contient.id_produit, contient.quantite, contient.id_panier,
+                        produits.unit_price*contient.quantite as total
+                produits.unit_price
+                INNER JOIN produits
+                ON contient.id_produit = produits.id_produit
+                FROM contient WHERE id_panier=:id_panier ";
+        $params = [':id_panier' => $id_panier];
+        $result = $this->selectQuery($sql, $params);
+        $total=$result->fetchAll();
+        return $total;
+    }
 }

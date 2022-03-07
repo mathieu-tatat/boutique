@@ -1,5 +1,7 @@
 <?php
 
+require_once('Model/Contient.php');
+
 // Models :  User  &  Cart  &  Contient  &  Produit   __________________________________________________________________
 
 if(isset($_SESSION['connected'])){
@@ -50,4 +52,12 @@ if(isset($_POST['submitProductDelete'])){
     $id_produit=$_POST['submitProductDelete'];
     $contient->deleteContientRow(intval($id_panier), intval($id_produit));
     header('location: cart.php');
+}
+
+if(isset($_POST['payCart'])){
+    $total=new Contient();
+    $total=$total->totalContient($_SESSION['cart']);
+    var_dump($_SESSION);
+    $_SESSION['totalcart']=intval($_POST['payCart']);
+    //header('location:paiement/paiements.php');
 }

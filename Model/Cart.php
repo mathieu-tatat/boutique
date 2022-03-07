@@ -4,7 +4,7 @@ require_once('Model.php');
 
 Class Cart extends Db
 {
-    public $id_panier, $id_utilisateur;
+    public $id_panier, $id_utilisateur, $total;
 
     function __construct()
     {
@@ -17,9 +17,10 @@ Class Cart extends Db
         $id_panier=$result->fetch();
         return $id_panier;
     }
-    function insertCart($id_utilisateur){
+    public function insertCart($id_utilisateur){
         $sql = " INSERT INTO paniers(id_utilisateur) VALUES (:id_utilisateur) ";
         $params = ([':id_utilisateur' => $id_utilisateur]);
         $this->selectQuery($sql, $params);
     }
+
 }
