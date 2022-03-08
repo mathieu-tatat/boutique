@@ -1,35 +1,68 @@
 <?php ob_start();?>
 <div class="container-fluid  px-5 mt-3">
+
     <div class="container-fluid">
+
         <div class="container row row-cols-xl-3">
+
             <!-- pour chaques produits je recupère les infos en fonction de leurs id  -->
             <?php foreach($items as $item):  ?>
                 <div class="shopRow d-flex flex-column px-3 mb-5">
-                    <h4 class= "sizeNom mb-2 mt-2"><a class= "sizeNom" href="shop.php?article_id=<?=$item['id_produit']?>"><?= substr($item['nom_produit'],0,50)?></a></h4>
+
+                    <!-- nom -->
+                    <h4 class= "sizeNom mb-2 mt-2">
+                        <a class= "sizeNom" href="shop.php?article_id=<?=$item['id_produit']?>">
+                            <?= substr($item['nom_produit'],0,50)?>
+                        </a>
+                    </h4>
+
+                    <!-- img -->
                     <a href='shop.php?article_id=<?= $item["id_produit"]?>' >
                         <img class="image mb-2 mt-3" src="<?=$item['img_url']?>">
                     </a>
-                    <div class="shop-card row">
-                        <div class="d-flex flex-row align-items-center justify-content-between mx-3 me-1">
-                            <p class="small mt-2">Qté:</p>
-                            <small class="text-muted mt-2 me-3"><?= $item['unit_price'] ." €"?></small>
-                        </div>
-                        <form method="POST" class="d-flex flex-row align-items-center mb-2 mt-2 me-1">
-                            <input type="hidden" name="idProduit" value="<?= $item['id_produit'] ?>">
-                            <select class="form-select rounded-0 ms-1 px-4 mb-2" style="width:75%;" 
-                            aria-label=".form-select-sm example" name="quantity" id="quantityBtn">
-                                <?php if(isset($item['units_in_stock'])): ?>
-                                <option value="<?= 1; ?>" ><?= 1; ?></option>
-                                <?php   for($j=0;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
-                                    <option value="<?= $j ?>" ><?= $j ?></option>
-                                <?php  endfor; ?>
-                            </select>
-                            <button type="submit" class="btn btn-dark border-1 border-dark rounded-2 px-1 ms-2 mb-3 mt-2 text-nowrap" name="addToCart" >
-                                <p class="small" style="font-size:0.83em;"><b>ajouter au panier</b></p>
-                            </button>
-                        </form>
+
+                    <!-- ajout au panier -->
+                    <div class="shop-card row p-3">
+                        <small class="text-muted mx-2 text-center mb-2"><?= $item['unit_price'] ."€"?></small>
+
+                        <!-- Stock -->
+                        <?php if( isset($item['units_in_stock']) && $item['units_in_stock'] == 0) : ?>
+
+                            <p class="text-center"><em>Plus en stock</em></p>
+
+                        <?php elseif(isset($item['units_in_stock'])): ?>
+
+                            <form method="POST" class="d-flex flex-row align-items-center">
+
+                                <!-- Id produit -->
+                                <input type="hidden" name="idProduit" value="<?= $item['id_produit'] ?>">
+
+                                <!-- select Quantity -->
+                                <label for="quantity" class="mx-1">Qté:</label>
+                                <select class="form-select rounded-0"
+                                aria-label=".form-select-sm example" name="quantity" id="quantity">
+                                    
+                                        <?php   for($j=0;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
+                                            <?php if($j == 1) :?>
+                                                <option value="<?= $j ?>" SELECTED><?= $j ?></option>
+                                            <?php else : ?>
+                                                <option value="<?= $j ?>" ><?= $j ?></option>
+                                            <?php endif; ?>
+                                        <?php  endfor; ?>
+                                    
+                                </select>
+
+                                
+                                
+                                <!-- submit -->
+                                <button type="submit" class="btn btn-dark btn-sm rounded-2 mx-2" name="addToCart" >
+                                    <img src="View/icons/whiteCart.svg" alt="" class="w-50">
+                                </button>
+                            </form>
                         <?php endif; ?>
+                        
                     </div>
+
                 </div>
             <?php endforeach;?>
 

@@ -19,10 +19,14 @@ $item=$produit->getProduitsFromId(intval($_GET['article_id']));
                 <small><?= $produit->getUnitPriceById($_GET['article_id'])." €"?></small>   
             </div>
             <div>
+                <!-- Stock -->
+                <?php if( isset($item['units_in_stock']) && $item['units_in_stock'] == 0) : ?>
+                            <p class="text-center"><em>Plus en stock</em></p>
+                <?php elseif(isset($item['units_in_stock'])): ?>
                 <form method="POST" class="d-flex flex-row align-items-center mt-2 me-1">
                     <p class="small mb-3">Qty:</p>
                     <select class="form-select rounded-0 ms-1 px-4 mb-3" style="width:40%!important;" aria-label=".form-select-sm example" name="quantity" id="quantityBtn">
-                        <?php if(isset($item['units_in_stock'])): ?>
+                        
                         <option value="<?= 1; ?>" ><?= 1; ?></option>
                         <?php   for($j=0;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
                             <option value="<?= $j ?>" ><?= $j ?></option>
