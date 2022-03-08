@@ -7,14 +7,13 @@ require_once('Model/Produit.php');
 
 if(!isset($_SESSION['connected']))
 {
-    header('location:connexion.php');  // if the hash doesn't match
+    header('location:connexion.php');
     exit();
 }  
 
 if(isset($_POST['paiement']))
 {
 
-    // $token = htmlspecialchars($_POST['stripeToken']);
     $name = htmlspecialchars($_POST['name']);
     $total = htmlspecialchars($_SESSION["totalCommande"]);
     $cardNumber1 = htmlspecialchars($_POST['number1']);
@@ -26,7 +25,6 @@ if(isset($_POST['paiement']))
     $cvc = htmlspecialchars($_POST['cvc']);
 
 
-    // if (empty($token)) { array_push($_SESSION['errors'], "Token invalide"); }
     if (empty($name))                                   { array_push($_SESSION['errors'], "Veuillez renseigner un nom"); }    
     if (empty($total))                                  { array_push($_SESSION['errors'], "le total est invalide"); }
     if (!preg_match('/^[0-9]{4}$/', $cardNumber1) )     { array_push($_SESSION['errors'], "le numéro de carte est invalide"); }
@@ -39,20 +37,7 @@ if(isset($_POST['paiement']))
 
     if(count($_SESSION['errors']) == 0) 
     {
-        // require('Stripe.php');
-        // $stripe = new Stripe('sk_test_51KYOwkJL8tvfRiB6iVBSoByYQgrr44hyZljUreW2YxrkWCvMhp9VxZluhBns6ymzM6XNTtyDRDJDgJB948NZhMaD00oTlpUrON');
-        
-        // $customer = $stripe->api('customers', [
-        //     'source' => $token,
-        //     'description' => $name,
 
-        // ]);
-
-        // $charge = $stripe->api('charges', [
-        //     'amount' => $total,
-        //     'currency' => 'eur',
-        //     'customer' => $customer->id
-        // ]);
         $produit = new Produits();
         foreach ($_SESSION['infosProduitsDansPanier'] as $infoProduit)
         {
