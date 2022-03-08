@@ -12,7 +12,12 @@ if(isset($_SESSION['connected'])){
     $user_infos=$user->getUserInfos($id['id_utilisateur']); // get all my infos for placeholders
     // CART_________________________________________________________________________________________________________
     $cart=new Cart();   //new cart to exploit panier et cart in bd
+
+
     $id_cart=$cart->getCart($id['id_utilisateur']); // get my panier id
+
+
+
     $contient=new Contient($id_cart['id_panier']);  // instantiate a object content for cart with the panier id
     $full_cart=$contient->getContient($id_cart['id_panier']);    // get the panier content
     $products=new Produits();   // instantiate newproduct to get products from db

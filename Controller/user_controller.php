@@ -127,7 +127,7 @@ if( isset($_POST['submit_connection'])){
                 // this is needed to check if there is eventually a cart already open
                 // or if create a new one in Db.
                 // to perform so, orders has to be called to check if the last
-                // cart fetched has been paid.
+                // cart fetched had been paid.
 
                 //check cart existence
                 $cart_exist=$user->checkCartExist($myid['id_utilisateur']);
@@ -144,9 +144,9 @@ if( isset($_POST['submit_connection'])){
 
 
 
-                    // get cart id
+                    // get cart id          LEGERE MODIF TO HAVE THE LAST CART IN USER MODEL ___________>>>>>>>>CHECK
                     $mycartid = $user->getCartId($myid['id_utilisateur']);
-
+                    var_dump( $mycartid);
                     // assign sessions
 
                     $_SESSION['connected'] = $_POST['email'];

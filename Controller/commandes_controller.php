@@ -27,6 +27,5 @@ if(isset($_SESSION['commande_details'])){
     $id_comm=$_SESSION['commande_details'];    //choppe id_panier
     $commandes=new Commande();
     $comm=$commandes->getAllProductsOneCommande($id_comm);
-    //var_dump($comm);
 
 }

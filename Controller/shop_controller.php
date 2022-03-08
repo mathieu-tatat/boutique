@@ -10,7 +10,7 @@ require_once('Model/SousCategorie.php');
 
 // creation de mes produits
 $article = new Produits();
-// gegt infos from products
+// get infos from products
 $items = $article->get_info_produits();
 
 //instantiate a new user

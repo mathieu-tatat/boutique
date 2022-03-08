@@ -136,7 +136,7 @@ Class User extends Db
     }
     function getCartId($id_utilisateur)
     {
-        $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ";
+        $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ORDER BY id_panier DESC";
         $params = [':id_utilisateur' => $id_utilisateur];
         $result = $this->selectQuery($sql, $params);
         $result->setFetchMode(PDO::FETCH_CLASS, 'CartContientSession');

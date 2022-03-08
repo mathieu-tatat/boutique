@@ -11,7 +11,7 @@ Class Cart extends Db
     }
 
     public function getCart($id_utilisateur){
-        $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ORDER BY id_utilisateur DESC";
+        $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ORDER BY id_panier DESC";
         $params = [':id_utilisateur' => $id_utilisateur];
         $result = $this->selectQuery($sql, $params);
         $id_panier=$result->fetch();
