@@ -28,8 +28,8 @@ $item=$produit->getProduitsFromId(intval($_GET['article_id']));
                             <option value="<?= $j ?>" ><?= $j ?></option>
                         <?php  endfor; ?>
                     </select>
-
-                    <button type="submit" class="btn btn-dark shadow-sm border-1 border-dark rounded-2 px-1 ms-2 mb-3 text-nowrap" value="<?= $item['id_produit'] ?>" name="addToCart" >
+                    <input type="hidden" value="<?= $item['id_produit'] ?>" name="idProduit">
+                    <button type="submit" class="btn btn-dark shadow-sm border-1 border-dark rounded-2 px-1 ms-2 mb-3 text-nowrap"  name="addToCart" >
                         <p class="small" style="font-size:0.75em;"><b>ajouter au panier</b></p>
                     </button>
                 </form>

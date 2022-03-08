@@ -30,6 +30,7 @@ if(isset($_POST['submit_subscription']))
     if (!preg_match('/^[a-zA-Z0-9]{8,}$/', $password_1)) { array_push($_SESSION['errors'], "Password format is wrong");}
     if (empty($address)) { array_push($_SESSION['errors'], "Address is required"); }
     if (empty($zipCode)) { array_push($_SESSION['errors'], "Code postal is required"); }
+    if (!preg_match('/^[0-9]{5}$/', $zipCode)) { array_push($_SESSION['errors'], "ZipCode format is wrong");}
 
     //check if user exists
     $chkExists = $user->chkExists($email);

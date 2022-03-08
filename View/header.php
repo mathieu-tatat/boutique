@@ -1,4 +1,3 @@
-<?php require_once 'Controller/user_controller.php'; ?>
 <div class="d-flex flex-row justify-content-between align-items-center" style="background-image: url('View/Media/banner2.jpg')">
     
     <a href="index.php" class="alert-link"><img src="View/logos/foxwhite.png"></a>

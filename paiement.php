@@ -17,13 +17,14 @@
                 </tr>
             </thead>
             <tbody>
-        <?php $produit = new Produits(); foreach ($_SESSION['infosProduitsDansPanier'] as $infoProduit) : ?>
+        <?php $produit = new Produits(); 
+                foreach ($_SESSION['infosProduitsDansPanier'] as $infoProduit) : ?>
             <tr>
                 <td><?= $produit->getNomById($infoProduit[0])?></td>
                 <td><?= $infoProduit[1] ?></td>
                 <td><?= ($produit->getUnitPriceById($infoProduit[0]))*$infoProduit[1] ?> €</td>
             </tr>
-        <?php endforeach; ?>
+        <?php   endforeach; ?>
             </tbody>
         </table>
     </div>
@@ -48,10 +49,10 @@
             <div class="row d-flex flex-column p-1 my-1">
                 <label>numero de carte:</label>
                 <div class="d-flex">
-                    <input type="text" placeholder="xxxx" name="number1">
-                    <input type="text" placeholder="xxxx" name="number2">
-                    <input type="text" placeholder="xxxx" name="number3">
-                    <input type="text" placeholder="xxxx" name="number4">
+                    <input type="text" placeholder="xxxx" name="number1" maxlength="4">
+                    <input type="text" placeholder="xxxx" name="number2" maxlength="4">
+                    <input type="text" placeholder="xxxx" name="number3" maxlength="4">
+                    <input type="text" placeholder="xxxx" name="number4" maxlength="4">
                 </div>
             </div>
 
@@ -73,8 +74,7 @@
             <button class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm p-0 my-1" type="submit" name="paiement">Acheter</button>
 
         </form>
-    </div>    
-
+    </div>
 
 <?php $content = ob_get_clean() ?>
 

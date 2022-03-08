@@ -6,7 +6,9 @@
             <?php foreach($items as $item):  ?>
                 <div class="shopRow d-flex flex-column px-3 mb-5">
                     <h4 class= "sizeNom mb-2 mt-2"><a class= "sizeNom" href="shop.php?article_id=<?=$item['id_produit']?>"><?= substr($item['nom_produit'],0,50)?></a></h4>
-                    <img class="image mb-2 mt-3" src="<?=$item['img_url']?>">
+                    <a href='shop.php?article_id=<?= $item["id_produit"]?>' >
+                        <img class="image mb-2 mt-3" src="<?=$item['img_url']?>">
+                    </a>
                     <div class="shop-card row">
                         <div class="d-flex flex-row align-items-center justify-content-between mx-3 me-1">
                             <p class="small mt-2">Qté:</p>

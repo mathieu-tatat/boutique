@@ -13,7 +13,8 @@ if(!isset($_SESSION['connected']))
 
 if(isset($_POST['paiement']))
 {
-
+    $_SESSION['errors']= array();
+    
     $name = htmlspecialchars($_POST['name']);
     $total = htmlspecialchars($_SESSION["totalCommande"]);
     $cardNumber1 = htmlspecialchars($_POST['number1']);
