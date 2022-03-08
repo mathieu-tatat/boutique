@@ -38,7 +38,7 @@ $detail = new Article();
 
             <!-- Evaluation de la condition pour fermer les sousmenu de souscategorie -->
             <?php       if ($i != 0 && $SCat[$i]["nom_categorie"] != $SCat[$i-1]["nom_categorie"]) :?>
-                        </ul>
+                </ul>
             <?php       endif; ?>
 
             <!-- Evaluation de la condition pour la creation de chacun des niveau de la navBar -->

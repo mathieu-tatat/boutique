@@ -25,7 +25,9 @@ if(isset($_POST['submit_subscription']))
     if (empty($nom)) { array_push($_SESSION['errors'], "Lastname is required"); }
     if (empty($password_1)) { array_push($_SESSION['errors'], "Password is required"); }
     if (empty($email)) { array_push($_SESSION['errors'], "Email is required"); }
+    if (!preg_match('/^[a-z0-9._-]+[@]+[a-zA-Z0-9._-]+[.]+[a-z]{2,3}$/', $email)) { array_push($_SESSION['errors'], "Email format is wrong"); }
     if ($password_1 != $password_2) { array_push($_SESSION['errors'], "The two passwords do not match"); }
+    if (!preg_match('/^[a-zA-Z0-9]{8,}$/', $password_1)) { array_push($_SESSION['errors'], "Password format is wrong");}
     if (empty($address)) { array_push($_SESSION['errors'], "Address is required"); }
     if (empty($zipCode)) { array_push($_SESSION['errors'], "Code postal is required"); }
 

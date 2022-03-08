@@ -15,7 +15,7 @@
                 <ul class="carousel-indicators">
                     <?php
                         $carousel = new Carousel();
-                        $carouselItems = $carousel->getAllProductsInCarousel(); 
+                        $carouselItems = $carousel->getAllProductsInCarousel();
                         $i = 0;
                         foreach($carouselItems as $item){
                             $actives = '';
@@ -38,9 +38,9 @@
                                 $actives = 'active';
                             }
                             ?>
-                            <div class="carousel-item <?=$actives; ?>">
-                                <img class="img-carousel" src="<?= $item['img_url'] ?>"  width="30%" height="400">
-                            </div>
+                            <a href='shop.php?article_id=<?= $item["id_produit"]?>' class="carousel-item <?=$actives; ?>">
+                                    <img class="img-carousel" src="<?= $item['img_url'] ?>"  width="30%" height="400">
+                            </a>
                             <?php $i++; 
                         } ?>
                 </div>
