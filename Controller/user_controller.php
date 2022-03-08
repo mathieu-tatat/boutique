@@ -120,28 +120,53 @@ if( isset($_POST['submit_connection'])){
                 $test=$user->validateUserConnection($_POST['email'],$myhash['password']);
                 // get id
                 $myid=$user->getId($_POST['email']);
-                // get cart id
-                $mycartid=$user->getCartId($myid['id_utilisateur']);
 
-                // assign sessions
 
-                $_SESSION['connected']=$_POST['email'];
-                $_SESSION['cart']=$mycartid['id_panier'];
-                // get all user infos
-                $_SESSION['infos']=$user->getAllUserInfos($_POST['email']);
-                // assign them
-                $_SESSION['id'] = $_SESSION['infos']["id_utilisateur"];
-                $_SESSION['prenom'] = $_SESSION['infos']["prenom"];
-                $_SESSION['nom'] = $_SESSION['infos']["nom"];
-                $_SESSION['email'] = $_SESSION['infos']["email"];
-                $_SESSION['password'] = $_SESSION['infos']["password"];
-                $_SESSION['address'] = $_SESSION['infos']["address"];
-                $_SESSION['zipCode'] = $_SESSION['infos']["code_postal"];
-                $_SESSION['droits'] = $_SESSION['infos']["id_droit"];
+                // for this test there are 2 functions added to User class in Model/User.php
 
-                // redirect to profil
-                header('location:profil.php');
-                exit();
+                // this is needed to check if there is eventually a cart already open
+                // or if create a new one in Db.
+                // to perform so, orders has to be called to check if the last
+                // cart fetched has been paid.
+
+                //check cart existence
+                $cart_exist=$user->checkCartExist($myid['id_utilisateur']);
+                //if exists check if paid
+                $pay_check=$user->checkPaymentLastCart(intval($cart_exist['id_panier']));
+
+                var_dump($cart_exist);
+                if(empty($cart_exist)){
+                    // instatiate a new cart
+                    $cart=new Cart();
+                    // create a new cart in Db
+                    $cart->insertCart(intval($myid['id_utilisateur']));
+                }
+
+
+
+                    // get cart id
+                    $mycartid = $user->getCartId($myid['id_utilisateur']);
+
+                    // assign sessions
+
+                    $_SESSION['connected'] = $_POST['email'];
+                    $_SESSION['cart'] = $mycartid['id_panier'];
+                    // get all user infos
+                    $_SESSION['infos'] = $user->getAllUserInfos($_POST['email']);
+                    // assign them
+                    $_SESSION['id'] = $_SESSION['infos']["id_utilisateur"];
+                    $_SESSION['prenom'] = $_SESSION['infos']["prenom"];
+                    $_SESSION['nom'] = $_SESSION['infos']["nom"];
+                    $_SESSION['email'] = $_SESSION['infos']["email"];
+                    $_SESSION['password'] = $_SESSION['infos']["password"];
+                    $_SESSION['address'] = $_SESSION['infos']["address"];
+                    $_SESSION['zipCode'] = $_SESSION['infos']["code_postal"];
+                    $_SESSION['droits'] = $_SESSION['infos']["id_droit"];
+
+                    // redirect to profil
+                    // header('location:profil.php');
+                    // exit();
+
 
             } else {
                 $tmp .= 'email ou password erroné';

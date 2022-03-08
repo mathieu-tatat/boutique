@@ -4,7 +4,7 @@
 <?php require_once('Model/Cart.php'); ?>
 <?php require_once('Model/Contient.php'); ?>
 <?php require_once('Model/Produits.php'); ?>
-<?php require_once('Model/Commandes.php'); ?>
+<?php require_once('Model/Commande.php'); ?>
 
 <?php require_once('Controller/user_controller.php');   // Models : User  &  Cart  ?>
 <?php require_once('Controller/commandes_controller.php'); // Models : User  &  Cart  &  Contient  &  Produits  &  Commandes ?>
@@ -13,11 +13,6 @@
 
 <?php   ob_start();  ?>
 <div class="d-flex flex-row">
-    <div class="navbar col-md-3 border-secondary border-1 rounded-0 px-4 mt-4">
-        <div class="col  shadow-sm rounded-0">
-            <div class="display-6 px-4 mt-4"><b>NAVBAR </b></div>
-        </div>
-    </div>
     <div class="col-md-9">
     <div class="container-xl px-4 mt-4">
         <div class="container-xl px-4 mt-4">
@@ -65,4 +60,4 @@
 <?php require ('header.php'); ?>
 
 
-<?php require ('Elements/patron.php'); ?>
+<?php require ('View/patron.php'); ?>

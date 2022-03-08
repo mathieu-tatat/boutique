@@ -69,39 +69,41 @@
                 </div>
             </div>
         </div>
-            <div class="container-xl px-4 mt-4 mb-4 border border-secondary border-1" id="order-path">
-                <table class="table-borderless">
+        <div class="d-flex flex-column justify-content-between align-items-center">
+            <div class="p-2 mt-3 border-ligth rounded-2 shadow-sm mb-5 border border-ligth p-3 w-75" id="order-path">
+                <table class="table">
                     <tr class="display-6 px-1 mt-4 mb-4">
                         <th>Your Orders </th>
                     </tr>
                     <?php if(isset($_SESSION['connected']) and isset($orders)): ?>
-                    <tr class="row shadow-sm border border-secondary border-1 p-3 mb-3 bg-body rounded-0">
-                        <!--<div class="col-md-2 mt-3 px-2" >Image</div>-->
-                        <td class="col-sm px-2" >Order id</td>
-                        <td class="col-sm px-2" >Total Price</td>
-                        <td class="col-sm " >Date</td>
-                        <td class="col-sm " >Paid with</td>
-                        <td class="col-sm " >User details</td>
-                        <td class="col-sm px-1" >Email</td>
-                        <td class="col-sm px-1" >Details</td>
-                    </tr>
-                    <?php if(!empty($orders)): for($i=0;$i<=isset($orders[$i]);$i++): ?>
-                    <tr class="jumbotron">
-                            <td class="col-sm mt-2 text-center" ><?=  $orders[$i]['id_commande'] ?></td>
-                            <td class="col-sm mt-2 px-1 text-center" ><?=  $orders[$i]['price'] ?></td>
-                            <td class="col-sm mt-2 px-1 text-justify" ><?=  substr($orders[$i]['date_commande'],0,16) ?></td>
-                            <td class="col-sm mt-2 text-center" ><?= $orders[$i]['nom_paiement'] ?></td>
-                            <td class="col-sm mt-2 px-1 text-justify" ><?=  $val1=$user_infos['nom'].' '.$user_infos['prenom']; ?></td>
-                            <td class="col-sm mt-2 px-1 text-justify" ><?=  $user_infos['email'] ?></td>
-                            <td class="col-sm mt-2 " >
-                                <form method="POST" action="">
-                                    <div class="mb-3 form-check px-4">
-                                        <button type="submit" class="btn btn-dark px-1 rounded-0 " name="detailsCommande" value="<?=  $orders[$i]['id_commande'] ?>">details</button>
-                                    </div>
-                                </form>
-                            </td>
-                    </tr>
-                        <?php endfor; ?>
+                        <tr class=" shadow-sm border border-light border-1 p-3 mb-3 rounded-2">
+                            <!--<div class="col-md-2 mt-3 px-2" >Image</div>-->
+                            <th >Order id</th>
+                            <th >Total Price</th>
+                            <th >Date</th>
+                            <th >Paid with</th>
+                            <th >User details</th>
+                            <th >Email</th>
+                            <th >Details</th>
+                        </tr>
+                        <?php if(!empty($orders)):  ?>
+                            <?php for($i=0;$i<=isset($orders[$i]);$i++): ?>
+                                <tr>
+                                    <td ><?=  $orders[$i]['id_commande'] ?></td>
+                                    <td ><?=  $orders[$i]['price'] ?></td>
+                                    <td ><?=  substr($orders[$i]['date_commande'],0,16) ?></td>
+                                    <td ><?= $orders[$i]['nom_paiement'] ?></td>
+                                    <td ><?=  $val1=$user_infos['nom'].' '.$user_infos['prenom']; ?></td>
+                                    <td ><?=  $user_infos['email'] ?></td>
+                                    <td >
+                                        <form method="POST" action="">
+                                            <div class="mb-3 form-check px-4">
+                                                <button type="submit" class="btn btn-dark px-1 rounded-2 shadow-sm" name="detailsCommande" value="<?=  $orders[$i]['id_commande'] ?>"><b>details</b></button>
+                                            </div>
+                                        </form>
+                                    </td>
+                                </tr>
+                            <?php endfor; ?>
                         <?php else: ?>
                             <tr>
                                 <th class="row">
@@ -109,9 +111,10 @@
                                 </th>
                             </tr>
                         <?php endif; ?>
-                        <?php endif; ?>
+                    <?php endif; ?>
                 </table>
             </div>
+        </div>
 
 
 

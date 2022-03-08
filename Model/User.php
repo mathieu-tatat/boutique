@@ -128,12 +128,14 @@ Class User extends Db
 
     //USER Cart & Contient functions________________
 
-    function updateContientFromUser($quantite, $id_panier, $id_produit){
+    function updateContientFromUser($quantite, $id_panier, $id_produit)
+    {
         $sql = " UPDATE contient SET quantite = :quantite WHERE id_panier = :id_panier AND id_produit = :id_produit ";
         $params=([':quantite' => $quantite, ':id_panier' => $id_panier, ':id_produit' => $id_produit]);
         $this->selectQuery($sql, $params);
     }
-    function getCartId($id_utilisateur){
+    function getCartId($id_utilisateur)
+    {
         $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ";
         $params = [':id_utilisateur' => $id_utilisateur];
         $result = $this->selectQuery($sql, $params);
@@ -141,7 +143,8 @@ Class User extends Db
         $my_new_cart = $result->fetch();
         return $my_new_cart;
     }
-    function createContent($id_produit){
+    function createContent($id_produit)
+    {
         $sql = " SELECT * FROM produits WHERE id_produit=:id_produit ";
         $params = [':id_produit' => $id_produit];
         $result = $this->selectQuery($sql, $params);
@@ -149,5 +152,33 @@ Class User extends Db
         $my_products = $result->fetch();
         return $my_products;
     }
+
+
+
+    ///
+    ///  used in user_controller and connexion   //  error page commande!!!!!!!!!
+
+    // check that cart exists   (-->user_controller)
+
+    function checkCartExist($id_utilisateur)
+    {
+        $sql = "SELECT * FROM paniers WHERE id_utilisateur=:id_utilisateur ORDER BY id_panier DESC";
+        $params = [':id_utilisateur' => $id_utilisateur];
+        $result = $this->selectQuery($sql, $params);
+        $exists = $result->fetch();
+        return $exists;
+    }
+
+    // now check paiement
+
+    function checkPaymentLastCart($id_last_cart)
+    {
+        $sql = "SELECT commandes.id_panier FROM commandes WHERE id_panier=:id_panier";
+        $params = [':id_panier' => $id_last_cart];
+        $result = $this->selectQuery($sql, $params);
+        $exists = $result->fetchAll();
+        return $exists;
+    }
+
 
 }

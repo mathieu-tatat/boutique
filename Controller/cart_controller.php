@@ -57,7 +57,6 @@ if(isset($_POST['submitProductDelete'])){
 if(isset($_POST['payCart'])){
     $total=new Contient();
     $total=$total->totalContient($_SESSION['cart']);
-    var_dump($_SESSION);
     $_SESSION['totalcart']=intval($_POST['payCart']);
     //header('location:paiement/paiements.php');
 }
