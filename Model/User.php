@@ -38,28 +38,6 @@ Class User extends Model
         
     }
 
-    public function getAllInfs($email)
-    {
-        $params = array($email);
-
-        $sql = "SELECT * FROM `utilisateurs` WHERE `email` = ?";
-        
-        $selectQuery = $this->selectQuery($sql, $params);
-        
-        return $selectQuery;
-    }
-
-
-    public function checkExistsForUpdate($email)
-    {
-        $sql = " SELECT COUNT(*) as count FROM utilisateurs WHERE email=:email ";
-        $params = ([':email' => $email]);
-        $result = $this->selectQuery($sql, $params);
-        $result = $result->fetch();
-        return $result;
-    }
-
-
     public function subscribeUser($prenom, $nom, $email, $password, $address, $code_postal)
     {
         $sql = "INSERT INTO utilisateurs (prenom, nom, email,
@@ -76,7 +54,7 @@ Class User extends Model
 
     public function getAllInfos()
     {
-        $sql = "SELECT * FROM utilisateurs ";
+        $sql = "SELECT * FROM utilisateurs";
         $result = $this->selectQuery($sql);
         $result = $result->fetchAll();
         return $result;
@@ -163,5 +141,36 @@ Class User extends Model
         $this->selectQuery($sql, $params);
     }
     
+    //USER Cart & Contient functions________________
+
+    function updateContientFromUser($quantite, $id_panier, $id_produit)
+    {
+        $sql = " UPDATE contient 
+        SET quantite = :quantite 
+        WHERE id_panier = :id_panier AND id_produit = :id_produit ";
+
+        $params=([':quantite' => $quantite, ':id_panier' => $id_panier, ':id_produit' => $id_produit]);
+        
+        $this->selectQuery($sql, $params);
+    }
+
+    function getCartId($id_utilisateur)
+    {
+        $sql = "SELECT * FROM paniers WHERE id_utilisateur=:id_utilisateur ORDER BY id_panier DESC;";
+        $params = [':id_utilisateur' => $id_utilisateur];
+        $result = $this->selectQuery($sql, $params);
+        $my_new_cart = $result->fetch(PDO::FETCH_ASSOC);
+        return $my_new_cart;
+    }
+
+    function createContent($id_produit)
+    {
+        $sql = " SELECT * FROM produits WHERE id_produit=:id_produit ";
+        $params = [':id_produit' => $id_produit];
+        $result = $this->selectQuery($sql, $params);
+        $result->setFetchMode(PDO::FETCH_CLASS, 'currentProduct');
+        $my_products = $result->fetch();
+        return $my_products;
+    }
 
 }

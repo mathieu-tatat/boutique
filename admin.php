@@ -25,7 +25,7 @@
                 
             </nav>
             <section class="col-md-9 mx-1 pageContent d-flex flex-column align-items-start">
-                <h2 class="text-center my-2"><?= $soustitre ?></h2>
+                <h2 class="text-center my-4"><?= $soustitre ?></h2>
                 <?= $souscontenu ?>
             </section>
         </div>

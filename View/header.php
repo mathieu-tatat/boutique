@@ -1,8 +1,7 @@
 <?php require_once 'Controller/user_controller.php'; ?>
-<div class="d-flex flex-row justify-content-between align-items-center">
-
+<div class="d-flex flex-row justify-content-between align-items-center" style="background-image: url('View/Media/banner2.jpg')">
     
-    <a href="index.php" class="alert-link"><img src="View/logos/fox.svg"></a>
+    <a href="index.php" class="alert-link"><img src="View/logos/foxwhite.png"></a>
     
     <!-- Search Bar -->
     <form method="GET" action="shop.php" class="w-40">
@@ -19,8 +18,7 @@
     <div class="d-flex flew-row justify-content-between align-items-between">
 
         <a href="shop.php" class="alert-link mx-2">Shop</a>
-        <a href="#" class="alert-link mx-2">About</a>
-        <a href="#" class="alert-link mx-2">Contact</a> 
+        <a href="contact.php" class="alert-link mx-2">Contact</a> 
 
         <?php if(isset($_SESSION['connected'])): ?>
 
@@ -36,11 +34,7 @@
             </form>
             
             <!-- cart -->
-            <form method="POST">
-                <button type="submit" class="btn mx-2 d-flex flew-row justify-content-center align-items-center" name="cart">
-                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                </button>
-            </form>
+            <a href="cart.php" class="alert-link" ><i class="fa fa-shopping-cart" aria-hidden="true"></i></a>
 
         <?php else: ?>
 

@@ -15,4 +15,14 @@ Class Categorie extends Model
         return $infos;
     }
 
+    public function createCategorie($nom)
+    {
+        $sql = "INSERT INTO categories (id_categorie, nom_categorie)
+                VALUES (NULL,?)";
+
+        $params = array($nom);
+
+        $this->selectQuery($sql, $params);
+    }
+
 }

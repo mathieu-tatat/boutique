@@ -83,8 +83,11 @@ CREATE TABLE IF NOT EXISTS Categories (
 -- ------------------------------------ 
      
 CREATE TABLE IF NOT EXISTS Sous_Categories (
-    id_sous_categorie INT AUTO_INCREMENT NOT NULL, 
-    nom_sous_categorie VARCHAR(255), 
+    id_sous_categorie INT AUTO_INCREMENT NOT NULL,
+    id_categorie INT NOT NULL, 
+    nom_sous_categorie VARCHAR(255),
+    CONSTRAINT FK_Sous_Categories_id_categorie_Categories
+    FOREIGN KEY (id_categorie) REFERENCES Categories (id_categorie),
     PRIMARY KEY (id_sous_categorie)) ENGINE=InnoDB;
 
 
@@ -103,7 +106,7 @@ CREATE TABLE IF NOT EXISTS Produits (
     id_sous_categorie INT NOT NULL,
     CONSTRAINT FK_Produits_id_catergorie_Categories 
     FOREIGN KEY (id_categorie) REFERENCES Categories (id_categorie),
-    CONSTRAINT FK_Produits_id_sous_categorie_Sous_Categories 
+    CONSTRAINT FK_Produits_id_sous_catergorie_Categories 
     FOREIGN KEY (id_sous_categorie) REFERENCES Sous_Categories (id_sous_categorie),
     PRIMARY KEY (id_produit)) ENGINE=InnoDB;  
 
@@ -124,6 +127,19 @@ CREATE TABLE IF NOT EXISTS Contient (
     PRIMARY KEY (id_produit, id_panier)
     ) ENGINE=InnoDB;
 
+
+-- ------------------------------------
+--           table contient          --
+-- ------------------------------------
+
+CREATE TABLE IF NOT EXISTS carousel_produits(
+    id_produit_carousel INT NOT NULL,
+    id_produit INT NOT NULL,
+    CONSTRAINT FK_carousel_produits_id_produit_produits
+    FOREIGN KEY (id_produit) REFERENCES Produits (id_produit),
+    PRIMARY KEY (id_produit_carousel)
+    ) ENGINE=InnoDB;
+
 -- ------------------------------------
 --         Data generation           --
 -- ------------------------------------
@@ -136,15 +152,16 @@ INSERT INTO `categories` (`id_categorie`, `nom_categorie`) VALUES (NULL, 'agenda
 
 
 -- -------- SUBCATEGORIES -------------
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'bille');
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'feutre');
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'quatre couleurs');
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'plume');
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'fer');
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'plastique');
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'professionel');
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'etudiant');
-INSERT INTO `Sous_Categories` (`id_sous_categorie`, `nom_sous_categorie`) VALUES (NULL, 'enfant');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 1, 'bille');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 1, 'feutre');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 1, 'quatre couleurs');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 1, 'plume');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 2, 'fer');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 2, 'plastique');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 3, 'professionel');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 3, 'etudiant');
+INSERT INTO `Sous_Categories` (`id_sous_categorie`, `id_categorie`, `nom_sous_categorie`) VALUES (NULL, 3, 'enfant');
+
 
 -- -------- PRODUITS -------------
 INSERT INTO `produits` 
@@ -292,20 +309,22 @@ INSERT INTO `droits` (`id_droit`, `nom_droit`) VALUES(1, 'utilisateur');
 INSERT INTO `droits` (`id_droit`, `nom_droit`) VALUES(1337, 'admin');
 
 
--- -------- UtlisateurS ---------------------
-INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'john', 'doe', 'john@doe.com', '$2y$10$AceYiuYZ5eR5WS17OkXVauNlGDfB5wylPHvhsn0KauY3in/wljGvm', 'rue bien', '13001', '1337');
+-- ------------------------------------------------------------------------ --
+-- ------------------------------------------------------------------------ --
+-- ------------------------------------------------------------------------ --
+-- ------------------------------------------------------------------------ --
+--         CREER 3 UTILISATEURS AVANT D INSERER LES DONNEES EN DESSOUS      --  
+-- ------------------------------------------------------------------------ --
+-- ------------------------------------------------------------------------ --
+-- ------------------------------------------------------------------------ --
+-- ------------------------------------------------------------------------ --
 
-INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'jane', 'doe', 'jane@doe.com', '$2y$10$AceYiuYZ5eR5WS17OkXVauNlGDfB5wylPHvhsn0KauY3in/wljGvm', 'rue bien', '13001', '1');
-
-INSERT INTO `utilisateurs` (`id_utilisateur`, `prenom`, `nom`, `email`, `password`, `address`, `code_postal`, `id_droit`) 
-VALUES (NULL, 'vert', 'doe', 'vert@doe.com', '$2y$10$AceYiuYZ5eR5WS17OkXVauNlGDfB5wylPHvhsn0KauY3in/wljGvm', 'rue bien', '13001', '1');
 
 
 
 -- -------- PAIEMENTS ---------------------
 INSERT INTO `paiements` (`id_paiement`,`nom_paiement`) VALUE (NULL , 'CB');
+INSERT INTO `paiements` (`id_paiement`,`nom_paiement`) VALUE (NULL , 'Stripe');
 
 
 
@@ -318,17 +337,17 @@ INSERT INTO `paniers` (`id_panier`,`id_utilisateur`) VALUE (NULL, 3);
 
 -- -------- COMMANDES ---------------------
 INSERT INTO `commandes` (`id_commande`,`date_commande`,`id_panier`,`id_paiement`)
-VALUE (NULL, '2022-02-04 17:00:00', 1, 1);
+VALUE (NULL, '2022-02-04 17:00:00', 3, 1);
 INSERT INTO `commandes` (`id_commande`,`date_commande`,`id_panier`,`id_paiement`)
-VALUE (NULL, '2012-02-04 17:00:00', 2, 1);
+VALUE (NULL, '2012-02-04 17:00:00', 4, 1);
 INSERT INTO `commandes` (`id_commande`,`date_commande`,`id_panier`,`id_paiement`)
-VALUE (NULL, '2002-02-04 17:00:00', 3, 1);
+VALUE (NULL, '2002-02-04 17:00:00', 5, 1);
 
 
 -- --------- CONTIENT ---------------------
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (1, 1, 3);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (2, 1, 7);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (4, 2, 5);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (5, 3, 7);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (6, 3, 3);
-INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (8, 3, 7);
+INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (1, 3, 3);
+INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (2, 3, 7);
+INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (4, 4, 5);
+INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (5, 5, 7);
+INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (6, 5, 3);
+INSERT INTO `contient` (`id_produit`, `id_panier`, `quantité`) VALUES (8, 5, 7);

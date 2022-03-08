@@ -133,6 +133,7 @@ a, a:hover {
         padding:1vh!important
     }
 
+    
 
 }
 
@@ -142,6 +143,10 @@ a, a:hover {
 /*      MAIN      */
 /* -------------- */
 
+
+.contact-us{
+    width: 30px;
+}
 
 /* -------------- */
 /*    MAIN CART   */
@@ -360,6 +365,7 @@ main{
     display: flex;
     justify-content: space-around;
 }
+
 .details{
     width: 40%;
     display: block;
@@ -369,6 +375,7 @@ main{
     object-position: bottom;
     border-radius: 6px;
 }
+
 .info{
     display: flex;
     justify-content: space-between;
@@ -377,6 +384,7 @@ main{
     margin-left: 540px;
     margin-top: 200px;
 }
+
 .nomArticle{
     display: flex;
     justify-content: center;
@@ -387,9 +395,168 @@ main{
     width: 250px;
 
 }
+
 .descArticle{
     margin-top: auto;
     margin-bottom: 1rem;
     width: 90%;
     margin-left: 5%;
 }
+
+.img-carousel{
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1.5;
+    object-fit: contain;
+    object-position: bottom;
+    border-radius: 6px;
+    }
+    .carousel-indicators{
+        bottom: -55px !important;
+    }
+    .row{
+        padding-bottom:50px;
+        margin-bottom:100px;
+        width:80%;
+        display:flex;
+        margin:auto !important;
+    }
+   
+
+.carousel-indicators li {
+  border-bottom: 5px solid !important;
+  opacity: .5 ;
+  transition:opacity .4s ease !important;
+  color: black !important;
+    }
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
+.banner{
+    height: 150px;
+    color:white;
+    display:flex;   
+    font-size: 3vw;
+    font-family: 'Nanum Myeongjo', serif;    
+}
+
+.slogan{
+    font-size:10px;
+}
+
+.trade{
+    font-size:40px;
+    padding-left:10px;
+}
+
+.ajouts{
+    background-color:#201E1F;
+}
+
+.start{
+    display:flex;
+    justify-content:start;
+}
+
+.end{
+    display:flex;
+    justify-content:end;
+}
+
+.fromage{
+    display:flex;
+    justify-content:space-around;
+}
+
+.footStyle{
+    display:flex;
+    justify-content:space-around;
+    width:175%;
+    margin-left: -120px;
+
+}
+
+.linkFoot{
+    color:white;
+}
+
+.ml{
+    margin-left:-15px;
+}
+
+.logoFoot{
+    gap:50px;
+}
+
+.copyright{
+    color:white;
+    margin-left:0;
+}
+
+.paimentForm{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #242d60;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Helvetica Neue', 'Ubuntu', sans-serif;
+    height: 100vh;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  .containerForm{
+    width: 25%;
+    margin:auto ;
+    border: solid 1px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 8px;
+  }
+  
+  .buttonPaye:hover {
+    opacity: 0.6;
+  }
+  
+  .buttonPaye{
+    margin: 0 auto !important;
+    display: flex !important;
+    justify-content: center !important;
+    background-color: #54C7C3 !important;
+    color: white !important;
+  }
+  
+  
+  .verification{
+    display: flex;
+    gap:25;
+  }
+  
+  .trait_dessus{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-weight: bolder;
+    border-bottom: 1px solid #54C7C3;
+    width : 235px;
+    margin-bottom: 5px;
+  }
+  
+  .mounth{
+    padding-right: 10px;
+  }
+  
+  .recapPanier{
+    border: solid 2px;
+    border-radius: 8px;
+    background-color: #54C7C3;
+    width: 40%;
+  
+  }
+  

@@ -50,6 +50,7 @@ if(isset($_SESSION['connected']))
         } 
 
         // ORDERS_______________________________________________________________________________________________________
+        
         $orders=$user->getAllOrders($_SESSION["id"]);
     } 
     else 
@@ -90,7 +91,7 @@ if(isset($_POST['submitUserUpdate'])){
     if(empty($errors)){
         $test=0;
         $user= new User();
-        $test= $user->checkExistsForUpdate($_POST['email']);
+        $test= $user->chkExists($_POST['email']);
         $test=intval($test['count']);
         if($test===0){
             $id_utilisateur=$user_infos['id_utilisateur'];
@@ -109,3 +110,11 @@ if(isset($_POST['submitUserUpdate'])){
     $tmp.='</div>';
 }
 
+// details commande______________________________________________________________________________________________________
+
+if(isset($_POST['detailsCommande'])){
+
+    $_SESSION['commande_details']=$_POST['detailsCommande'];
+    header('location:commande.php');
+    exit();
+}
