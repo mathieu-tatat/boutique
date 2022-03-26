@@ -43,33 +43,37 @@
 
             <div class="row p-1 my-1">
                 <label for="nom">Nom de la carte:</label>
-                <input type="text" name="name" placeholder="Votre nom" id="nom">
+                <input type="text" name="name" placeholder="Votre nom" id="nom" >
             </div>
 
-            <div class="row d-flex flex-column p-1 my-1">
-                <label>numero de carte:</label>
-                <div class="d-flex">
-                    <input type="text" placeholder="xxxx" name="number1" maxlength="4">
-                    <input type="text" placeholder="xxxx" name="number2" maxlength="4">
-                    <input type="text" placeholder="xxxx" name="number3" maxlength="4">
-                    <input type="text" placeholder="xxxx" name="number4" maxlength="4">
+            <div class="row d-flex flex-column flex-wrap ">
+                <label>Numero de carte:</label>
+                <div class="d-flex flex-wrap">
+                    <input type="text" placeholder="xxxx" name="number1" maxlength="4" style="width: 200px;margin-right: 5px;">
+                    <input type="text" placeholder="xxxx" name="number2" maxlength="4" style="width: 200px;margin-right: 5px;">
+                    <input type="text" placeholder="xxxx" name="number3" maxlength="4" style="width: 200px;margin-right: 5px;">
+                    <input type="text" placeholder="xxxx" name="number4" maxlength="4" style="width: 200px;margin-right: 5px;">
                 </div>
             </div>
 
-            <div class="row p-1 my-1">                
-                    <label>Month:</label>
-                    <input type="text" placeholder="MM" name="exp_month" value="10" name="month" class="col-md-2">
+            <div class="cartVerif">
+                <div><label>Mois:</label>
+                    <input type="text" placeholder="MM" name="exp_month" value="10" name="month" class="col-md-2" style="width: 45px;"></br>
+                </div>
+                <div> <label>Année:</label>
+                    <input type="text" placeholder="YY" name="exp_year" value="22" name="year " class="col-md-2" style="width: 45px;"></br>
                 
+</div>
+                <div> <label>CVC:</label>
+                    <input type="text" placeholder="CVC" name="cvc" value="123" name="cvc" class="col-md-2" style="width: 45px;"></br>   
+           </div>                
+                    
 
                 
-                    <label>Year:</label>
-                    <input type="text" placeholder="YY" name="exp_year" value="22" name="year " class="col-md-2">
+                   
                 
-
-                
-                    <label>Security:</label>
-                    <input type="text" placeholder="CVC" name="cvc" value="123" name="cvc" class="col-md-2">   
-            </div>
+                   
+                </div>
 
             <button class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm p-0 my-1" type="submit" name="paiement">Acheter</button>
 

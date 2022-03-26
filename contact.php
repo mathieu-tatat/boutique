@@ -5,7 +5,7 @@
 <?php   ob_start();  ?>
 <h3 class="mb-5 mx-5"> Qui sommes-nous ?</h3>
 <div class="mx-5 h-10 d-flex flex-row justify-content-end"><a href="mailto:fauxmail@serveur.com" class="me-2"><img src="View/icons/email2.svg" class="contact-us" ></a> <span><a href="mailto:fauxmail@serveur.com" class="me-2"> Nous contacter</a></span> </div>
-<p class="m-5 p-5 text-justify">
+<p class="p_contact">
 ici, une librairie indépendante, vraiment indépendante.
 Après 20 ans passés dans le monde de l’édition et du commerce du livre, Delphine Bouétard et Anne Laure Vial ont décidé de créer une librairie indépendante, 
 axée sur l’humain, libérée de tout algorithme, présente sur internet, et surtout ancrée au cœur de Paris, 

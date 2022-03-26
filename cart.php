@@ -14,14 +14,14 @@
 
         <?php if(isset($_SESSION['connected']) and isset($products_infos) and isset($quantity) ): $tot=0; ?>
 
-            <table class="table p-2">
+            <table class="p-2" style="border: solid 1px;">
                 <!-- Table header -->
-                <tr class="p-1">
-                    <th class="col-sm-2 px-2"></th>
-                    <th class="col-md-2" >Quantité</th>
-                    <th class="col-md-2" >Prix Total</th>
-                    <th class="col-md-2">Nom du produit</th>
-                    <th class="col-md-4 text-end">Mis à jour panier</th>
+                <tr class="p-1" style="border: solid 0.5px;">
+                    <th class="col-sm-2 text-center"></th>
+                    <th class="col-md-2 text-center" >Quantité</th>
+                    <th class="col-md-2 text-center" >Prix Total</th>
+                    <th class="col-md-2 text-center">Nom du produit</th>
+                    <th class="col-md-4 text-center">Mis à jour panier</th>
                 </tr>
 
                 <?php $infosProduitsDansPanier= [];?>
@@ -32,24 +32,24 @@
                     
                 <tr class="p-1">
                     <td><img src="<?= $products_infos[$i]['img_url'] ?>" class="image"></td>
-                    <td class="align-middle"><?= $quantity[$i]; $quant[]=$quantity[$i]; ?>&#160;<i class="small">unité(s)</i></td>
-                    <td class="align-middle"><?= $prod=$products_infos[$i]['unit_price']*$quantity[$i];  $price[]=$products_infos[$i]['unit_price']; ?></td>
-                    <td class="align-middle"><?= $products_infos[$i]['nom_produit'] ?></td>
-                    <td class="align-middle">
-                        <div class="d-flex flex-row justify-content-end">
+                    <td class="align-middle text-center"><?= $quantity[$i]; $quant[]=$quantity[$i]; ?>&#160;<i class="small">unité(s)</i></td>
+                    <td class="align-middle text-center"><?= $prod=$products_infos[$i]['unit_price']*$quantity[$i];  $price[]=$products_infos[$i]['unit_price']; ?></td>
+                    <td class="align-middle text-center"><?= $products_infos[$i]['nom_produit'] ?></td>
+                    <td class="align-middle text-center">
+                        <div class="d-flex flex-column">
 
                             <!-- delete button -->
                             <form method="POST">
                                 <div class="form-check px-2">
                                     <button type="submit" class="btn btn-dark shadow-sm rounded-2 small" 
                                     value="<?= $products_infos[$i]['id_produit']; ?>" name="submitProductDelete">
-                                        <b class="small">Enlever</b>
+                                        <b class="small">Supprimer</b>
                                     </button>
                                 </div>
                             </form>
 
                             <!-- Quantity changer -->
-                            <form method="POST">
+                            <form method="POST" style="padding-bottom:6px;">
                                 <label for="selectQuant">Qty:</label>
                                 <select name="selectQuant" class="mt-1">
                                     
@@ -60,9 +60,9 @@
                                         <option value="<?php echo $j; ?>,<?= $products_infos[$i]['id_produit'];?>"> <?= $j; ?> </option>
                                         <?php endif; ?>
                                     <?php endfor; ?>
-                                </select>
+                                </select></form></div>
                                 <button class="form-check btn btn-dark shadow-sm rounded-2 mb-1 small" 
-                                id="smallBtn" type="submit" name="submitCartUpdate" value="select"><b class="small">changer</b></button>
+                                id="smallBtn" type="submit" name="submitCartUpdate" value="select"><b class="small">Modifier</b></button>
                             </form>
                             
                         </div>
@@ -85,7 +85,7 @@
 
         <div class="row">
             <div class="display-5 border border-secondary rounded-0 p-5 my-5 text-center">
-                <b>your cart is still empty </b>
+                <b>Votre panier est vide</b>
             </div>
         </div>
 
