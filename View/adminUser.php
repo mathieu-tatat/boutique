@@ -3,7 +3,7 @@ require_once('Model/User.php');
 require_once('Controller/user_controller.php');
 $user = new User();
 ob_start(); ?>
-
+<main class="container-fluid" style="width: 80%;">
 <table class="table table-hover w-90 my-1">
     <thead class="my-1">
         <tr>
@@ -52,5 +52,5 @@ ob_start(); ?>
     <?php   endforeach; ?>
     </tbody>
 </table>
-
+</main>
 <?php   $souscontenu = ob_get_clean(); ?>

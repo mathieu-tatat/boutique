@@ -9,15 +9,14 @@
 <?php   ob_start();  ?>
     <div class="d-flex flex-row justify-content-center align-items-center my-3">
         
-        <div class="px-4" style="width:30%;">
-            <img src="View/logos/login.svg" class="mt-5 ms-5">
-        </div>
-        
 
-        <div class="container-md rounded-2 shadow-sm border 
-                    border-light w-50 p-3">
+
+        <div class="container-md rounded-2 shadow-sm  "border style="width:80%">
 
             <form action="" method="POST">
+              <div  style="width:20%;">
+                <img src="View/logos/login.svg">
+              </div>
 
                 <!-- Email -->
                 <div class="row">

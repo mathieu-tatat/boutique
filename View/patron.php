@@ -10,6 +10,7 @@
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/37338f1a7b.js" crossorigin="anonymous"></script>
+    <script src="View/CSS/script.js"></script>
     <title><?= $title ?></title>
 </head>
 <body>

@@ -2,7 +2,7 @@
 require_once('Model/Commande.php');
 $commande = new Commande();
 ob_start(); ?>
-
+<main class="container-fluid" style="width: 80%;">
 <table class="table table-hover w-90 my-1">
     <thead class="my-1">
         <tr>
@@ -30,5 +30,5 @@ ob_start(); ?>
     <?php   endforeach; ?>
     </tbody>
 </table>
-
+</main>
 <?php   $souscontenu = ob_get_clean(); ?>

@@ -25,7 +25,7 @@
                         <label for="exampleInputEmail1" class="form-label"><span class="h6">Email address</span></label>
                         <input type="email" class="form-control rounded-0" name="email" id="exampleInputEmail1" 
                         aria-describedby="emailHelp" value="<?= $_SESSION["email"]?>">
-                        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                        <div id="emailHelp" class="form-text">Nous ne partagerons jamais vos données personnelles.</div>
                     </div>
                     <div class=" px-2">
                         <label for="exampleInputText1" class="form-label"><span class="h6">Prenom</span></label>
@@ -51,13 +51,12 @@
                         <label for="exampleInputPassword1" class="form-label"><span class="h6">Password</span></label>
                         <input type="password" class="form-control rounded-0" name="password" id="exampleInputPassword1">
                     </div>
-                    <div id="emailHelp" class="form-text small px-4 mb-2">Update your personal informations</div>
-                    <div class="d-flex flex-row">
-                        <div class="mb-3 form-check px-4">
-                            <button type="submit" class="btn btn-dark px-5 rounded-0" name="submitUserUpdate">update</button>
-                        </div>
-                        <div class="mb-3 form-check px-4">
-                            <button type="submit" class="btn btn-dark px-5 rounded-0" name="deleteUser">Delete your account</button>
+                    <div id="emailHelp" class="form-text small px-4 mb-2">Modifier vos informations personnelles</div>
+                    <div >
+                        <div class="actionProfil">
+                            <button type="submit" class="btn btn-dark px-5 rounded-0" name="submitUserUpdate"style="margin-bottom: 5px;">soumettre</button>
+
+                            <button type="submit" class="btn btn-dark px-5 rounded-0" name="deleteUser"style="margin-bottom: 5px;">supprimer votre compte</button>
                         </div>
                     </div>
                 </form>
@@ -73,41 +72,49 @@
                     <th>Commandes</th>
                 </tr>
                 <?php if(isset($_SESSION['connected']) and isset($orders)): ?>
-                    <tr class=" shadow-sm border border-light border-1 p-3 mb-3 rounded-2">
-                        <th class="p-2">ID Commande</th>
-                        <th class="p-2">Prix Total</th>
-                        <th class="p-2">Date</th>
-                        <th class="p-2">Payé avec</th>
-                        <th class="p-2">Nom</th>
-                        <th class="p-2">Email</th>
-                        <th class="p-2">Details</th>
-                    </tr>
                     <?php if(!empty($orders)):  ?>
                         <?php for($i=0;$i<=isset($orders[$i]);$i++): ?>
-                            <tr>
-                                <td class="p-2"><?=  $orders[$i]['id_commande'] ?></td>
-                                <td class="p-2"><?=  $orders[$i]['price'] ?></td>
-                                <td class="p-2"><?=  substr($orders[$i]['date_commande'],0,16) ?></td>
-                                <td class="p-2"><?= $orders[$i]['nom_paiement'] ?></td>
-                                <td class="p-2"><?=  $val1=$user_infos['nom'].' '.$user_infos['prenom']; ?></td>
-                                <td class="p-2"><?=  $user_infos['email'] ?></td>
-                                <td class="p-2">
-                                    <form method="POST" action="">
-                                        <div class="mb-3 form-check px-4">
-                                            <button type="submit" class="btn btn-dark px-1 rounded-2 shadow-sm" name="detailsCommande" value="<?=  $orders[$i]['id_commande'] ?>"><b>details</b></button>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
+                            <div class="tabInfo">
+                                <section>
+                                    <h3>Nom</h3>
+                                    <p><td class="p-2"><?=  $val1=$user_infos['nom'].' '.$user_infos['prenom']; ?></td></p>
+                                </section>
+
+                                <section>
+                                    <h3>Email</h3>
+                                    <p><td class="p-2"><?=  $user_infos['email'] ?></td></p>
+                                </section>
+
+                                <section>
+                                    <h3>Date</h3>
+                                    <p><td class="p-2"><?=  substr($orders[$i]['date_commande'],0,16) ?></p>
+                                </section>
+
+                                <section>
+                                    <h3>Prix total</h3>
+                                        <p> <td class="p-2"><?=  $orders[$i]['price'] ?></td></p>   
+                                </section>
+
+                                <section>
+                                    <h3>details</h3>
+                                <p> <td class="p-2"><?=  $orders[$i]['nom_paiement'] ?></td></p> 
+                                </section>
+                                <section>
+                                    <h3>details</h3>
+                                <p><?=  $orders[$i]['id_commande'] ?> </p> 
+                                </section>
                         <?php endfor; ?>
-                    <?php else: ?>
-                        <tr>
-                            <th class="row p-2">
-                                you don't have any order yet;
-                            </th>
-                        </tr>
-                    <?php endif; ?>
+                        <?php else: ?>
+                            <tr>
+                                <th class="row p-2">
+                                    Vous n'avez pas encore effectué de commande;
+                                </th>
+                            </tr>
+                        <?php endif; ?>
                 <?php endif; ?>
+        
+    </div>
+                
             </table>
         </div>
     </div>

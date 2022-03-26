@@ -1,5 +1,5 @@
 <?php ob_start();?>
-<div class="container-fluid  px-5 mt-3">
+<div class="container-fluid mt-3">
 
     <div class="container-fluid">
 
@@ -22,8 +22,8 @@
                     </a>
 
                     <!-- ajout au panier -->
-                    <div class="shop-card row p-3">
-                        <small class="text-muted mx-2 text-center mb-2"><?= $item['unit_price'] ."€"?></small>
+                    <div class="shop-card">
+                        <small><?= $item['unit_price'] ."€"?></small>
 
                         <!-- Stock -->
                         <?php if( isset($item['units_in_stock']) && $item['units_in_stock'] == 0) : ?>
@@ -40,7 +40,7 @@
                                 <!-- select Quantity -->
                                 <label for="quantity" class="mx-1">Qté:</label>
                                 <select class="form-select rounded-0"
-                                aria-label=".form-select-sm example" name="quantity" id="quantity">
+                                aria-label=".form-select-sm example" name="quantity" id="quantity" style="width:80px">
                                     
                                         <?php   for($j=0;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
                                             <?php if($j == 1) :?>
@@ -56,7 +56,7 @@
                                 
                                 <!-- submit -->
                                 <button type="submit" class="btn btn-dark btn-sm rounded-2 mx-2" name="addToCart" >
-                                    <img src="View/icons/whiteCart.svg" alt="" class="w-50">
+                                    <img src="View/icons/whiteCart.png" alt="" class="w-25">
                                 </button>
                             </form>
                         <?php endif; ?>
