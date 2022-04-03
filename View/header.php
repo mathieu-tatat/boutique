@@ -1,14 +1,17 @@
-<div class="header" style="background-image: url('View/Media/banner2.jpg')">
+<div class="header" style="background-image: url('View/Media/banner2.jpg'); background-size: cover;">
     
     <a href="index.php" class="alert-link"><img src="View/logos/foxwhite.png"></a>
     
     <!-- Search Bar -->
-    <form method="GET" action="shop.php" class="w-40">
+    <form method="GET" action="shop.php" class="w-50">
         <div class="input-group rounded-0">
-            <input type="text" class="form-control rounded-0 " placeholder=" Search..." aria-label="search a product" aria-describedby="basic-addon2" id="headerInputSearch"
-                    name="searchBarIn">
+            <input type="text" class="form-control rounded-0" 
+            placeholder=" Search..." aria-label="search a product" 
+            aria-describedby="basic-addon2" name="searchBarIn">
             <div class="input-group-append ">
-                <button type="submit" class="input-group-text btn  btnLoupe rounded-0 " id="basic-addon2" style="margin-right: 20px;""><img class="loupe "src="View/logos/loupewhite.svg"></button>
+                <button type="submit" class="input-group-text btn btnLoupe rounded-0 " id="basic-addon2" style="margin-right: 20px;">
+                    <img class="loupe "src="View/logos/loupe.svg">
+                </button>
             </div>
         </div>
     </form>
@@ -85,7 +88,7 @@
             document.querySelector('.header__nav').classList.remove('open');
             document.querySelector('.overlay-menu-mobile').classList.remove('open');
         }
-    </script>
+</script>
 
 
 

@@ -8,7 +8,7 @@ abstract Class Model {
     {
         $server="localhost";
         $username="root";
-        $password="root";
+        $password="";
         $database="boutique";
 
         $dsn = "mysql:host=$server;dbname=$database;charset=UTF8";

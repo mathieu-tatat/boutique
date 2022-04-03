@@ -9,16 +9,17 @@
 <?php require_once('Controller/cart_controller.php');  // Models :  User  &  Cart  &  Contient  &  Produit  ?>
 
 <?php   ob_start();  ?>
-<div class="container d-flex flex-row justify-content-center align-items-center my-3">
-    <div class="rounded-0">
+
+<div class="d-flex flex-row justify-content-center align-items-center my-3">
+    <div class="container-xl my-4">
 
         <?php if(isset($_SESSION['connected']) and isset($products_infos) and isset($quantity) ): $tot=0; ?>
 
             <table class="p-2" style="border: solid 1px;">
                 <!-- Table header -->
                 <tr class="p-1" style="border: solid 0.5px;">
-                    <th class="col-sm-2 text-center"></th>
-                    <th class="col-md-2 text-center" >Quantité</th>
+                    <th class="col-md-2 text-center"></th>
+                    <th class="col-md-2 text-center" >Qtté</th>
                     <th class="col-md-2 text-center" >Prix Total</th>
                     <th class="col-md-2 text-center">Nom du produit</th>
                     <th class="col-md-4 text-center">Mis à jour panier</th>
@@ -31,8 +32,8 @@
                     <?php array_push($infosProduitsDansPanier, array($products_infos[$i]["id_produit"],$quantity[$i])) ?>
                     
                 <tr class="p-1">
-                    <td><img src="<?= $products_infos[$i]['img_url'] ?>" class="image"></td>
-                    <td class="align-middle text-center"><?= $quantity[$i]; $quant[]=$quantity[$i]; ?>&#160;<i class="small">unité(s)</i></td>
+                    <td class="px-md-0 ps-1"><img src="<?= $products_infos[$i]['img_url'] ?>" class="image"></td>
+                    <td class="align-middle text-center"><?= $quantity[$i]; $quant[]=$quantity[$i]; ?>&#160;<i class="small"></i></td>
                     <td class="align-middle text-center"><?= $prod=$products_infos[$i]['unit_price']*$quantity[$i];  $price[]=$products_infos[$i]['unit_price']; ?></td>
                     <td class="align-middle text-center"><?= $products_infos[$i]['nom_produit'] ?></td>
                     <td class="align-middle text-center">
@@ -72,7 +73,8 @@
             </table>           
 
             <?php $_SESSION['infosProduitsDansPanier'] = $infosProduitsDansPanier;?>
-            <form method="POST" action="paiement.php" class="d-flex flex-column align-items-end form-check">
+            
+            <form method="POST" action="paiement.php" class="d-flex flex-column align-items-center form-check">
                 <div class="h3 mt-4">
                     <?php for($i=0;$i<=isset($price[$i]);$i++){ $tot+=$price[$i]*$quant[$i]; $_SESSION['totalCommande'] = $tot;} echo 'cart total: '.$tot; ?>
                 </div>

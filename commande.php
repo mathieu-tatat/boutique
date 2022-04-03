@@ -11,6 +11,7 @@
 
 
 <?php   ob_start();  ?>
+
 <div class="d-flex flex-row justify-content-center align-items-center">
 
     
@@ -23,25 +24,23 @@
                 </th>
             </tr>
             <?php if(isset($_SESSION['connected']) and isset($comm)): ?>
-                <tr class="row shadow-sm p-3 mb-5 rounded-2 text-center">
+                <tr class="d-flex flex-row align-items-center shadow-sm p-3 mb-5 rounded-2 text-center">
                     <?php  $tot=0; ?>
-                    <th class="col-md-2 px-3" >Quantité</th>
-                    <th class="col-md-2 px-3" >Image</th>
+                    <th class="col-md-2 px-3" >Qtté</th>
                     <th class="col-md-2 px-2" >Nom Produit</th>
                     <th class="col-md-2 px-2" >Prix Total par produit</th>
                     <th class="col-md-2 px-2" >Date</th>
                 </tr>
                 <?php for($i=0;$i<=isset($comm[$i]);$i++): $tot+=$comm[$i]['price'];?>
-                    <tr class="row shadow-sm rounded-2">
-                        <td class="col-md-2 mt-1 px-2 text-center" ><?= $comm[$i]['quantité'] ?></td>
-                        <td class="col-md-2 mt-3 px-2 h-25" ><img src="<?= $comm[$i]['img_url'] ?>" class="prodPics"></td>
-                        <td class="col-md-2 mt-1 px-2 text-center" ><?= $comm[$i]['nom_produit'] ?></td>
-                        <td class="col-md-2 mt-1 px-2 text-center" ><?= $comm[$i]['price'] ?></td>
-                        <td class="col-md-2 mt-1 px-2 text-justify" ><?= substr($comm[$i]['date_commande'],0,16) ?></td>
-                    </tr>
+                <tr class="d-flex flex-row align-items-center shadow-sm rounded-2">
+                    <td class="col-md-2 mt-1 px-2 text-center" ><?= $comm[$i]['quantité'] ?></td>
+                    <td class="col-md-2 mt-1 px-2 text-center" ><?=substr($comm[$i]['nom_produit'],0,15)?>...</td>
+                    <td class="col-md-2 mt-1 px-2 text-center" ><?= $comm[$i]['price'] ?></td>
+                    <td class="col-md-2 mt-1 px-2 text-justify" ><?= substr($comm[$i]['date_commande'],0,16) ?></td>
+                </tr>
                 <?php endfor; ?>
-                <tr>
-                    <th class="col px-4 mt-4 mb-4">
+                <tr class="col px-4 mt-4 mb-4 text-center">
+                    <th >
                         Order Total Price: <?= $tot ?>
                         Paid with: <?= $comm[0]['nom_paiement'] ?>
                     </th>

@@ -1,4 +1,4 @@
-<?php $soustitre = "gestion produit";
+<?php $soustitre = "Gestion produit";
 require_once('Model/Produit.php');
 require_once('Model/Categorie.php');
 include_once ('Model/Carousel.php');
@@ -9,31 +9,35 @@ $queryrows = $product->getAllProductWithCatAndSubCat();
 
 ob_start(); ?>
 <main class="container-fluid" style="width: 80%;">
-    <h3 class="mb-5">Ajouter un produit</h3>
-   
-    <form action="" method="POST" class="d-flex justify-content-center my-1" style="flex-wrap: wrap;">
-        <input type="submit" name="createCategorie" 
-        value="Créer une catégorie" class="btn btn-dark rounded-0 px-4">
-        <input type="text" name="nomCategorie">        
-    </form>
-    <form action="" method="POST" class="d-flex justify-content-center my-1"style="flex-wrap: wrap;">
-        <input type="submit" name="createSousCategorie" 
-        value="Nouvelle catégorie" class="btn btn-dark rounded-0 px-4">
-        <select name="id_categorie" id="categorie_grp">
-            <?php 
-                $categories = new Categorie();
-                $catQuery = $categories->getAllCategories();
-                foreach($catQuery as $cat) : ?>
-                    <option value="<?= $cat['id_categorie'] ?>">
-                        <?= $cat['nom_categorie']?>
-                    </option>
-            <?php endforeach;?>        
-        </select>
-        <input type="text" name="nomSousCategorie">
-    </form>
-    <a class="btn btn-dark rounded-0 px-4" href="shop.php?addProduit" style="display: flex;margin: auto;width: fit-content; ">soumettre</a>
+    
+    <section>
+        <h4 class="m-3 text-center">Ajouter un produit</h4>
+        <a class="btn btn-dark rounded-0 px-4" href="shop.php?addProduit" style="display: flex;margin: auto;width: fit-content; ">Rajouter un produit</a>   
+        <form action="" method="POST" class="d-flex justify-content-center my-1" style="flex-wrap: wrap;">
+            <input type="submit" name="createCategorie" 
+            value="Créer une catégorie" class="btn btn-dark rounded-0 px-4">
+            <input type="text" name="nomCategorie">        
+        </form>
+        <form action="" method="POST" class="d-flex justify-content-center my-1"style="flex-wrap: wrap;">
+            <input type="submit" name="createSousCategorie" 
+            value="Nouvelle catégorie" class="btn btn-dark rounded-0 px-4">
+            <select name="id_categorie" id="categorie_grp">
+                <?php 
+                    $categories = new Categorie();
+                    $catQuery = $categories->getAllCategories();
+                    foreach($catQuery as $cat) : ?>
+                        <option value="<?= $cat['id_categorie'] ?>">
+                            <?= $cat['nom_categorie']?>
+                        </option>
+                <?php endforeach;?>        
+            </select>
+            <input type="text" name="nomSousCategorie">
+        </form>
+    </section>
+    
+    
 
-    <h3 class="my-5">Objets mis en valeur sur la page d'accueil</h3>
+    <h4 class="my-5 text-center">Objets mis en valeur sur la page d'accueil</h4>
 
     <?php for($i=1; $i<5; $i++) : ?>
         <?php $tempProduit = $carousel->getProduitIdById($i); ?>

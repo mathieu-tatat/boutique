@@ -308,6 +308,10 @@ des scènes de cherche-et-trouve et des infos sur les Pokémon au fil des pages.
 INSERT INTO `droits` (`id_droit`, `nom_droit`) VALUES(1, 'utilisateur');
 INSERT INTO `droits` (`id_droit`, `nom_droit`) VALUES(1337, 'admin');
 
+-- -------- Carousel ------------------
+INSERT INTO `carousel_produits` (`id_produit_carousel`, `id_produit`) VALUES(2, 3),(3, 4),(1, 5),(4, 9);
+
+
 
 -- ------------------------------------------------------------------------ --
 -- ------------------------------------------------------------------------ --
