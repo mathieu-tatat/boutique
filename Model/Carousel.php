@@ -1,8 +1,8 @@
 <?php 
 
-require_once 'Model.php';
+require_once 'Model/Model.php';
 
-class Carousel extends Db {
+class Carousel extends Model {
 
     public function updateToCarousel($idProduit, $idCarousel)
     {

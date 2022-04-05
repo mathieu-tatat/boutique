@@ -1,20 +1,19 @@
-<?php
-
-require_once('Model/Article.php');
-require_once('Model/Produits.php');
-require_once('Model/Contient.php');
+<?php 
+include_once ('Model/Produit.php');
+require_once ('Model/Categorie.php');
+require_once ('Model/SousCategorie.php');
 require_once('Model/User.php');
 require_once('Model/Search.php');
 require_once('Model/Categorie.php');
 require_once('Model/SousCategorie.php');
+require_once('Model/Contient.php');
 
-// creation de mes produits
-$article = new Produits();
-// get infos from products
-$items = $article->get_info_produits();
-
-//instantiate a new user
+$produit = new Produits();
+$categorie = new Categorie();
+$sousCategorie = new SousCategorie();
 $user=new User();
+$items;
+
 
 if(isset($_SESSION['connected'])){
     $id=$_SESSION['id'];
@@ -25,17 +24,16 @@ if(isset($_SESSION['connected'])){
 }
 
 // if cart is pressed or quantity is chaged and you're connected (for now...)
-if((isset($_POST['addToCart'])  or isset($_POST['quantity'])) and isset($_SESSION['connected'])) {
+if(isset($_POST['addToCart']) and isset($_SESSION['connected'])) {
 
     // get my cart id
-    $id_panier = $_SESSION['cart'];
-
-    $id_panier = intval($id_panier);//format
-    $quantite = intval($_POST['quantity']);//format
-    $id_produit = intval($_POST['addToCart']);//format
+    $id_panier = $_SESSION['cart']['id_panier'];
+    $quantite = intval($_POST['quantity']);     //format
+    $id_produit = intval($_POST['idProduit']);  //format
 
     // get a new content
     $contient = new Contient();
+    
     //check for existing contient
     $exist = $contient->getQuantity($id_panier, $id_produit);
 
@@ -44,7 +42,7 @@ if((isset($_POST['addToCart'])  or isset($_POST['quantity'])) and isset($_SESSIO
         // if the selected quantity is different than 0
         if ($quantite !== 0) {
             // add product in Db / create a new row in Contient
-            $contient->addToContient($id_panier, $quantite, $id_produit);
+            $contient->addToContient($id_panier, $id_produit, $quantite);
             // add multiple products
             $contient->addMultipleQuantityToContient($quantite, $id_panier, $id_produit);
 
@@ -68,28 +66,28 @@ if((isset($_POST['addToCart'])  or isset($_POST['quantity'])) and isset($_SESSIO
     }
 }
 
-// shop Views controller and Admin shop controller
-//
-$produit = new Produits();
-$categorie = new Categorie();
-$sousCategorie = new SousCategorie();
-$items;
-
 /*-----------------------------
             CREATE
------------------------------*/
+-----------------------------*/  
 if(isset($_POST['create_prod']))
 {
+    //recupération du nom de produit et détermination de l'endroit ou stocker l'image uploadée
     $targetPath = 'View/ProductImg/';
     $filename = substr($_POST['nom_produit'],0,10);
     $targetFile = $targetPath.$filename.'.jpg';
+
+    //transfert de l'image vers l'endroit
     move_uploaded_file($_FILES['img']['tmp_name'], $targetFile);
+
+    //récupération des données renseignées dans le formulaire
     $nom = $_POST['nom_produit'];
     $prix = $_POST['unit_price'];
     $uniteEnStock = $_POST['units_in_stock'];
     $description = $_POST['description'];
     $idCategorie = $_POST['id_categorie'];
     $idSousCategorie = $_POST['id_sous_categorie'];
+
+    //création du produit dans la base de donnée
     $produit->createProduit($nom, $targetFile, $prix, $uniteEnStock, $description, $idCategorie, $idSousCategorie);
 }
 
@@ -120,28 +118,37 @@ if(isset($_POST['createSousCategorie']))
 /*-----------------------------
                UPDATE
 -----------------------------*/
-// chg txt data
+// chg txt data  
 if(isset($_POST['update_prod']))
 {
+    //récupération des données renseignées dans le formulaire
     $nom = $_POST["nom_produit"];
-    $prix = $_POST["unit_price"];
-    $uniteEnStock = $_POST["units_in_stock"];
+    $prix = $_POST["unit_price"]; 
+    $uniteEnStock = $_POST["units_in_stock"]; 
     $description = $_POST["description"];
-    $idCategorie = $_POST["id_categorie"];
+    $idCategorie = $_POST["id_categorie"]; 
     $idSousCategorie = $_POST["id_sous_categorie"];
     $idProduit = $_POST["id_produit"];
-    $produit->updateProduit($nom, $prix, $uniteEnStock, $description, $idCategorie, $idSousCategorie, $idProduit);
+
+    //update du produit dans la base de donnée
+    $produit->updateProduit($nom, $prix, $uniteEnStock, $description, $idCategorie, $idSousCategorie, $idProduit);    
 }
 
 //chg img
 if(isset($_POST['chg_img']))
 {
-    $targetPath = 'Elements/ProductImg/';
+    //recupération du nom de produit et détermination de l'endroit ou stocker l'image uploadée
+    $targetPath = 'View/ProductImg/';
     $filename = substr($_POST['nom_produit'],0,10);
     $targetFile = $targetPath.$filename.'.jpg';
-    $idProduit = $_POST["id_produit"];
+    
+    //transfert de l'image vers l'endroit
     move_uploaded_file($_FILES['img']['tmp_name'], $targetFile);
-    var_dump($_FILES);
+
+    //récupération des données renseignées dans le formulaire
+    $idProduit = $_POST["id_produit"];
+
+    //update de l'image du produit dans la base de donnée
     $produit->updateImg($targetFile, $idProduit);
 }
 
@@ -152,28 +159,28 @@ if(isset($_POST['chg_img']))
 if(isset($_GET['id_sous_categorie']))
 {
     $items = $produit->getAllProductsBySubCatId($_GET['id_sous_categorie']);
-    require_once('./View/shopDefault.php');
+    require_once('View/shopDefault.php');
 }
 elseif(isset($_GET['id_categorie']))
 {
     $items = $produit->getAllProductsByCatId($_GET['id_categorie']);
-    require_once('./View/shopDefault.php');
+    require_once('View/shopDefault.php');
 }
 elseif(isset($_GET['searchBarIn']))
 {
     $items = $produit->getProductsBySearch($_GET['searchBarIn']);
-    require_once('./View/shopDefault.php');
+    require_once('View/shopDefault.php');
 }
 elseif(isset($_GET['article_id']))
 {
-
+    
     if(isset($_SESSION["droits"]) && $_SESSION["droits"] == 1337)
     {
-        require_once('./View/shopArticleAdmin.php');
+        require_once('View/shopArticleAdmin.php');
     }
     else
     {
-        require_once('./View/shopArticle.php');
+        require_once('View/shopArticle.php');
     }
 
 }
@@ -181,19 +188,16 @@ elseif(isset($_GET['addProduit']))
 {
     if(isset($_SESSION["droits"]) && $_SESSION["droits"] == 1337)
     {
-        require_once('./View/shopArticleAdd.php');
+        require_once('View/shopArticleAdd.php');
     }
     else
     {
         $items = $produit->getAllProductWithCatAndSubCat();
-        require_once('./View/shopDefault.php');
+        require_once('View/shopDefault.php');
     }
 }
 else
 {
     $items = $produit->getAllProductWithCatAndSubCat();
-    require_once('./View/shopDefault.php');
+    require_once('View/shopDefault.php');
 }
-
-
-?>

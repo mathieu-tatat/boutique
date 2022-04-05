@@ -1,0 +1,716 @@
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* -------------- */
+/*     GENERAL    */
+/* -------------- */
+
+
+
+:root {
+    --gray: gray;
+}
+
+* {
+    margin: 0!important;
+    padding: 0!important;
+    box-sizing: border-box;
+}
+
+main{
+
+    margin: auto;
+
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+}
+
+a, a:hover {
+    color: inherit;
+    text-decoration: inherit; /* no underline */
+}
+
+section{
+    width: 100%;
+    height:auto;
+    margin-right: 1px;
+    margin-right: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+h3{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+p{
+    display: flex;
+    justify-content: center;
+    margin-top: 2px;
+    margin-bottom: 0;
+    align-items: center;
+}
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* ------------- */
+/*     HEADER    */
+/* ------------- */
+
+
+
+.header {
+    width: calc(100% - 40px);
+    height: 90px;
+    top: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 0px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+.header__nav__menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    align-items: center;
+
+}
+
+.header__nav__menu__link {
+    margin-right: 20px;
+}
+
+
+.header__nav__menu__link:last-of-type {
+    margin-right: initial;
+}
+
+.header__nav__menu__link a {
+
+    font-family: 'Arial';
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+}
+
+.header__nav__menu__link a:after {
+    content: '';
+    height: 2px;
+    background-color: black;
+    width: 0;
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    transition: 0.2s all ease-in-out;
+    border-radius: 5px;
+}
+
+.header__nav__menu__link a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.header__burger {
+    display: none;
+
+}
+
+.header__burger svg {
+    stroke: rgb(0, 0, 0);
+    width: 22px;
+    height: 22px;
+}
+
+.header__nav__close {
+    display: none;
+}
+
+#decoBtn{
+    background: none;
+    box-shadow: 0px 0px 0px transparent;
+    border: 0px solid transparent;
+    text-shadow: 0px 0px 0px transparent;
+    font-family: 'Arial';
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+}
+
+#decoBtn:after {
+    content: '';
+    height: 2px;
+    background-color: black;
+    width: 0;
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    transition: 0.2s all ease-in-out;
+    border-radius: 5px;
+  }
+
+#decoBtn:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.adminStyle a:after {
+      background-color: #DC3545 !important;
+}
+
+.loupe{
+    width: 200%;
+}
+
+
+.btnLoupe{
+    background-color: transparent !important;
+    border: 1px solid transparent !important ;
+}
+
+.btnLoupe:hover{
+    background-color: transparent !important;
+    border: 1px solid transparent !important ;
+}
+
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* -------------- */
+/*      MAIN      */
+/* -------------- */
+
+
+
+/*------------         carousel              -----------*/
+
+.img-carousel{
+    width: 30%;
+    display: block;
+    margin: 0 auto!important;
+    aspect-ratio: 1 / 1.5;
+    object-fit: contain;
+    object-position: bottom;
+    border-radius: 6px;
+    }
+
+.carousel-indicators{
+    bottom: -55px !important;
+}
+
+.carousel-indicators li {
+    border-bottom: 5px solid !important;
+    opacity: .5 ;
+    transition:opacity .4s ease !important;
+    color: black !important;
+}
+
+
+
+/*---------------    page panier   -------------------*/
+
+
+.cartPics {
+    width:90%;
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: 1/0.8;
+    object-fit:cover;
+}
+
+#cartIcon {
+    width:75%;
+    display: block;
+}
+
+
+
+/*--------------    page utilisateur   ----------------------*/
+
+
+.actionProfil{
+    margin-bottom: 10px;
+}
+
+
+/*-------------     page produits ------------------------*/
+
+
+/* div contenant les info des produits */
+
+.shopRow{
+    display:flex;
+    justify-content: space-around;
+}
+
+
+/* gere le css du nom profuit dans la card detail  */
+
+.sizeNom{
+    height: 50px;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+    display: flex;
+    margin-left: 4px;
+    margin-right: 4px;
+}
+
+.sizeNom:hover{
+    color: #6C757D;
+}
+
+/* gere l'ensemble de l'affichage page */
+.content{
+    display: flex;
+}
+
+/* gere l'aspect des images de la page shop  */
+.image{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    aspect-ratio: 1 / 1.5;
+    object-fit: contain;
+    object-position: bottom;
+    border-radius: 6px;
+}
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
+
+/* !!!! ne pas recoder une classe bootstrap !!!! */
+.row{
+    padding-bottom:10px;
+    width:80%;
+    display:flex;
+    margin:auto !important;
+}
+
+.btn{
+    background-color: #201E1F ;
+    border: 1px solid #201E1F ;
+    border-radius: 5px ;
+}
+
+.btn:hover{
+    background-color: #42413C ;
+    border: 1px solid #42413C ;
+}
+
+.shop-card{
+  margin-top: 40px;
+
+}
+
+
+/*---------------            Menu categories            -------------------*/
+
+
+.menuCat {
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    left: 0;
+}
+
+.cat__nav__menu {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.cat__nav__menu__link {
+    margin-right: 20px!important;
+}
+
+
+.cat__nav__menu__link:last-of-type {
+    margin-right: initial;
+}
+
+.cat__nav__menu__link a {
+
+    font-family: 'Arial';
+    font-weight: 600;
+    text-decoration: none;
+    position: relative;
+}
+
+.cat__nav__menu__link a:after {
+    content: '';
+    height: 2px;
+    background-color: black;
+    width: 0;
+    position: absolute;
+    bottom: -5px;
+    right: 0;
+    transition: 0.2s all ease-in-out;
+    border-radius: 5px;
+}
+
+.cat__nav__menu__link a:hover:after {
+    width: 100%;
+    left: 0;
+}
+
+.cat__burger {
+    display: none;
+
+}
+
+.cat__burger svg {
+    stroke: black;
+    width: 22px;
+    height: 22px;
+}
+
+.cat__nav__close {
+    display: none;
+}
+
+
+/*-----------------        page paiement        -----------------------*/
+
+
+.cartVerif{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    }
+  
+.trait_dessus{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-weight: bolder;
+    border-bottom: 1px solid #54C7C3;
+    width : 235px;
+    margin-bottom: 5px;
+}
+
+
+/*--------------            Partie Admin            ------------------*/
+
+
+.adminOption{
+    background-color: transparent !important;
+    border: transparent !important;
+    width: 20%;
+}
+
+.adminOption:hover{
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+.tabInfo{
+    margin: auto;
+    justify-content: center;
+    margin-bottom:25px;
+    
+}
+
+.artDet{
+    border: 1px solid;
+    display: flex;
+    margin-bottom: 10px;   
+}
+
+
+/*--------------            page Contact         ------------------*/
+
+
+.p_contact{
+  width: 75%;
+  margin: 40px auto!important;
+}
+
+.contact-us{
+    width: 30px;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* -------------- */
+/*  MEDIA QUERIES */
+/* -------------- */
+
+
+@media (max-width: 415px) {
+
+    /* ------------- */
+    /*     HEADER    */
+    /* ------------- */
+
+    .header{
+        width: auto;
+    }
+
+    .header__burger {
+        display: block;
+        cursor: pointer;
+    }
+
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100vh;
+        background-color:#201E1F;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
+
+    .header__nav.open {
+        display: flex;
+        animation: transformMenu 300ms ease-in-out forwards;
+        z-index: 10;
+    }
+
+    @keyframes transformMenu {
+        0% {
+            transform: translateX(100%);
+        }
+
+        100% {
+            transform: initial;
+        }
+    }
+
+    .header__nav__menu {
+        flex-direction: column;
+        align-items: flex-start;
+        font-family: 'Arial';
+    }
+
+    .header__nav__menu__link {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+
+    .header__nav__menu__link a {
+        font-size: 25px;
+    }
+
+    .header__nav__close {
+        display: block;
+        cursor: pointer;
+
+    }
+
+    .header__nav__close svg {
+        stroke: #fff;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+
+    .overlay-menu-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.6);
+        display: none;
+    }
+
+    .overlay-menu-mobile.open {
+        display: block;
+    }
+
+    .p_contact{
+        width: 50%;
+        margin: 5px auto!important;
+        font-size: small;
+    }
+
+    #decoBtn{
+        color: white;
+        font-size: 25px;
+
+    }
+
+    #decoBtn:after {
+        background-color: white;
+    }
+
+    .header__nav__menu__link a:after {
+        background-color: white;
+
+    }
+
+    .adminStyle a:after {
+        background-color: #DC3545 !important;
+    }
+
+
+/*---------------            Menu categories            -------------------*/
+
+    .menuCat{
+        padding-left: 0;
+    }
+
+    .cat__burger {
+        display: block;
+        cursor: pointer;
+    }
+
+
+    .cat__nav {
+        width: 300px;
+        left: 0;
+        background-color:white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        position: fixed;
+    }
+
+    .cat__nav.open {
+        display: flex;
+        animation: transformCat 300ms ease-in-out ;
+        flex-direction: column;
+
+    }
+
+    @keyframes transformCat {
+        0% {
+            transform:  translateX(-100%);
+        }
+
+        100% {
+            transform:initial;
+        }
+    }
+
+    .cat__nav__menu {
+        flex-direction: column;
+        align-items: flex-end;
+        font-family: 'Arial';
+    }
+
+    .cat__nav__menu__link {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .cat__nav__menu__link a {
+        font-size: 25px;
+    }
+
+    .cat__nav__close {
+        display: block;
+        cursor: pointer;
+
+    }
+
+    .cat__nav__close svg {
+        stroke: black;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+
+    .overlay-cat-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.6);
+        display: none;
+    }
+
+    .overlay-cat-mobile.open {
+        display: block;
+    }
+
+    .ulCat {
+        color: black;
+    }
+
+    ul {
+        color: white;
+    }
+
+    .img-carousel {
+        width: 72%;
+        display: block;
+        margin: 0 auto;
+        aspect-ratio: 1 / 1.5;
+        object-fit: contain;
+        object-position: bottom;
+        border-radius: 6px;
+    }
+
+    img {
+        width: 85%;
+        height: 70%;
+    }
+
+    .shop-card{
+        margin-top: 0px;
+    }
+
+    .actionProfil{
+        margin-bottom: 10px;
+    }
+
+  /*-----------------------  tableau Admin  ----------------------*/
+
+    .artDet{
+        border: 1px solid;
+        display: flex;
+        margin-bottom: 10px;
+        flex-wrap: wrap;   
+    }
+
+    .adminOption{
+        background-color: transparent !important;
+        border: transparent !important;
+        width: 50%;
+    }
+
+    .adminOption:hover{
+        background-color: transparent !important;
+        border: transparent !important;
+    }
+
+}

@@ -1,8 +1,8 @@
 <?php 
 
-require_once 'Model.php';
+require_once 'Model/Model.php';
 
-Class Categorie extends Db
+Class Categorie extends Model
 {
     function __construct(){}
 

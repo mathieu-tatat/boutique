@@ -1,11 +1,10 @@
 <?php
 
-//  Models: Search _____________________________________
-
 
 if(isset($_GET['searchBarIn'])){
+    header('location:');
     $test=$_GET['searchBarIn'];
     $search=new Search();
-    $items=$search->searchAll($test);
-    //var_dump($items);
+    $search_result=$search->searchAll($test);
+
 }

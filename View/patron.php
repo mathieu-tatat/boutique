@@ -4,47 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="Elements/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="Elements/css/style.css">
+    <link rel="stylesheet" type="text/css" href="View/CSS/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="View/CSS/style.css">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
     integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" 
     crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/3987504e8f.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/37338f1a7b.js" crossorigin="anonymous"></script>
+    <script src="View/CSS/script.js"></script>
     <title><?= $title ?></title>
 </head>
 <body>
 
-    <header class="container-fluid">
-
-        <?= $header  ?>
+    <header >
+        <?php require_once ('View/header.php') ?>
     </header>
+    
+    <h1 class="text-center text-light py-2" style="background-color:#201E1F"><?= $title ?></h1>
 
     <?php require_once('View/Error.php')?>
-
+    
     <main>
         <?= $content ?>
     </main>
 
-    <footer >
-        <nav class="d-flex flex-column align-items-center myFooter">
-            <div class="d-flex justify-content-around align-items-start" id="bottomLinks">
-                <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox"><div class="text-center footerText">Produits</div></a>
-                <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox"><div class="text-center footerText">Profil</div></a>
-                <a href="" class="d-flex justify-content-center align-items-center mx-4 my-0 textBox"><div class="text-center" id="footerCenterText">Trade</div></a>
-                <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox "><div class="text-center footerText">About us</div></a>
-                <a href="" class="d-flex justify-content-center align-items-center mx-2 textBox "><div class="text-center footerText">Contact</div></a>
-            </div>
-            <div class="border-top border-secondary line"></div>
-            <div class="d-flex flex-row justify-content-center my-2">
-                <div class="border border-secondary pills mx-3"></div>
-                <div class="border border-secondary pills mx-2"></div>
-                <div class="border border-secondary pills mx-4"></div>
-                <div class="border border-secondary pills mx-2"></div>
-                <div class="border border-secondary pills mx-3"></div>
-            </div>
-            <div class="text-center ms-1">© 2022 - MGF</div>
-        </nav>
+    <footer>
+        <?php require_once ('View/footer.php') ?>   
     </footer>
-    
-</body>
+
+    <!-- SCRIPT A L'ANCIENNE COMME ON NOUS A DIT DE PAS FAIRE (pre runtrack JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+
 </html>
+

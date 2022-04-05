@@ -1,26 +1,35 @@
-<?php
+<?php 
 
-require_once('Model.php');
+require_once 'Model/Model.php';
 
-Class Cart extends Db
+Class Cart extends Model
 {
-    public $id_panier, $id_utilisateur, $total;
+    public  $id_panier, 
+            $id_utilisateur;
 
-    function __construct()
+    function __construct() {}
+
+    public function getCart($id_utilisateur)
     {
-    }
+        $sql = "SELECT id_panier 
+                FROM paniers 
+                WHERE id_utilisateur=:id_utilisateur ";
 
-    public function getCart($id_utilisateur){
-        $sql = " SELECT id_panier FROM paniers WHERE id_utilisateur=:id_utilisateur ORDER BY id_panier DESC";
-        $params = [':id_utilisateur' => $id_utilisateur];
+        $params = ['id_utilisateur' => $id_utilisateur];
         $result = $this->selectQuery($sql, $params);
-        $id_panier=$result->fetch();
+        $id_panier=$result->fetchAll(PDO::FETCH_ASSOC);
         return $id_panier;
     }
-    public function insertCart($id_utilisateur){
-        $sql = " INSERT INTO paniers(id_utilisateur) VALUES (:id_utilisateur) ";
-        $params = ([':id_utilisateur' => $id_utilisateur]);
-        $this->selectQuery($sql, $params);
-    }
 
+    public function createCart($id_utilisateur)
+    {
+        $sql ="INSERT INTO paniers (id_panier, id_utilisateur)
+                VALUES (NULL, ?)";
+        $params = [$id_utilisateur];
+
+        $register = $this->selectQuery($sql, $params);
+
+        return $register;     
+        
+    }
 }

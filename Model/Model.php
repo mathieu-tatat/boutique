@@ -1,11 +1,11 @@
 <?php
 
-
-abstract Class Db {
+abstract Class Model {
 
     private $conn;
 
-    private function getConn(){
+    private function getConn()
+    {
         $server="localhost";
         $username="root";
         $password="";
@@ -16,10 +16,14 @@ abstract Class Db {
         return $this->conn;
     }
 
-    public function selectQuery($sql,$params=null){
-        if($params===null){
+    public function selectQuery($sql,$params=null)
+    {
+        if($params===null)
+        {
             $result = $this->getConn()->query($sql);
-        } else {
+        } 
+        else 
+        {
             $result = $this->getConn()->prepare($sql);
             $result->execute($params);
         }
