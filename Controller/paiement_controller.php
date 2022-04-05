@@ -1,5 +1,5 @@
 <?php
-require_once("Model/Stripe.php");
+
 require_once('Model/Paiement.php');
 require_once('Model/Cart.php');
 require_once('Model/User.php');

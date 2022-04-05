@@ -6,6 +6,7 @@
 <?php require_once('Model/Produit.php'); ?>
 
 <?php ob_start() ?>
+<div class="d-flex flex-column justify-content-center align-items-center my-3">
 
     <div class="container-xl px-4 my-4 border border-secondary border-1">
         <table class="table">
@@ -62,24 +63,22 @@
                 </div>
                 <div> <label>Année:</label>
                     <input type="text" placeholder="YY" name="exp_year" value="22" name="year " class="col-md-2" style="width: 45px;"></br>
-                
-</div>
-                <div> <label>CVC:</label>
-                    <input type="text" placeholder="CVC" name="cvc" value="123" name="cvc" class="col-md-2" style="width: 45px;"></br>   
-           </div>                
-                    
-
-                
-                   
-                
-                   
                 </div>
 
-            <button class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm p-0 my-1" type="submit" name="paiement">Acheter</button>
+                <div> 
+                    <label>CVC:</label>
+                    <input type="text" placeholder="CVC" name="cvc" value="123" name="cvc" class="col-md-2" style="width: 45px;"></br>   
+                </div>
+            </div>
+
+            <button class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm p-0 my-1" 
+            type="submit" name="paiement">Acheter</button>
 
         </form>
+
     </div>
 
+</div>
 <?php $content = ob_get_clean() ?>
 
 <?php require ('View/Patron.php'); ?>

@@ -1,10 +1,11 @@
 
-/* ----------------------------------------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------------- */
 
 
 /* -------------- */
 /*     GENERAL    */
 /* -------------- */
+
 
 
 :root {
@@ -15,6 +16,12 @@
     margin: 0!important;
     padding: 0!important;
     box-sizing: border-box;
+}
+
+main{
+
+    margin: auto;
+
 }
 
 ul,
@@ -43,29 +50,11 @@ section{
     flex-direction: column;
 }
 
-.tabInfo{
-    margin: auto;
-    justify-content: center;
-    margin-bottom:25px;
-    
-}
-
-.artDet{
-    border: 1px solid;
-    display: flex;
-    margin-bottom: 10px;   
-}
-
 h3{
     display: flex;
     justify-content: center;
     margin-bottom: 0;
     margin-top: 0;
-}
-
-.sizeTabDetail{
-    height: auto;
-
 }
 
 p{
@@ -76,11 +65,14 @@ p{
     align-items: center;
 }
 
-/* ------------------------------------------------- */
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
 
 /* ------------- */
 /*     HEADER    */
 /* ------------- */
+
+
 
 .header {
     width: calc(100% - 40px);
@@ -182,45 +174,62 @@ p{
 
 .adminStyle a:after {
       background-color: #DC3545 !important;
-  }
-
-.loupe{
-  width: 200%;
 }
 
-/* ------------------------------------------------- */
-
-/* ------------- */
-/*     FOOTER    */
-/* ------------- */
-
-    footer{
-
-    }
-
-    /* ------------- */
-    /*     MOBILE   */
-    /* ------------- */
-
-    @media screen and (max-width: 750px){
+.loupe{
+    width: 200%;
+}
 
 
+.btnLoupe{
+    background-color: transparent !important;
+    border: 1px solid transparent !important ;
+}
 
-    }
+.btnLoupe:hover{
+    background-color: transparent !important;
+    border: 1px solid transparent !important ;
+}
 
-/* ------------------------------------------------- */
+
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
 
 /* -------------- */
 /*      MAIN      */
 /* -------------- */
 
-.contact-us{
-    width: 30px;
+
+
+/*------------         carousel              -----------*/
+
+.img-carousel{
+    width: 30%;
+    display: block;
+    margin: 0 auto!important;
+    aspect-ratio: 1 / 1.5;
+    object-fit: contain;
+    object-position: bottom;
+    border-radius: 6px;
+    }
+
+.carousel-indicators{
+    bottom: -55px !important;
 }
 
-/* -------------- */
-/*    MAIN CART   */
-/* -------------- */
+.carousel-indicators li {
+    border-bottom: 5px solid !important;
+    opacity: .5 ;
+    transition:opacity .4s ease !important;
+    color: black !important;
+}
+
+
+
+/*---------------    page panier   -------------------*/
+
 
 .cartPics {
     width:90%;
@@ -236,46 +245,28 @@ p{
 }
 
 
-/* -------------- */
-/*    USER PAGE   */
-/* -------------- */
 
-.prodPics {
-    width:90%;
-    display: block;
-    margin: 0 auto;
-    aspect-ratio: 1/1;
-    object-fit:contain;
-}
+/*--------------    page utilisateur   ----------------------*/
+
 
 .actionProfil{
     margin-bottom: 10px;
-  }
-
-
-/* taille de ma main et modif curseur */
-main{
-
-    margin: auto;
-
-}
-/* banniere avce logos  */
-.ban{
-    display:flex;
-    justify-content: space-between;
 }
 
-/*contenue des cards poduits  */
+
+/*-------------     page produits ------------------------*/
+
 
 /* div contenant les info des produits */
+
 .shopRow{
     display:flex;
     justify-content: space-around;
 }
-.card{
-    width:250px ;
-}
+
+
 /* gere le css du nom profuit dans la card detail  */
+
 .sizeNom{
     height: 50px;
     font-size: 20px;
@@ -294,10 +285,6 @@ main{
 .content{
     display: flex;
 }
-/* padding des categorie */
-.pad{
-    margin-left:15px;
-}
 
 /* gere l'aspect des images de la page shop  */
 .image{
@@ -310,81 +297,12 @@ main{
     border-radius: 6px;
 }
 
-/*------------ design et mise en page de la page article -----------*/
-
-.units{
-    padding: .375rem .75rem;
-    font-size: 1rem;
-    border-radius: .25rem;
-    border: solid 1px;
-    color: #6C757D;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: max-content;
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
 }
 
-
-.infosProduit{
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-}
-
-.dispo{
-    display: flex;
-    justify-content: space-around;
-}
-
-.details{
-    width: 40%;
-    display: block;
-    margin: 40px;
-    object-position: bottom;
-    border-radius: 6px;
-}
-
-.info{
-    display: flex;
-    justify-content: space-between;
-    gap: 5px;
-    position: absolute;
-    margin-left: 540px;
-    margin-top: 200px;
-}
-
-.nomArticle{
-    display: flex;
-    justify-content: center;
-    padding-bottom: 250px;
-    margin: auto;
-    position: absolute;
-    margin-left: 530px;
-    width: 250px;
-
-}
-
-.descArticle{
-    margin-top: auto;
-    margin-bottom: 1rem;
-    width: 90%;
-    margin-left: 5%;
-}
-
-.img-carousel{
-    width: 30%;
-    display: block;
-    margin: 0 auto;
-    aspect-ratio: 1 / 1.5;
-    object-fit: contain;
-    object-position: bottom;
-    border-radius: 6px;
-    }
-
-.carousel-indicators{
-    bottom: -55px !important;
-}
-
+/* !!!! ne pas recoder une classe bootstrap !!!! */
 .row{
     padding-bottom:10px;
     width:80%;
@@ -392,17 +310,15 @@ main{
     margin:auto !important;
 }
 
+.btn{
+    background-color: #201E1F ;
+    border: 1px solid #201E1F ;
+    border-radius: 5px ;
+}
 
-.carousel-indicators li {
-  border-bottom: 5px solid !important;
-  opacity: .5 ;
-  transition:opacity .4s ease !important;
-  color: black !important;
-    }
-
-.carousel-control-next,
-.carousel-control-prev /*, .carousel-indicators */ {
-    filter: invert(100%);
+.btn:hover{
+    background-color: #42413C ;
+    border: 1px solid #42413C ;
 }
 
 .shop-card{
@@ -410,147 +326,8 @@ main{
 
 }
 
-.descriptionArtMob{
-  width: 100% !important;
-}
 
-/*----------------- Header -----------------------*/
-
-.banner{
-    height: 150px;
-    color:white;
-    display:flex;   
-    font-size: 3vw;
-    font-family: 'Nanum Myeongjo', serif;    
-}
-
-.slogan{
-    font-size:10px;
-}
-
-.trade{
-    font-size:40px;
-    padding-left:10px;
-}
-
-.ajouts{
-    background-color:#201E1F;
-}
-
-.start{
-    display:flex;
-    justify-content:start;
-}
-
-.end{
-    display:flex;
-    justify-content:end;
-}
-
-.paimentForm{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: #242d60;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
-    'Helvetica Neue', 'Ubuntu', sans-serif;
-    height: 100vh;
-    margin: 0;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
-
-  .cartVerif{
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    flex-wrap: wrap;
-  }
-  
-  .containerForm{
-    width: 25%;
-    margin:auto ;
-    border: solid 1px;
-    padding: 20px;
-    background-color: white;
-    border-radius: 8px;
-  }
-  
-  .buttonPaye:hover {
-    opacity: 0.6;
-  }
-
-  .btn{
-    background-color: #201E1F ;
-    border: 1px solid #201E1F ;
-    border-radius: 5px ;
-  }
-
-  .btn:hover{
-    background-color: #42413C ;
-    border: 1px solid #42413C ;
-  }
-  
-  .btnLoupe{
-    background-color: transparent !important;
-    border: 1px solid transparent !important ;
-  }
-
-  .btnLoupe:hover{
-    background-color: transparent !important;
-    border: 1px solid transparent !important ;
-  }
-  .buttonPaye{
-    margin: 0 auto !important;
-    display: flex !important;
-    justify-content: center !important;
-    background-color: #54C7C3 !important;
-    color: white !important;
-  }
-  
-  
-  .verification{
-    display: flex;
-    gap:25;
-  }
-  
-  .trait_dessus{
-    font-size: 25px;
-    display: flex;
-    justify-content: center;
-    margin: auto;
-    font-weight: bolder;
-    border-bottom: 1px solid #54C7C3;
-    width : 235px;
-    margin-bottom: 5px;
-  }
-  
-  .mounth{
-    padding-right: 10px;
-  }
-  
-  .recapPanier{
-    border: solid 2px;
-    border-radius: 8px;
-    background-color: #54C7C3;
-    width: 40%;
-  
-  }
-   /*-------------- Partie Admin ------------------*/
-
-
-    .adminOption{
-        background-color: transparent !important;
-        border: transparent !important;
-        width: 20%;
-    }
-
-    .adminOption:hover{
-        background-color: transparent !important;
-        border: transparent !important;
-    }
-
-/*---------------Menu categories-------------------*/
+/*---------------            Menu categories            -------------------*/
 
 
 .menuCat {
@@ -614,281 +391,326 @@ main{
     display: none;
 }
 
-/*-------------- page Contact ------------------*/
+
+/*-----------------        page paiement        -----------------------*/
+
+
+.cartVerif{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    }
+  
+.trait_dessus{
+    font-size: 25px;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-weight: bolder;
+    border-bottom: 1px solid #54C7C3;
+    width : 235px;
+    margin-bottom: 5px;
+}
+
+
+/*--------------            Partie Admin            ------------------*/
+
+
+.adminOption{
+    background-color: transparent !important;
+    border: transparent !important;
+    width: 20%;
+}
+
+.adminOption:hover{
+    background-color: transparent !important;
+    border: transparent !important;
+}
+
+.tabInfo{
+    margin: auto;
+    justify-content: center;
+    margin-bottom:25px;
+    
+}
+
+.artDet{
+    border: 1px solid;
+    display: flex;
+    margin-bottom: 10px;   
+}
+
+
+/*--------------            page Contact         ------------------*/
+
 
 .p_contact{
   width: 75%;
   margin: 40px auto!important;
 }
 
-/*-------------- media queries ------------------*/
+.contact-us{
+    width: 30px;
+}
+
+
+/* -------------------------------------------------------------------------------------------------------------------------------- */
+
+
+/* -------------- */
+/*  MEDIA QUERIES */
+/* -------------- */
 
 
 @media (max-width: 415px) {
 
-  .header{
-  width: auto;
-  }
+    /* ------------- */
+    /*     HEADER    */
+    /* ------------- */
 
-  .p_contact{
-    width: 50%;
-    margin: 5px auto!important;
-    font-size: small;
-  }
-
-  .header__burger {
-      display: block;
-      cursor: pointer;
-  }
-
-
-  .header__nav {
-      position: fixed;
-      top: 0;
-      right: 0;
-      width: 300px;
-      height: 100vh;
-      background-color:#201E1F;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      display: none;
-  }
-
-  .header__nav.open {
-      display: flex;
-      animation: transformMenu 300ms ease-in-out forwards;
-      z-index: 10;
-  }
-
-  @keyframes transformMenu {
-      0% {
-          transform: translateX(100%);
-      }
-
-      100% {
-          transform: initial;
-      }
-  }
-
-  .header__nav__menu {
-      flex-direction: column;
-      align-items: flex-start;
-      font-family: 'Arial';
-  }
-
-  .header__nav__menu__link {
-      margin-right: 0;
-      margin-bottom: 20px;
-  }
-
-  .header__nav__menu__link a {
-      font-size: 25px;
-  }
-
-  .header__nav__close {
-      display: block;
-      cursor: pointer;
-
-  }
-
-  .header__nav__close svg {
-      stroke: #fff;
-      width: 22px;
-      height: 22px;
-      position: absolute;
-      top: 16px;
-      right: 16px;
-  }
-
-  .overlay-menu-mobile {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0,0,0,0.6);
-      display: none;
-  }
-
-  .overlay-menu-mobile.open {
-      display: block;
-  }
-
-
-
-  .menuCat{
-    padding-left: 0;
-  }
-
-  .cat__burger {
-      display: block;
-      cursor: pointer;
-  }
-
-
-  .cat__nav {
-      width: 300px;
-      left: 0;
-      background-color:white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      display: none;
-      position: fixed;
-  }
-
-  .cat__nav.open {
-      display: flex;
-      animation: transformCat 300ms ease-in-out ;
-      flex-direction: column;
-
-  }
-
-  @keyframes transformCat {
-      0% {
-          transform:  translateX(-100%);
-      }
-
-      100% {
-          transform:initial;
-      }
-  }
-
-  .cat__nav__menu {
-      flex-direction: column;
-      align-items: flex-end;
-      font-family: 'Arial';
-  }
-
-  .cat__nav__menu__link {
-      margin-left: 0;
-      margin-bottom: 20px;
-  }
-
-  .cat__nav__menu__link a {
-      font-size: 25px;
-  }
-
-  .cat__nav__close {
-      display: block;
-      cursor: pointer;
-
-  }
-
-  .cat__nav__close svg {
-      stroke: black;
-      width: 22px;
-      height: 22px;
-      position: absolute;
-      top: 16px;
-      right: 16px;
-  }
-
-  .overlay-cat-mobile {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: rgba(0,0,0,0.6);
-      display: none;
-  }
-
-  .overlay-cat-mobile.open {
-      display: block;
-  }
-
-  .ulCat{
-    color: black;
-  }
-
-
-
-  ul{
-    color: white;
-  }
-
-  #decoBtn{
-      color: white;
-      font-size: 25px;
-
-  }
-
-  #decoBtn:after {
-      background-color: white;
+    .header{
+        width: auto;
     }
 
-  .header__nav__menu__link a:after {
-      background-color: white;
+    .header__burger {
+        display: block;
+        cursor: pointer;
+    }
 
-  }
 
-  .adminStyle a:after {
-      background-color: #DC3545 !important;
-  }
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 300px;
+        height: 100vh;
+        background-color:#201E1F;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+    }
 
-  .footStyle{
-    width: 65% !important;
-    margin-left: -65px;
-  }
+    .header__nav.open {
+        display: flex;
+        animation: transformMenu 300ms ease-in-out forwards;
+        z-index: 10;
+    }
 
-  .hidden{
-    display: none;
-  }
+    @keyframes transformMenu {
+        0% {
+            transform: translateX(100%);
+        }
 
-  .img-carousel {
-  width: 72%;
-  display: block;
-  margin: 0 auto;
-  aspect-ratio: 1 / 1.5;
-  object-fit: contain;
-  object-position: bottom;
-  border-radius: 6px;
-  }
+        100% {
+            transform: initial;
+        }
+    }
 
-  img{
-    width: 85%;
-    height: 70%;
-  }
+    .header__nav__menu {
+        flex-direction: column;
+        align-items: flex-start;
+        font-family: 'Arial';
+    }
 
-  .logoFoot{
-    gap: 50px;
-    height: 80%;
-    margin-left: 20px;
-    margin-right: 20px;
-  }
+    .header__nav__menu__link {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
 
-  .shop-card{
-  margin-top: 0px;
+    .header__nav__menu__link a {
+        font-size: 25px;
+    }
 
-  }
+    .header__nav__close {
+        display: block;
+        cursor: pointer;
 
-  .descriptionArtMob{
-    width: 150% !important;
-  }
+    }
 
-  .actionProfil{
-    margin-bottom: 10px;
-  }
+    .header__nav__close svg {
+        stroke: #fff;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
 
-  /* //////////////////////////// tableau Admin\\\\\\\\\\\\\\\\\\\\\\\\ */
+    .overlay-menu-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.6);
+        display: none;
+    }
+
+    .overlay-menu-mobile.open {
+        display: block;
+    }
+
+    .p_contact{
+        width: 50%;
+        margin: 5px auto!important;
+        font-size: small;
+    }
+
+    #decoBtn{
+        color: white;
+        font-size: 25px;
+
+    }
+
+    #decoBtn:after {
+        background-color: white;
+    }
+
+    .header__nav__menu__link a:after {
+        background-color: white;
+
+    }
+
+    .adminStyle a:after {
+        background-color: #DC3545 !important;
+    }
+
+
+/*---------------            Menu categories            -------------------*/
+
+    .menuCat{
+        padding-left: 0;
+    }
+
+    .cat__burger {
+        display: block;
+        cursor: pointer;
+    }
+
+
+    .cat__nav {
+        width: 300px;
+        left: 0;
+        background-color:white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        display: none;
+        position: fixed;
+    }
+
+    .cat__nav.open {
+        display: flex;
+        animation: transformCat 300ms ease-in-out ;
+        flex-direction: column;
+
+    }
+
+    @keyframes transformCat {
+        0% {
+            transform:  translateX(-100%);
+        }
+
+        100% {
+            transform:initial;
+        }
+    }
+
+    .cat__nav__menu {
+        flex-direction: column;
+        align-items: flex-end;
+        font-family: 'Arial';
+    }
+
+    .cat__nav__menu__link {
+        margin-left: 0;
+        margin-bottom: 20px;
+    }
+
+    .cat__nav__menu__link a {
+        font-size: 25px;
+    }
+
+    .cat__nav__close {
+        display: block;
+        cursor: pointer;
+
+    }
+
+    .cat__nav__close svg {
+        stroke: black;
+        width: 22px;
+        height: 22px;
+        position: absolute;
+        top: 16px;
+        right: 16px;
+    }
+
+    .overlay-cat-mobile {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0,0,0,0.6);
+        display: none;
+    }
+
+    .overlay-cat-mobile.open {
+        display: block;
+    }
+
+    .ulCat {
+        color: black;
+    }
+
+    ul {
+        color: white;
+    }
+
+    .img-carousel {
+        width: 72%;
+        display: block;
+        margin: 0 auto;
+        aspect-ratio: 1 / 1.5;
+        object-fit: contain;
+        object-position: bottom;
+        border-radius: 6px;
+    }
+
+    img {
+        width: 85%;
+        height: 70%;
+    }
+
+    .shop-card{
+        margin-top: 0px;
+    }
+
+    .actionProfil{
+        margin-bottom: 10px;
+    }
+
+  /*-----------------------  tableau Admin  ----------------------*/
+
     .artDet{
-    border: 1px solid;
-    display: flex;
-    margin-bottom: 10px;
-    flex-wrap: wrap;
-   
+        border: 1px solid;
+        display: flex;
+        margin-bottom: 10px;
+        flex-wrap: wrap;   
     }
 
     .adminOption{
-    background-color: transparent !important;
-    border: transparent !important;
-    width: 50%;
+        background-color: transparent !important;
+        border: transparent !important;
+        width: 50%;
     }
 
     .adminOption:hover{
-    background-color: transparent !important;
-    border: transparent !important;
+        background-color: transparent !important;
+        border: transparent !important;
     }
+
 }

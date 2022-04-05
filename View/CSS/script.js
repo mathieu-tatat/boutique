@@ -6,9 +6,6 @@ document.addEventListener('DOMContentLoaded', function () {
     main = (main.offsetHeight);
     let windowHeight = window.innerHeight;
     let heightDiff = windowHeight - footerHeight - 70;
-    console.log(footer)
-    console.log(main)
-    console.log(heightDiff);
     
     if ( main < heightDiff)
     {
@@ -16,4 +13,5 @@ document.addEventListener('DOMContentLoaded', function () {
         footer.style.bottom = 0;
         footer.style.width = "100%";
     }
+
 });
