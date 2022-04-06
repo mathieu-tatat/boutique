@@ -8,42 +8,38 @@
 
 <?php   ob_start();  ?>
 
-<div class="d-flex flex-row justify-content-center align-items-center my-3">
-    
+<div class="container-fluid mt-3">
 
+            <!-- form -->
+            <div class="d-flex flex-column align-items-center">
+                <div class="rounded-2 shadow-sm border border-ligth p-3 w-50">
 
-    <div class="container-md rounded-2 shadow-sm" style="width:80%">
+                    <form action="" method="POST">
 
-        <form action="" method="POST">
-            <div  style="width:20%;">
-            <img src="View/logos/login.svg">
-            </div>
+                        <div class="py-2 p-2">
+                            <label for="email" class="h6 py-1 text-muted px-2 fw-light"><i>Insert your email</i></label>
+                            <input type="text" class="form-control p-1 px-2 rounded-1" style="border:solid 1px darkgray;" id="exampleInputText1" placeholder="Email" name="email">
+                        </div>
 
-            <!-- Email -->
-            <div class="row">
-                <div class="form-group" >
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control p-1 px-2 rounded-1" id="email" name="email">
+                        <div class="py-2 p-2">
+                            <label for="password" class="h6 py-1 text-muted px-2 fw-light"><i>Insert your password</i></label>
+                            <input type="password" class="form-control p-1 px-2 rounded-1" style="border:solid 1px darkgray;" id="exampleInputPassword1" placeholder="Password" name="password">
+                        </div>
+
+                        <div class="py-2 p-2">
+                            <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-3 p-2 shadow-sm" name="submit_connection">Se connecter</button>
+                        </div>
+
+                        <div class="py-2">
+                            <p>Vous avez pas de compte? <a href="inscription.php" class=""> Inscrivez vous </a></p>
+                        </div>
+
+                    </form>
                 </div>
             </div>
+    <!-- image
+-->
 
-
-            <!-- Password -->
-            <div class="row">
-                <div class="form-group">
-                    <label for="password">Mot de passe</label>
-                    <input type="password" class="form-control p-1 px-2 rounded-1" id="password" name="password">
-                </div>
-            </div>
-            
-            <!-- Submit -->
-            <div class="d-flex justify-content-center align-items-center">
-                <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm" name="submit_connection">Se connecter</button>
-            </div>
-
-        </form>
-
-    </div>
 
 </div>
 

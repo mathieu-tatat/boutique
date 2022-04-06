@@ -239,12 +239,19 @@ p{
     object-fit:cover;
 }
 
+/*------    5/04 modification pour desktop version button      -----------*/
+
 #cartIcon {
     width:75%;
     display: block;
 }
 
-
+#cartShop {
+    width:20%;
+}
+button[name="addToCart"]{
+    width:45%;
+}
 
 /*--------------    page utilisateur   ----------------------*/
 
@@ -269,7 +276,7 @@ p{
 
 .sizeNom{
     height: 50px;
-    font-size: 20px;
+    font-size: 1.5em;
     color: black;
     text-decoration: none;
     display: flex;
@@ -450,9 +457,14 @@ p{
   margin: 40px auto!important;
 }
 
-.contact-us{
+.contact-us {
     width: 30px;
 }
+
+
+/*--------------------     connexion   ---------------*/
+
+
 
 
 /* -------------------------------------------------------------------------------------------------------------------------------- */
@@ -712,5 +724,15 @@ p{
         background-color: transparent !important;
         border: transparent !important;
     }
+
+
+
+    /*---------------    connexion   ---------------*/
+
+    .connPic {
+        display:none;
+    }
+
+
 
 }

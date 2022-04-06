@@ -70,45 +70,69 @@ else
 // Update_______________________________________________________________________________________________________________
 
 if(isset($_POST['submitUserUpdate'])){
-    $errors=array();
-    $check=0;
-    if(empty($_POST['prenom'])){ array_push($errors,'please insert your lastname'); $check++; }
-    if(empty($_POST['nom'])){ array_push($errors,'please insert your username'); $check++;  }
-    if(empty($_POST['email'])){ array_push($errors,'please insert your email'); $check++;  }
-    if(empty($_POST['address'])){ array_push($errors,'please insert your adress'); $check++;  }
-    if(empty($_POST['code_postal'])){ array_push($errors,'please insert your postal code'); $check++;  }
-    if(empty($_POST['password'])){ array_push($errors,'please insert your password'); $check++;  }
 
-    $tmp= '<div class="border border-secondary rounded-0 px-4 mb-2 mt-2 ml-2 text-center" >';
-    foreach($errors as $error => $value){
-        if($check>1) {
-            $tmp.= 'please fill in all the fields';
-            break;
+    // receive all input values from the form
+    $prenom = htmlspecialchars($_POST['prenom']);
+    $nom = htmlspecialchars($_POST['nom']);
+    $password_1 = htmlspecialchars($_POST['password']);
+    $email = htmlspecialchars($_POST['email']);
+    $address = htmlspecialchars($_POST['address']);
+    $zipCode = htmlspecialchars($_POST['code_postal']);
+
+    // form validation
+    // by adding (array_push()) corresponding error unto $errors array
+    if (empty($prenom)) { array_push($_SESSION['errors'], "Firstname is required"); }
+    if (empty($nom)) { array_push($_SESSION['errors'], "Lastname is required"); }
+    if (empty($password_1)) { array_push($_SESSION['errors'], "Password is required"); }
+    if (empty($email)) { array_push($_SESSION['errors'], "Email is required"); }
+    if (!preg_match('/^[a-z0-9._-]+[@]+[a-zA-Z0-9._-]+[.]+[a-z]{2,3}$/', $email)) { array_push($_SESSION['errors'], "Email format is wrong"); }
+    if (!preg_match('/^[a-zA-Z0-9]{8,}$/', $password_1)) { array_push($_SESSION['errors'], "Password format is wrong");}
+    if (empty($address)) { array_push($_SESSION['errors'], "Address is required"); }
+    if (empty($zipCode)) { array_push($_SESSION['errors'], "Code postal is required"); }
+    if (!preg_match('/^[0-9]{5}$/', $zipCode)) { array_push($_SESSION['errors'], "ZipCode format is wrong");}
+
+    // check the user id for the update
+    $chkId = $user -> getId($email);
+    // if is the same to the session
+    if($_SESSION['id'] == $chkId['id_utilisateur'] ){
+        //ok same user so same email, update
+        $_SESSION['errors'] = 0;
+    } else {
+        // check if this email already exists
+        $chkExists = $user -> chkExists($email);
+
+        if(empty($chkExists)){
+
+            $_SESSION['errors'] = 0;
+
         } else {
-            $tmp.=$value;
+
+            array_push($_SESSION['errors'], "User already exists");
         }
     }
-    if(empty($errors)){
-        $test=0;
-        $user= new User();
-        $test= $user->chkExists($_POST['email']);
-        $test=intval($test['count']);
-        if($test===0){
-            $id_utilisateur=$user_infos['id_utilisateur'];
-            $id_droit=$user_infos['id_droit'];
-            $password=password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $user->userUpdate($_POST['prenom'],$_POST['nom'],$_POST['email'],$password,
-                $_POST['address'],intval($_POST['code_postal']),intval($id_droit),intval($id_utilisateur));
-            $session=password_hash($_POST['email'],PASSWORD_BCRYPT);
-            $_SESSION['connected']=$session;
-            header('location:profil.php');
-            exit();
-        } else {
-            $tmp.='this user already exist <br> please choose another email';
+
+    if($_SESSION['errors']==0){
+
+        $password = password_hash($password_1, PASSWORD_BCRYPT);
+        $id = $_SESSION['id'];
+
+        $user -> userUpdate($prenom, $nom, $email, $password,
+            $address, $zipCode, $id);
+
+        $_SESSION['id'] = $id;
+        $_SESSION['prenom'] = $prenom;
+        $_SESSION['nom'] = $nom;
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
+        $_SESSION['address'] = $address;
+        $_SESSION['zipCode'] = $zipCode;
+
+        header('location:profil.php');
+        exit();
+
         }
-    }
-    $tmp.='</div>';
 }
+
 
 // details commande______________________________________________________________________________________________________
 

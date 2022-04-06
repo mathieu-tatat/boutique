@@ -17,62 +17,68 @@
 <div class="d-flex flex-column justify-content-center align-items-center my-3">
         
         <!-- Infos profil -->
-        <div class="container-xl px-4 my-4 border border-secondary border-1">
+    <div class="container-fluid">
+        <div class="d-flex flex-row justify-content-center align-items-center">
+            <form class="border-ligth rounded-2 shadow-sm border p-3" action=""  method="POST">
 
-            <div class="display-6 px-4 mt-4"><b>Settings </b></div>
-
-            <form class="px-4 mt-4" id="updateUserForm" method="POST">
-
-                <div class=" px-2">
-                    <label for="exampleInputEmail1" class="form-label"><span class="h6">Email address</span></label>
-                    <input type="email" class="form-control rounded-0" name="email" id="exampleInputEmail1" 
-                    aria-describedby="emailHelp" value="<?= $_SESSION["email"]?>">
-                    <div id="emailHelp" class="form-text">Nous ne partagerons jamais vos données personnelles.</div>
+                <div class="mt-4 mb-1">
+                    <h3>Mes Infos Personnelles</h3>
                 </div>
 
-                <div class=" px-2">
-                    <label for="exampleInputText1" class="form-label"><span class="h6">Prenom</span></label>
-                    <input type="text" class="form-control rounded-0" name="prenom" id="exampleInputText1" 
-                    aria-describedby="textHelp" value="<?= $_SESSION["prenom"]?>">
-                </div>
+                <small class="text-muted mb-3">Mis à jour de mes informations</small>
 
-                <div class=" px-2">
-                    <label for="exampleInputText1" class="form-label"><span class="h6">Nom</span></label>
-                    <input type="text" class="form-control rounded-0" name="nom" id="exampleInputText1" 
-                    aria-describedby="textHelp" value="<?= $_SESSION["nom"]?>">
-                </div>
+                <div class="row align-items-center px-4 mt-2 mb-3">
 
-                <div class=" px-2">
-                    <label for="exampleInputText1" class="form-label"><span class="h6">Address</span></label>
-                    <input type="text" class="form-control rounded-0" name="address" id="exampleInputText1" 
-                    aria-describedby="textHelp" value="<?= $_SESSION["address"]?>">
-                </div>
-
-                <div class=" px-2">
-                    <label for="exampleInputText1" class="form-label"><span class="h6">Code Postal</span></label>
-                    <input type="text" class="form-control rounded-0" name="code_postal" id="exampleInputText1" 
-                    aria-describedby="textHelp" value="<?= $_SESSION["zipCode"]?>">
-                </div>
-
-                <div class="mb-5 px-2">
-                    <label for="exampleInputPassword1" class="form-label"><span class="h6">Password</span></label>
-                    <input type="password" class="form-control rounded-0" name="password" id="exampleInputPassword1">
-                </div>
-
-                <div id="emailHelp" class="form-text small px-4 mb-2">Modifier vos informations personnelles</div>
-
-                <div>
-                    <div class="actionProfil py-2">
-                        <button type="submit" class="btn btn-dark px-3 py-1 rounded-2 shadow-sm" name="submitUserUpdate"style="margin-bottom: 5px;">soumettre</button>
-
-                        <button type="submit" class="btn btn-dark px-3 py-1 rounded-2 shadow-sm" name="deleteUser"style="margin-bottom: 5px;">supprimer votre compte</button>
+                    <div class="h5 py-1">
+                       Données de facturation
                     </div>
+
+                    <div class="form-group col py-1">
+                        <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['prenom']; ?>" name="prenom">
+                    </div>
+
+                    <div class="form-group col py-1">
+                        <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['nom']; ?>" name="nom">
+                    </div>
+
+                </div>
+
+                <div class="row align-items-center px-4 mt-2 mb-3">
+
+                    <div class="form-group col py-1">
+                        <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['address']; ?>" name="address">
+                    </div>
+                    <div class="form-group col py-1">
+                        <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['code_postal']; ?>" name="code_postal">
+                    </div>
+
+                </div>
+
+                <hr/>
+
+                <div class="row align-items-center px-4 mt-2 mb-3">
+                    <div class="form-group row py-1">
+                        <h5>Contacts</h5>
+                    </div>
+
+                    <div class="form-group row py-1">
+                        <input type="text" class="col-form p-1 rounded-1 container-fluid" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['email']; ?>" name="email">
+                    </div>
+                    <div class="form-group row py-1">
+                        <input type="password" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="Password" name="password">
+                    </div>
+
+
+                        <div class="py-2">
+                            <button type="submit" class="btn btn-dark rounded-2 py-2 mb-4 mt-4 p-2 shadow-sm" name="submit_subscription">mis à jour</button>
+                        </div>
                 </div>
 
             </form>
 
         </div>
-    
+    </div>
+
     <!-- Commandes -->
    
 
