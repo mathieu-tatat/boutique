@@ -18,7 +18,7 @@
         <?php require_once ('View/header.php') ?>
     </header>
     
-    <h1 class="text-center text-dark py-2" ><?= $title ?></h1>
+    <h1 class="text-center bg-dark text-white py-2" ><?= $title ?></h1>
 
     <?php require_once('View/Error.php')?>
     

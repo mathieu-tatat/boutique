@@ -1,4 +1,4 @@
-<?php $title = "profil" ?>
+<?php $title = "Profil" ?>
 <?php session_start(); ?>
 
 <?php require_once('Model/User.php'); ?>
@@ -80,19 +80,19 @@
                     <th>Date</th>
                     <th class="p-1">Prix Total</th>
                     <th class="p-1">Payé avec</th>
-                    <th class="p-1">Details</th>
+                    <th class="p-1">Détails</th>
                 </tr>
                 <?php if(!empty($orders)):  ?>
                     <?php for($i=0;$i<=isset($orders[$i]);$i++): ?>
                         <?php $date = substr($orders[$i]['date_commande'],0,10)?>
                         <tr>
                             <td ><?= $date  ?></td>
-                            <td class="p-1"><?=  $orders[$i]['price'] ?></td>                                
+                            <td class="p-1"><?=  $orders[$i]['price'] ?> €</td>
                             <td class="p-1"><?= $orders[$i]['nom_paiement'] ?></td>
                             <td class="p-1">
                                 <form method="POST" action="">
                                     <div class="mb-3 form-check">
-                                        <button type="submit" class="btn btn-dark px-1 py-1 rounded-2 shadow-sm" name="detailsCommande" value="<?=  $orders[$i]['id_commande'] ?>"><b>details</b></button>
+                                        <button type="submit" class="btn btn-dark px-1 py-1 rounded-2 shadow-sm" name="detailsCommande" value="<?=  $orders[$i]['id_commande'] ?>"><b>détails</b></button>
                                     </div>
                                 </form>
                             </td>
@@ -101,7 +101,7 @@
                 <?php else: ?>
                     <tr>
                         <th class="row p-2">
-                            you don't have any order yet;
+                            Vous n'avez pas encore de commande
                         </th>
                     </tr>
                 <?php endif; ?>

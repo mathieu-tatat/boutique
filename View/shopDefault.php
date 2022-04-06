@@ -11,9 +11,11 @@
 
                     <!-- nom -->
                     <div class= "sizeNom mb-2 mt-2">
-                        <a href="shop.php?article_id=<?=$item['id_produit']?>">
-                            <?= substr($item['nom_produit'],0,50)?>
-                        </a>
+                        <h5>
+                            <a href="shop.php?article_id=<?=$item['id_produit']?>">
+                                <?= substr($item['nom_produit'],0,50)?>
+                            </a>
+                        </h5>
                     </div>
 
                     <!-- img -->
@@ -42,7 +44,7 @@
                                 <select class="form-select rounded-0"
                                 aria-label=".form-select-sm example" name="quantity" id="quantity" style="width:80px">
                                     
-                                        <?php   for($j=0;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
+                                        <?php   for($j=1;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
                                             <?php if($j == 1) :?>
                                                 <option value="<?= $j ?>" SELECTED><?= $j ?></option>
                                             <?php else : ?>

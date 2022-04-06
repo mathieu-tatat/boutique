@@ -27,8 +27,8 @@
                 </tr>
 
                 <?php $infosProduitsDansPanier= [];?>
+
                 <!-- table content -->
-                
                 <?php  for($i=0;$i<=isset($products_infos[$i]);$i++): ?>
                     <?php array_push($infosProduitsDansPanier, array($products_infos[$i]["id_produit"],$quantity[$i])) ?>
                     
