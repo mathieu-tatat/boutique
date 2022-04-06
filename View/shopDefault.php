@@ -10,11 +10,13 @@
                 <div class="shopRow d-flex flex-column px-3 mb-5">
 
                     <!-- nom -->
-                    <h4 class= "sizeNom mb-2 mt-2">
-                        <a class= "sizeNom" href="shop.php?article_id=<?=$item['id_produit']?>">
-                            <?= substr($item['nom_produit'],0,50)?>
-                        </a>
-                    </h4>
+                    <div class= "sizeNom mb-2 mt-2">
+                        <h5>
+                            <a href="shop.php?article_id=<?=$item['id_produit']?>">
+                                <?= substr($item['nom_produit'],0,50)?>
+                            </a>
+                        </h5>
+                    </div>
 
                     <!-- img -->
                     <a href='shop.php?article_id=<?= $item["id_produit"]?>' >
@@ -23,7 +25,7 @@
 
                     <!-- ajout au panier -->
                     <div class="shop-card">
-                        <small><?= $item['unit_price'] ."€"?></small>
+                        <b class="bg-dark text-white h5" style="--bs-bg-opacity: .7;"><?= $item['unit_price'] ."€"?></b>
 
                         <!-- Stock -->
                         <?php if( isset($item['units_in_stock']) && $item['units_in_stock'] == 0) : ?>
@@ -32,17 +34,17 @@
 
                         <?php elseif(isset($item['units_in_stock'])): ?>
 
-                            <form method="POST" class="d-flex flex-row align-items-center">
+                            <form method="POST" class="d-flex flex-row align-items-center mt-3">
 
                                 <!-- Id produit -->
                                 <input type="hidden" name="idProduit" value="<?= $item['id_produit'] ?>">
 
                                 <!-- select Quantity -->
-                                <label for="quantity" class="mx-1">Qté:</label>
+                                <label for="quantity" class="mx-1 h5">Qté:</label>
                                 <select class="form-select rounded-0"
                                 aria-label=".form-select-sm example" name="quantity" id="quantity" style="width:80px">
                                     
-                                        <?php   for($j=0;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
+                                        <?php   for($j=1;$j<=intval($item['units_in_stock']);$j++): //if units in stock = to false units in stock equal to 0 ?>
                                             <?php if($j == 1) :?>
                                                 <option value="<?= $j ?>" SELECTED><?= $j ?></option>
                                             <?php else : ?>
@@ -56,7 +58,7 @@
                                 
                                 <!-- submit -->
                                 <button type="submit" class="btn btn-dark btn-sm rounded-2 mx-2" name="addToCart" >
-                                    <img src="View/icons/whiteCart.png" alt="" class="w-25">
+                                    <img src="View/icons/whiteCart.png" alt="" id="cartShop">
                                 </button>
                             </form>
                         <?php endif; ?>

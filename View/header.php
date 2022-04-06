@@ -6,7 +6,7 @@
     <form method="GET" action="shop.php" class="w-50">
         <div class="input-group rounded-0">
             <input type="text" class="form-control rounded-0" 
-            placeholder=" Search..." aria-label="search a product" 
+            placeholder=" Recherche..." aria-label="search a product"
             aria-describedby="basic-addon2" name="searchBarIn">
             <div class="input-group-append ">
                 <button type="submit" class="input-group-text btn btnLoupe rounded-0 " id="basic-addon2" style="margin-right: 20px;">
@@ -53,10 +53,10 @@
                 </li>
                 <?php else: ?>
                 <li class="header__nav__menu__link">
-                  <a href="connexion.php" class="alert-link mx-2" >connexion</a>
+                  <a href="connexion.php" class="alert-link mx-2" >Connexion</a>
                 </li>
                 <li class="header__nav__menu__link">
-                    <a href="inscription.php" class="alert-link mx-2" >inscription</a>
+                    <a href="inscription.php" class="alert-link mx-2" >Inscription</a>
                 </li>
                 <li class="header__nav__menu__link">
                     <?php endif; ?>

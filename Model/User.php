@@ -38,6 +38,33 @@ Class User extends Model
         
     }
 
+    public function chkExistsPro($email,$id)
+    {
+        $params = array($email,$id);
+
+        $sql = "SELECT * FROM `utilisateurs` 
+                        WHERE `email` LIKE ? 
+                         AND `id` LIKE ? ";
+
+        $checkQuery = $this->selectQuery($sql,$params);
+
+        $infos = $checkQuery->fetch(PDO::FETCH_ASSOC);
+
+        $count = $checkQuery->rowCount();
+
+        if ($count > 0)
+        {
+            return $infos;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+
+
     public function subscribeUser($prenom, $nom, $email, $password, $address, $code_postal)
     {
         $sql = "INSERT INTO utilisateurs (prenom, nom, email,
@@ -91,12 +118,12 @@ Class User extends Model
     }
 
 
-    public function userUpdate( $prenom,$nom,$email,$password,$address,$code_postal,$id_droit,$id_utilisateur)
+    public function userUpdate( $prenom,$nom,$email,$password,$address,$code_postal,$id_utilisateur)
     {
         $sql = " UPDATE utilisateurs SET  prenom = :prenom, nom = :nom , password = :password , email = :email ,
-                         address = :address, code_postal = :code_postal, id_droit = :id_droit  WHERE id_utilisateur = :id_utilisateur ";
+                         address = :address, code_postal = :code_postal WHERE id_utilisateur = :id_utilisateur ";
         $params=([':prenom' => $prenom, ':nom' => $nom, ':email' => $email, ':password' => $password, ':address' => $address,
-            ':code_postal' => $code_postal, ':id_droit' => $id_droit, ':id_utilisateur' => $id_utilisateur]);
+            ':code_postal' => $code_postal, ':id_utilisateur' => $id_utilisateur]);
         $this->selectQuery($sql, $params);
     }
 

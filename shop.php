@@ -1,4 +1,4 @@
-<?php $title = "shop" ?>
+<?php $title = "Shop" ?>
 <?php session_start();?>
 <?php require_once('Model/Article.php'); ?>
 

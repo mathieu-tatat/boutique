@@ -1,4 +1,4 @@
-<?php $title = "profil" ?>
+<?php $title = "Profil" ?>
 <?php session_start(); ?>
 
 <?php require_once('Model/User.php'); ?>
@@ -17,62 +17,55 @@
 <div class="d-flex flex-column justify-content-center align-items-center my-3">
         
         <!-- Infos profil -->
-        <div class="container-xl px-4 my-4 border border-secondary border-1">
-
-            <div class="display-6 px-4 mt-4"><b>Settings </b></div>
-
-            <form class="px-4 mt-4" id="updateUserForm" method="POST">
-
-                <div class=" px-2">
-                    <label for="exampleInputEmail1" class="form-label"><span class="h6">Email address</span></label>
-                    <input type="email" class="form-control rounded-0" name="email" id="exampleInputEmail1" 
-                    aria-describedby="emailHelp" value="<?= $_SESSION["email"]?>">
-                    <div id="emailHelp" class="form-text">Nous ne partagerons jamais vos données personnelles.</div>
+    <div class="container-fluid">
+        <div class="d-flex flex-row justify-content-center ">
+            <form action="" method="POST">
+                <div class="px-2 p-3 mt-1 mb-2">
+                    <h5>Données de facturation</h5>
                 </div>
 
-                <div class=" px-2">
-                    <label for="exampleInputText1" class="form-label"><span class="h6">Prenom</span></label>
-                    <input type="text" class="form-control rounded-0" name="prenom" id="exampleInputText1" 
-                    aria-describedby="textHelp" value="<?= $_SESSION["prenom"]?>">
+                <div class="py-1">
+                    <label for="prenom" class="h6 py-1 text-muted px-2 fw-light "><i>Insérer votre prénom</i></label><br>
+                    <input type="text" class="p-1 rounded-1 w-100" placeholder="Prénom" name="prenom" value="<?php echo $_SESSION['prenom'] ?>">
                 </div>
 
-                <div class=" px-2">
-                    <label for="exampleInputText1" class="form-label"><span class="h6">Nom</span></label>
-                    <input type="text" class="form-control rounded-0" name="nom" id="exampleInputText1" 
-                    aria-describedby="textHelp" value="<?= $_SESSION["nom"]?>">
+                <div class="py-1">
+                    <label for="nom" class="h6 py-1 text-muted px-2 fw-light "><i>Insérer votre nom</i></label><br>
+                    <input type="text" class="p-1 rounded-1 w-100"  placeholder="Nom" name="nom" value="<?php echo $_SESSION['nom'] ?>">
                 </div>
 
-                <div class=" px-2">
-                    <label for="exampleInputText1" class="form-label"><span class="h6">Address</span></label>
-                    <input type="text" class="form-control rounded-0" name="address" id="exampleInputText1" 
-                    aria-describedby="textHelp" value="<?= $_SESSION["address"]?>">
+                <div class="py-1">
+                    <label for="address" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre adresse</i></label><br>
+                    <input type="text" class="p-1 rounded-1 w-100"  placeholder="Adresse" name="address" value="<?php echo $_SESSION['address'] ?>">
                 </div>
 
-                <div class=" px-2">
-                    <label for="exampleInputText1" class="form-label"><span class="h6">Code Postal</span></label>
-                    <input type="text" class="form-control rounded-0" name="code_postal" id="exampleInputText1" 
-                    aria-describedby="textHelp" value="<?= $_SESSION["zipCode"]?>">
+                <div class="py-1">
+                    <label for="code_postal" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre code postal</i></label><br>
+                    <input type="text" class=" p-1 rounded-1 w-100"  placeholder="Code Postal" name="code_postal" value="<?php echo $_SESSION['zipCode'] ?>">
                 </div>
 
-                <div class="mb-5 px-2">
-                    <label for="exampleInputPassword1" class="form-label"><span class="h6">Password</span></label>
-                    <input type="password" class="form-control rounded-0" name="password" id="exampleInputPassword1">
+                <div class="px-2 mt-3 mb-1 h5">
+                    Contact
                 </div>
 
-                <div id="emailHelp" class="form-text small px-4 mb-2">Modifier vos informations personnelles</div>
+                <div class="py-1">
+                    <label for="email" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre email</i></label><br>
+                    <input type="text" class="p-1 rounded-1 w-100" placeholder="Email" name="email" value="<?php echo $_SESSION['email'] ?>">
+                </div>
 
-                <div>
-                    <div class="actionProfil py-2">
-                        <button type="submit" class="btn btn-dark px-3 py-1 rounded-2 shadow-sm" name="submitUserUpdate"style="margin-bottom: 5px;">soumettre</button>
+                <div class="py-1">
+                    <label for="password" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer un mot de passe d'au moins 8 caractères</i></label><br>
+                    <input type="password" class="p-1 rounded-1 w-100"  placeholder="Password" name="password_1" value="<?php echo substr($_SESSION['password'],0,8); ?>" >
+                </div>
 
-                        <button type="submit" class="btn btn-dark px-3 py-1 rounded-2 shadow-sm" name="deleteUser"style="margin-bottom: 5px;">supprimer votre compte</button>
-                    </div>
+                <div class="py-1">
+                    <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm" name="submitUserUpdate">Mettre à jour</button>
                 </div>
 
             </form>
-
         </div>
-    
+    </div>
+
     <!-- Commandes -->
    
 
@@ -87,19 +80,19 @@
                     <th>Date</th>
                     <th class="p-1">Prix Total</th>
                     <th class="p-1">Payé avec</th>
-                    <th class="p-1">Details</th>
+                    <th class="p-1">Détails</th>
                 </tr>
                 <?php if(!empty($orders)):  ?>
                     <?php for($i=0;$i<=isset($orders[$i]);$i++): ?>
                         <?php $date = substr($orders[$i]['date_commande'],0,10)?>
                         <tr>
                             <td ><?= $date  ?></td>
-                            <td class="p-1"><?=  $orders[$i]['price'] ?></td>                                
+                            <td class="p-1"><?=  $orders[$i]['price'] ?> €</td>
                             <td class="p-1"><?= $orders[$i]['nom_paiement'] ?></td>
                             <td class="p-1">
                                 <form method="POST" action="">
                                     <div class="mb-3 form-check">
-                                        <button type="submit" class="btn btn-dark px-1 py-1 rounded-2 shadow-sm" name="detailsCommande" value="<?=  $orders[$i]['id_commande'] ?>"><b>details</b></button>
+                                        <button type="submit" class="btn btn-dark px-1 py-1 rounded-2 shadow-sm" name="detailsCommande" value="<?=  $orders[$i]['id_commande'] ?>"><b>détails</b></button>
                                     </div>
                                 </form>
                             </td>
@@ -108,7 +101,7 @@
                 <?php else: ?>
                     <tr>
                         <th class="row p-2">
-                            you don't have any order yet;
+                            Vous n'avez pas encore de commande
                         </th>
                     </tr>
                 <?php endif; ?>

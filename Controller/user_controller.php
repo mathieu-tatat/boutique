@@ -49,7 +49,7 @@ if(isset($_POST['submit_subscription']))
         //instantie un panier pour pouvoir créer un nouveau panier pour le nouvel utilisateur
         $cart = new Cart();
         $cart->createCart($userInfos["id_utilisateur"]);
-        header('location: ./connexion.php');        
+        header('location: ./connexion.php');
     }
 }
 

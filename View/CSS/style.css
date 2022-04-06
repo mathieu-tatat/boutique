@@ -239,12 +239,19 @@ p{
     object-fit:cover;
 }
 
+/*------    5/04 modification pour desktop version button      ---------------------------*/
+
 #cartIcon {
     width:75%;
     display: block;
 }
 
-
+#cartShop {
+    width:20%;
+}
+button[name="addToCart"]{
+    width:45%;
+}
 
 /*--------------    page utilisateur   ----------------------*/
 
@@ -269,7 +276,7 @@ p{
 
 .sizeNom{
     height: 50px;
-    font-size: 20px;
+    font-size: 1.5em;
     color: black;
     text-decoration: none;
     display: flex;
@@ -450,9 +457,12 @@ p{
   margin: 40px auto!important;
 }
 
-.contact-us{
+.contact-us {
     width: 30px;
 }
+
+
+
 
 
 /* -------------------------------------------------------------------------------------------------------------------------------- */
@@ -468,8 +478,7 @@ p{
     /* ------------- */
     /*     HEADER    */
     /* ------------- */
-
-    .header{
+    .header {
         width: auto;
     }
 
@@ -485,7 +494,7 @@ p{
         right: 0;
         width: 300px;
         height: 100vh;
-        background-color:#201E1F;
+        background-color: #201E1F;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -544,7 +553,7 @@ p{
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgba(0, 0, 0, 0.6);
         display: none;
     }
 
@@ -552,13 +561,13 @@ p{
         display: block;
     }
 
-    .p_contact{
+    .p_contact {
         width: 50%;
-        margin: 5px auto!important;
+        margin: 5px auto !important;
         font-size: small;
     }
 
-    #decoBtn{
+    #decoBtn {
         color: white;
         font-size: 25px;
 
@@ -578,9 +587,8 @@ p{
     }
 
 
-/*---------------            Menu categories            -------------------*/
-
-    .menuCat{
+    /*---------------            Menu categories            -------------------*/
+    .menuCat {
         padding-left: 0;
     }
 
@@ -593,7 +601,7 @@ p{
     .cat__nav {
         width: 300px;
         left: 0;
-        background-color:white;
+        background-color: white;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -603,18 +611,18 @@ p{
 
     .cat__nav.open {
         display: flex;
-        animation: transformCat 300ms ease-in-out ;
+        animation: transformCat 300ms ease-in-out;
         flex-direction: column;
 
     }
 
     @keyframes transformCat {
         0% {
-            transform:  translateX(-100%);
+            transform: translateX(-100%);
         }
 
         100% {
-            transform:initial;
+            transform: initial;
         }
     }
 
@@ -654,7 +662,7 @@ p{
         left: 0;
         width: 100vw;
         height: 100vh;
-        background-color: rgba(0,0,0,0.6);
+        background-color: rgba(0, 0, 0, 0.6);
         display: none;
     }
 
@@ -685,32 +693,41 @@ p{
         height: 70%;
     }
 
-    .shop-card{
+    .shop-card {
         margin-top: 0px;
     }
 
-    .actionProfil{
+    .actionProfil {
         margin-bottom: 10px;
     }
 
-  /*-----------------------  tableau Admin  ----------------------*/
-
-    .artDet{
+    /*-----------------------  tableau Admin  ----------------------*/
+    .artDet {
         border: 1px solid;
         display: flex;
         margin-bottom: 10px;
-        flex-wrap: wrap;   
+        flex-wrap: wrap;
     }
 
-    .adminOption{
+    .adminOption {
         background-color: transparent !important;
         border: transparent !important;
         width: 50%;
     }
 
-    .adminOption:hover{
+    .adminOption:hover {
         background-color: transparent !important;
         border: transparent !important;
     }
+
+
+    /*---------------    connexion & inscription   ---------------*/
+    .connPic {
+        display: none;
+    }
+    .subsPic {
+        display: none;
+    }
+
 
 }
