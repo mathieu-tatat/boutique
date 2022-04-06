@@ -1,4 +1,4 @@
-<?php $title = "Register" ?>
+<?php $title = "Inscription" ?>
 <?php session_start(); ?>
 <?php require_once('Model/User.php'); ?>
 <?php require_once('Model/Cart.php'); ?>
@@ -9,70 +9,62 @@
 
 <?php   ob_start();  ?>
 
-<div class="d-flex flex-row justify-content-center align-items-center my-3">
-    
-    <div class="rounded-2 shadow-sm border border-light " style="width:80%" >
+<div class="d-flex flex-row align-items-center justify-content-center">
+        <div class="d-flex flex-column justify-content-center align-items-center border border-ligth w-75 rounded-2 shadow-sm mb-3 no-row-media">
+            <form action="inscription.php" method="POST">
+                    <div class="px-2 p-3 mt-1 mb-2">
+                        <h5>Données de facturation</h5>
+                    </div>
 
-        <form action="inscription.php"  method="POST">
-            <div style="width:20%; transform: rotateY(180deg);">
-            <img src="View/logos/login.svg" >
-            </div>
-            <!-- Prenom nom -->
-            <div class="row">
-                <div class="form-group col">
-                    <label for="prenom">Prénom</label>
-                    <input type="text" class="form-control rounded-0" id="prenom" name="prenom">
+                    <div class="py-1">
+                        <label for="code_postal" class="h6 py-1 text-muted px-2 fw-light "><i>Insérer votre prénom</i></label><br>
+                        <input type="text" class="p-1 rounded-1 w-100" placeholder="Prénom" name="prenom">
+                    </div>
+
+                    <div class="py-1">
+                        <label for="code_postal" class="h6 py-1 text-muted px-2 fw-light "><i>Insérer votre nom</i></label><br>
+                        <input type="text" class="p-1 rounded-1 w-100"  placeholder="Nom" name="nom">
+                    </div>
+
+                    <div class="py-1">
+                        <label for="code_postal" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre adresse</i></label><br>
+                        <input type="text" class="p-1 rounded-1 w-100"  placeholder="Adresse" name="address">
+                    </div>
+
+                    <div class="py-1">
+                        <label for="code_postal" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre code postal</i></label><br>
+                        <input type="text" class=" p-1 rounded-1 w-100"  placeholder="Code Postal" name="code_postal">
+                    </div>
+
+                    <div class="px-2 mt-3 mb-1 h5">
+                        Contact
+                    </div>
+
+                    <div class="py-1">
+                        <label for="email" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre email</i></label><br>
+                        <input type="text" class="p-1 rounded-1 w-100" placeholder="Email" name="email">
+                    </div>
+
+                    <div class="py-1">
+                        <label for="password" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer un mot de passe d'au moins 8 caractères</i></label><br>
+                        <input type="password" class="p-1 rounded-1 w-100"  placeholder="Password" name="password_1">
+                    </div>
+
+                    <div class="py-1">
+                        <label for="password" class="h6 py-1 text-muted px-2 fw-light"><i>Confirmer votre mot de passe</i></label><br>
+                        <input type="password" class="p-1 rounded-1 w-100"  placeholder="Confirmation Password" name="password_2">
+                    </div>
+
+                    <div class="py-1">
+                        <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm" name="submit_subscription">S'inscrire</button>
+                    </div>
+
+                <div class="py-2">
+                    <p>Êtes-vous déjà inscrit.e?<a href="connexion.php" class="link-info">&#160; Se connecter </a></p>
                 </div>
-                <div class="form-group col">
-                    <label for="nom">Nom</label>
-                    <input type="text" class="form-control rounded-0" id="nom" name="nom">
-                </div>
-            </div>
 
-            <!-- Email -->
-            <div class="row" >
-                <div class="form-group col">
-                    <label for="email">Email</label>
-                    <input type="text" class="form-control rounded-0" id="email" name="email">
-                </div>                    
-            </div>
-
-            <!-- Password -->
-            <div class="row" >
-                <div class="form-group col">
-                    <label for="exampleInputPassword1">Password</label>
-                    <input type="password" class="form-control rounded-0" id="exampleInputPassword1" name="password_1">
-                </div>
-                <div class="form-group col">
-                    <label for="exampleInputPassword2">Confirmation</label>
-                    <input type="password" class="form-control rounded-0" id="exampleInputPassword2" name="password_2">
-                </div>
-            </div>
-
-            <!-- Address postal code -->
-            <div class="row d-flex" >
-                <div class="form-group">
-                    <label for="address">Adress</label>
-                    <input type="text" class="form-control rounded-0" id="address" name="address">
-                </div>
-                <div class="form-group col">
-                    <label for="code_postal">Postal Code</label>
-                    <input type="text" class="form-control rounded-0" id="code_postal" name="code_postal">
-                </div>
-            </div>
-
-
-            <p class="text-muted text-center">Nous ne partagerons jamais vos information personnelles</p>
-
-            <!-- Submit -->
-            <div class="d-flex justify-content-center align-items-center" >                
-                <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm" name="submit_subscription">S'inscrire</button>
-            </div>
-
-        </form>
-
-    </div>
-
+            </form>
+        </div>
 </div>
 
 <?php  $content=ob_get_clean(); ?>

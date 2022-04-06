@@ -18,64 +18,51 @@
         
         <!-- Infos profil -->
     <div class="container-fluid">
-        <div class="d-flex flex-row justify-content-center align-items-center">
-            <form class="border-ligth rounded-2 shadow-sm border p-3" action=""  method="POST">
-
-                <div class="mt-4 mb-1">
-                    <h3>Mes Infos Personnelles</h3>
+        <div class="d-flex flex-row justify-content-center ">
+            <form action="" method="POST">
+                <div class="px-2 p-3 mt-1 mb-2">
+                    <h5>Données de facturation</h5>
                 </div>
 
-                <small class="text-muted mb-3">Mis à jour de mes informations</small>
-
-                <div class="row align-items-center px-4 mt-2 mb-3">
-
-                    <div class="h5 py-1">
-                       Données de facturation
-                    </div>
-
-                    <div class="form-group col py-1">
-                        <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['prenom']; ?>" name="prenom">
-                    </div>
-
-                    <div class="form-group col py-1">
-                        <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['nom']; ?>" name="nom">
-                    </div>
-
+                <div class="py-1">
+                    <label for="prenom" class="h6 py-1 text-muted px-2 fw-light "><i>Insérer votre prénom</i></label><br>
+                    <input type="text" class="p-1 rounded-1 w-100" placeholder="Prénom" name="prenom" value="<?php echo $_SESSION['prenom'] ?>">
                 </div>
 
-                <div class="row align-items-center px-4 mt-2 mb-3">
-
-                    <div class="form-group col py-1">
-                        <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['address']; ?>" name="address">
-                    </div>
-                    <div class="form-group col py-1">
-                        <input type="text" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['code_postal']; ?>" name="code_postal">
-                    </div>
-
+                <div class="py-1">
+                    <label for="nom" class="h6 py-1 text-muted px-2 fw-light "><i>Insérer votre nom</i></label><br>
+                    <input type="text" class="p-1 rounded-1 w-100"  placeholder="Nom" name="nom" value="<?php echo $_SESSION['nom'] ?>">
                 </div>
 
-                <hr/>
+                <div class="py-1">
+                    <label for="address" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre adresse</i></label><br>
+                    <input type="text" class="p-1 rounded-1 w-100"  placeholder="Adresse" name="address" value="<?php echo $_SESSION['address'] ?>">
+                </div>
 
-                <div class="row align-items-center px-4 mt-2 mb-3">
-                    <div class="form-group row py-1">
-                        <h5>Contacts</h5>
-                    </div>
+                <div class="py-1">
+                    <label for="code_postal" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre code postal</i></label><br>
+                    <input type="text" class=" p-1 rounded-1 w-100"  placeholder="Code Postal" name="code_postal" value="<?php echo $_SESSION['zipCode'] ?>">
+                </div>
 
-                    <div class="form-group row py-1">
-                        <input type="text" class="col-form p-1 rounded-1 container-fluid" style="border:solid 1px darkgray;" placeholder="<?= $user_infos['email']; ?>" name="email">
-                    </div>
-                    <div class="form-group row py-1">
-                        <input type="password" class="col-form p-1 rounded-1" style="border:solid 1px darkgray;" placeholder="Password" name="password">
-                    </div>
+                <div class="px-2 mt-3 mb-1 h5">
+                    Contact
+                </div>
 
+                <div class="py-1">
+                    <label for="email" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer votre email</i></label><br>
+                    <input type="text" class="p-1 rounded-1 w-100" placeholder="Email" name="email" value="<?php echo $_SESSION['email'] ?>">
+                </div>
 
-                        <div class="py-2">
-                            <button type="submit" class="btn btn-dark rounded-2 py-2 mb-4 mt-4 p-2 shadow-sm" name="submit_subscription">mis à jour</button>
-                        </div>
+                <div class="py-1">
+                    <label for="password" class="h6 py-1 text-muted px-2 fw-light"><i>Insérer un mot de passe d'au moins 8 caractères</i></label><br>
+                    <input type="password" class="p-1 rounded-1 w-100"  placeholder="Password" name="password_1" value="<?php echo substr($_SESSION['password'],0,8); ?>" >
+                </div>
+
+                <div class="py-1">
+                    <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-4 p-2 shadow-sm" name="submitUserUpdate">Mettre à jour</button>
                 </div>
 
             </form>
-
         </div>
     </div>
 

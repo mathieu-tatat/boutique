@@ -104,7 +104,16 @@
         incidunt obcaecati ab quia cupiditate. Est sunt ipsa quo placeat aliquam eos veniam 
         alias sed officia accusamus eum iste repudiandae et saepe optio sed laboriosam dolor. </p>
 
-</div>    
+</div>
+
+<!-- jQuery library -->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"></script>
+
+<!-- Popper JS -->
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
 
 <?php $content = ob_get_clean(); ?>
 

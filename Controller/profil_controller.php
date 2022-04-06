@@ -74,7 +74,7 @@ if(isset($_POST['submitUserUpdate'])){
     // receive all input values from the form
     $prenom = htmlspecialchars($_POST['prenom']);
     $nom = htmlspecialchars($_POST['nom']);
-    $password_1 = htmlspecialchars($_POST['password']);
+    $password_1 = htmlspecialchars($_POST['password_1']);
     $email = htmlspecialchars($_POST['email']);
     $address = htmlspecialchars($_POST['address']);
     $zipCode = htmlspecialchars($_POST['code_postal']);
@@ -93,20 +93,14 @@ if(isset($_POST['submitUserUpdate'])){
 
     // check the user id for the update
     $chkId = $user -> getId($email);
+
     // if is the same to the session
-    if($_SESSION['id'] == $chkId['id_utilisateur'] ){
-        //ok same user so same email, update
-        $_SESSION['errors'] = 0;
-    } else {
+    if($_SESSION['id'] != $chkId['id_utilisateur'] ){
+
         // check if this email already exists
         $chkExists = $user -> chkExists($email);
 
-        if(empty($chkExists)){
-
-            $_SESSION['errors'] = 0;
-
-        } else {
-
+        if(!empty($chkExists)){
             array_push($_SESSION['errors'], "User already exists");
         }
     }
