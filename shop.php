@@ -14,7 +14,7 @@
 
 // creation de mes produits
 $souscategorie = new SousCategorie();
-$detail = new Article();
+$detail = new Article(); s
 
 ?>
 

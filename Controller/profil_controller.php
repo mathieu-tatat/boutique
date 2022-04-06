@@ -94,12 +94,12 @@ if(isset($_POST['submitUserUpdate'])){
     // check the user id for the update
     $chkId = $user -> getId($email);
 
-    // if is the same to the session
+    // if is not the same of the session means the user wants to change its email
     if($_SESSION['id'] != $chkId['id_utilisateur'] ){
 
         // check if this email already exists
         $chkExists = $user -> chkExists($email);
-
+        // throw an error if it exists
         if(!empty($chkExists)){
             array_push($_SESSION['errors'], "User already exists");
         }
