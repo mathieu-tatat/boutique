@@ -4,7 +4,7 @@
 <?php require_once('Controller/admin_controller.php'); ?>
 
 <?php ob_start(); ?>
-
+<?php if($_SESSION["droits"] == 1337) : ?>
 <div class="d-flex flex-column justify-content-center align-items-center my-3">
     <h2 class="text-center my-3"><?= $soustitre ?></h2> 
             
@@ -32,6 +32,9 @@
 
     <?= $souscontenu ?>
 <div> 
+    <?php else : header('location: connexion.php') ?>
+
+    <?php endif; ?>
 
 <?php $content = ob_get_clean();?>
 

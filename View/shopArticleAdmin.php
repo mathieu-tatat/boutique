@@ -1,4 +1,5 @@
 <?php require_once ('Model/Categorie.php'); ?>
+<?php require_once('Model/Produit.php') ?>
 <?php ob_start(); ?>
 <div class="container">               
     <div class="row">  
@@ -7,16 +8,19 @@
         </div>
             
         <div class="d-flex flex-column col-md-9 my-5">
-            <form action="#" method="POST" class="my-2">
-                <input type="hidden" value="<?= $_GET['article_id'] ?>" name ="id_produit" >
-                <div class="form-group my-1">
-                    <label for="img" class="alert-link text-danger"> Changer l'image : </label><br>
-                    <input type="file" class="form-control-file" name="img" id="img">
-                    <input type="submit" name="chg_img" value="Changer l'image">
-                </div>
-                
+            <form action="#" method="POST" class="my-2" enctype="multipart/form-data">
+                    <input type="hidden" value="<?= $_GET['article_id'] ?>" name ="id_produit" >
+                    <?php $tempProduct = new Produits();
+                    $tempInfosProduct = $tempProduct->getProduitsFromId($_GET['article_id']);                    
+                    ?>
+                    <input type="hidden" name="nom_produit" value="<?= $tempInfosProduct["nom_produit"]?>">
+                    <div class="form-group my-1">
+                        <label for="img" class="alert-link text-danger"> Changer l'image : </label><br>
+                        <input type="file" class="form-control-file" name="img" id="img">
+                        <input type="submit" name="chg_img" value="Changer l'image">
+                    </div>                
             </form>
-            <form action="#" method="POST" >
+            <form action="#" method="POST">
             <input type="hidden" value="<?= $_GET['article_id'] ?>" name="id_produit" >
                 <div class="form-group my-1">
                     <label for="nameGrp"> Nom de produit : </label>
