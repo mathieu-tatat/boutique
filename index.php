@@ -60,49 +60,8 @@
             </div>
         </div>
     </div>
-
-    <p class="m-3 p-3 text-justify">Lorem ipsum dolor sit amet. 
-        Non aliquam magni ut molestias voluptatem ad quis magni est quibusdam deserunt non velit velit. 
-        Est voluptatem nulla  earum assumenda ab odio fugiat qui vero nihil aut incidunt 
-        labore qui aliquid sapiente cum dicta optio. At unde galisum in accusamus 
-        omnis et corporis galisum qui autem tempora? Ad enim dolores et internos 
-        nihil ut enim praesentium qui nisi distinctio. </p>
-    <p class="m-3 p-3 text-justify">Hic atque distinctio non error ducimus id earum voluptatibus et 
-        iusto numquam id omnis quam est fuga praesentium! Qui modi illo qui esse fuga sit veniam illo. </p>
-    <p class="m-3 p-3 text-justify">Hic quis iusto quo voluptatem dolorum qui animi molestias 
-        sit quasi dolor id omnis provident 33 reiciendis neque cum exercitationem necessitatibus. 
-        Sit dolores laudantium qui galisum perferendis aut libero tempore ut laudantium provident. 
-        Qui doloribus fugit sit harum dolorem aut harum internos sed voluptatibus tenetur 33 
-        incidunt obcaecati ab quia cupiditate. Est sunt ipsa quo placeat aliquam eos veniam 
-        alias sed officia accusamus eum iste repudiandae et saepe optio sed laboriosam dolor. </p>
-        <p class="m-3 p-3 text-justify">Lorem ipsum dolor sit amet. 
-        Non aliquam magni ut molestias voluptatem ad quis magni est quibusdam deserunt non velit velit. 
-        Est voluptatem nulla  earum assumenda ab odio fugiat qui vero nihil aut incidunt 
-        labore qui aliquid sapiente cum dicta optio. At unde galisum in accusamus 
-        omnis et corporis galisum qui autem tempora? Ad enim dolores et internos 
-        nihil ut enim praesentium qui nisi distinctio. </p>
-    <p class="m-3 p-3 text-justify">Hic atque distinctio non error ducimus id earum voluptatibus et 
-        iusto numquam id omnis quam est fuga praesentium! Qui modi illo qui esse fuga sit veniam illo. </p>
-    <p class="m-3 p-3 text-justify">Hic quis iusto quo voluptatem dolorum qui animi molestias 
-        sit quasi dolor id omnis provident 33 reiciendis neque cum exercitationem necessitatibus. 
-        Sit dolores laudantium qui galisum perferendis aut libero tempore ut laudantium provident. 
-        Qui doloribus fugit sit harum dolorem aut harum internos sed voluptatibus tenetur 33 
-        incidunt obcaecati ab quia cupiditate. Est sunt ipsa quo placeat aliquam eos veniam 
-        alias sed officia accusamus eum iste repudiandae et saepe optio sed laboriosam dolor. </p>
-        <p class="m-3 p-3 text-justify">Lorem ipsum dolor sit amet. 
-        Non aliquam magni ut molestias voluptatem ad quis magni est quibusdam deserunt non velit velit. 
-        Est voluptatem nulla  earum assumenda ab odio fugiat qui vero nihil aut incidunt 
-        labore qui aliquid sapiente cum dicta optio. At unde galisum in accusamus 
-        omnis et corporis galisum qui autem tempora? Ad enim dolores et internos 
-        nihil ut enim praesentium qui nisi distinctio. </p>
-    <p class="m-3 p-3 text-justify">Hic atque distinctio non error ducimus id earum voluptatibus et 
-        iusto numquam id omnis quam est fuga praesentium! Qui modi illo qui esse fuga sit veniam illo. </p>
-    <p class="m-3 p-3 text-justify">Hic quis iusto quo voluptatem dolorum qui animi molestias 
-        sit quasi dolor id omnis provident 33 reiciendis neque cum exercitationem necessitatibus. 
-        Sit dolores laudantium qui galisum perferendis aut libero tempore ut laudantium provident. 
-        Qui doloribus fugit sit harum dolorem aut harum internos sed voluptatibus tenetur 33 
-        incidunt obcaecati ab quia cupiditate. Est sunt ipsa quo placeat aliquam eos veniam 
-        alias sed officia accusamus eum iste repudiandae et saepe optio sed laboriosam dolor. </p>
+    <h1 class="center-text m-5"> Bienvenue chez Trade</h1>
+    <p class="center-text m-3">Magasin généralite en matière de papèterie, et plus si affinité.</p>
 
 </div>
 

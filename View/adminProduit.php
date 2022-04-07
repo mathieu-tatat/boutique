@@ -20,7 +20,7 @@ ob_start(); ?>
         </form>
         <form action="" method="POST" class="d-flex justify-content-center my-1"style="flex-wrap: wrap;">
             <input type="submit" name="createSousCategorie" 
-            value="Nouvelle catégorie" class="btn btn-dark rounded-0 px-4">
+            value="Nouvelle Sous catégorie" class="btn btn-dark rounded-0 px-4">
             <select name="id_categorie" id="categorie_grp">
                 <?php 
                     $categories = new Categorie();

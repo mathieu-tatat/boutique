@@ -63,7 +63,14 @@ Class User extends Model
 
     }
 
-
+    public function getAllUserInfos($email)
+    {
+        $sql = " SELECT * FROM utilisateurs WHERE email = :email ";
+        $params = [':email' => $email ];
+        $result = $this->selectQuery($sql, $params);
+        $result=$result->fetch();
+        return $result;
+    }
 
     public function subscribeUser($prenom, $nom, $email, $password, $address, $code_postal)
     {
