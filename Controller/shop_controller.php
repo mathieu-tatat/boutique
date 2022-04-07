@@ -91,28 +91,7 @@ if(isset($_POST['create_prod']))
     $produit->createProduit($nom, $targetFile, $prix, $uniteEnStock, $description, $idCategorie, $idSousCategorie);
 }
 
-/*-----------------------------
-        CREATE CATEGORIE
------------------------------*/
-if(isset($_POST['createCategorie']))
-{
-    $nom = $_POST['nomCategorie'];
 
-    $categorie->createCategorie($nom);
-}
-
-
-/*-----------------------------
-    CREATE SOUS-CATEGORIE
------------------------------*/
-if(isset($_POST['createSousCategorie']))
-{
-    $nom = $_POST['nomSousCategorie'];
-    $idCategorie = $_POST['id_categorie'];
-
-    $sousCategorie->createSousCategorie($nom, $idCategorie);
-
-}
 
 
 /*-----------------------------

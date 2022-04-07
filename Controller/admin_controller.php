@@ -1,8 +1,12 @@
 <?php
 include_once ('Model/Carousel.php');
 include_once ('Model/Produit.php');
+require_once ('Model/Categorie.php');
+require_once ('Model/SousCategorie.php');
 $carousel = new Carousel();
 $produit = new Produits();
+$categorie = new Categorie();
+$sousCategorie = new SousCategorie();
 
 /*---------------------------
         GESTION CAROUSEL
@@ -50,4 +54,27 @@ else
     ob_start(); ?>        
         <h4 class="text-center">Veuillez choisir une option :</h4>
 <?php   $souscontenu = ob_get_clean(); 
-} ?>
+} 
+
+/*-----------------------------
+        CREATE CATEGORIE
+-----------------------------*/
+if(isset($_POST['createCategorie']))
+{
+    $nom = $_POST['nomCategorie'];
+
+    $categorie->createCategorie($nom);
+}
+
+
+/*-----------------------------
+    CREATE SOUS-CATEGORIE
+-----------------------------*/
+if(isset($_POST['createSousCategorie']))
+{
+    $nom = $_POST['nomSousCategorie'];
+    $idCategorie = $_POST['id_categorie'];
+
+    $sousCategorie->createSousCategorie($nom, $idCategorie);
+
+}
