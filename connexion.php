@@ -22,26 +22,30 @@
 
                     </div>
 
-                    <div class="col-lg">
-
+                    <div class="col-lg text-center">
+                        <?php if(isset($_SESSION['new_user'])): ?>
+                        <p class="text-info">Connectez-vous pour pouvoir remplir votre cart</p>
+                        <?php endif;  ?>
                         <form action="" method="POST">
 
                             <div class="py-2 p-2">
                                 <label for="email" class="h6 py-1 text-muted px-2 fw-light"><i>Entrer votre email</i></label><br>
-                                <input type="text" class="p-1 px-2 rounded-1 w-75" id="inputEmail" placeholder="Email" name="email">
+                                <input type="text" class="p-1 px-2 rounded-1" id="inputEmail" placeholder="Email" name="email">
                             </div>
 
                             <div class="py-2 p-2">
                                 <label for="password" class="h6 py-1 text-muted px-2 fw-light"><i>Entrer votre mot de passe</i></label><br>
-                                <input type="password" class="p-1 px-2 rounded-1 w-75" id="inputPassword" placeholder="Password" name="password">
+                                <input type="password" class="p-1 px-2 rounded-1 " id="inputPassword" placeholder="Password" name="password">
                             </div>
 
                             <div class="py-2 p-2">
-                                <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-3 p-2 shadow-sm w-50" name="submit_connection">Se connecter</button>
+                                <button type="submit" class="btn btn-dark rounded-2 mb-4 mt-3 p-2 shadow-sm" name="submit_connection">Se connecter</button>
                             </div>
 
                             <div class="py-2">
-                                <p>Vous n'avez pas de compte? &#160; <a href="inscription.php" class="link-info">S'inscrire</a></p>
+                                <p>Vous n'avez pas de compte? &#160;<a href="inscription.php" class="link-info">S'inscrire</a></p>
+                                <p><a href="mailto:fauxmail@serveur.com" class="link-info">Mot de passe oublié?</a></p>
+
                             </div>
 
                         </form>

@@ -18,7 +18,11 @@ $items;
 if(isset($_SESSION['connected'])){
     $id=$_SESSION['id'];
 } else {
+
+    // cart message for user not connected
     if(isset($_POST['addToCart']) or isset($_POST['quantity'])){
+
+        $_SESSION['new_user'] = true;
         header('location:connexion.php');
     }
 }
